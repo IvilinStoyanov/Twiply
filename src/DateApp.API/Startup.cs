@@ -28,7 +28,8 @@ namespace DateApp.API
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                .AddDbContext<DataContext>
+                (x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
