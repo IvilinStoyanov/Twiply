@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using DateApp.API.Data.Contracts;
+using DateApp.API.Data.Repository.Contracts;
 using DateApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 

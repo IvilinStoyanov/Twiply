@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using DateApp.API.Data.Repository.Contracts;
+using DateApp.API.Dtos;
 using DateApp.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,19 +18,19 @@ namespace DateApp.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(string username, string password ) 
+        public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto) 
         {
-            username = username.ToLower();
+            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            if(await _repo.UserExist(username)) {
+            if(await _repo.UserExist(userForRegisterDto.Username)) {
                 return BadRequest("Username already exist"); 
             }   
 
             var userToCreate = new User 
             {
-                Username = username
+                Username = userForRegisterDto.Username 
             };
-            var createdUser = await _repo.Register(userToCreate, password);
+            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
             // TODO: Fix this
             return StatusCode(201);
         }
