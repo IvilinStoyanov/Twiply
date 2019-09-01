@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using DateApp.API.Models;
 using Newtonsoft.Json;
 
@@ -15,6 +16,7 @@ namespace DateApp.API.Data
 
         public void SeedUsers()
         {
+            if(!_context.Users.Any()) {
             var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
             var users = JsonConvert.DeserializeObject<List<User>>(userData);
             foreach (var user in users)
@@ -28,6 +30,7 @@ namespace DateApp.API.Data
                 _context.Add(user);
             }
             _context.SaveChanges();
+            }
         }
          private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
