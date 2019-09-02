@@ -1,3 +1,4 @@
+using System.Linq;
 using AutoMapper;
 using DateApp.API.Dtos;
 using DateApp.API.Models;
@@ -8,8 +9,13 @@ namespace DateApp.API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<User, UserForListDto>();
-            CreateMap<User, UserForDetailDto>();
+            CreateMap<User, UserForListDto>()
+            .ForMember(dest => dest.PhotoUrl,
+                 opt => opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));
+            CreateMap<User, UserForDetailedDto>()
+             .ForMember(dest => dest.PhotoUrl,
+                opt => opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));;
+            CreateMap<Photo, PhotoForDetailedDto>();
         }
     }
 }

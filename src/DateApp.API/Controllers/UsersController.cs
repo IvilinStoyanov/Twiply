@@ -33,16 +33,11 @@ namespace DateApp.API.Controllers
             return Ok(userToReturn);
         }
 
-        private int IEnumrable<T>(IEnumerable<User> users)
-        {
-            throw new NotImplementedException();
-        }
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repo.GetUser(id);
-            var userToReturn = _mapper.Map<UserForDetailDto>(user);
+            var userToReturn = _mapper.Map<UserForDetailedDto>(user);
 
             return Ok(userToReturn);
         }
