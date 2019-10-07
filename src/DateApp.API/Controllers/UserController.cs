@@ -13,11 +13,11 @@ namespace DateApp.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IDatingRepository _repo;
         private readonly IMapper _mapper;
-        public UsersController(IDatingRepository repo, IMapper mapper)
+        public UserController(IDatingRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
