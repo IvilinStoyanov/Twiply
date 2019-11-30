@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using DateApp.API.Data.Repository.Contracts;
 using DateApp.API.Dtos;
 using DateApp.API.Models;
@@ -17,27 +18,29 @@ namespace DateApp.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
+        private readonly IMapper _mapper;
 
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
         {
+            _mapper = mapper;
             _config = config;
             _repo = repo;
-
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto) 
+        public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            if(await _repo.UserExist(userForRegisterDto.Username)) {
-                return BadRequest("Username already exist"); 
-            }   
-
-            var userToCreate = new User 
+            if (await _repo.UserExist(userForRegisterDto.Username))
             {
-                Username = userForRegisterDto.Username 
+                return BadRequest("Username already exist");
+            }
+
+            var userToCreate = new User
+            {
+                Username = userForRegisterDto.Username
             };
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
             // TODO: Fix this
@@ -45,11 +48,13 @@ namespace DateApp.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserForLoginDto userForLoginDto) {
-            
+        public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
+        {
+
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
-            if(userFromRepo == null) {
+            if (userFromRepo == null)
+            {
                 return Unauthorized();
             }
 
@@ -62,7 +67,8 @@ namespace DateApp.API.Controllers
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            var tokenDescriptor = new SecurityTokenDescriptor {
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds
@@ -72,8 +78,12 @@ namespace DateApp.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new {
-                token = tokenHandler.WriteToken(token)
+            var user = _mapper.Map<UserForListDto>(userFromRepo);
+
+            return Ok(new
+            {
+                token = tokenHandler.WriteToken(token),
+                user 
             });
         }
     }

@@ -74,7 +74,7 @@
       </div>
       <button
         type="button"
-        class="btn btn-success btn-s"
+        class="btn btn-success btn-s mr-2"
         (click)="uploader.uploadAll()"
         [disabled]="!uploader.getNotUploadedItems().length"
       >
@@ -82,7 +82,7 @@
       </button>
       <button
         type="button"
-        class="btn btn-warning btn-s"
+        class="btn btn-warning btn-s mr-2"
         (click)="uploader.cancelAll()"
         [disabled]="!uploader.isUploading"
       >
