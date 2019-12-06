@@ -5,7 +5,9 @@ declare let alertify: any;
 })
 export class AlertifyService {
 
-constructor() {}
+constructor() {
+  alertify.set('notifier', 'position', 'top-center');
+}
 
 confirm(message: string, okCallback: () => any) {
   alertify.confirm(message, function(e) {
