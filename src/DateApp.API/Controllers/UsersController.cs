@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DateApp.API.Data.Repository.Contracts;
 using DateApp.API.Dtos;
-
+using DateApp.API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DateApp.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
