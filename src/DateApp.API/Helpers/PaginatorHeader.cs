@@ -6,7 +6,7 @@ namespace DateApp.API.Helpers
         {
             this.CurrentPage = currentPage;
             this.ItemsPerPage = itemsPerPage;
-            this.TotalItems = totalPages;
+            this.TotalItems = totalItems;
             this.TotalPages = totalPages;
         }
         public int CurrentPage { get; set; }
