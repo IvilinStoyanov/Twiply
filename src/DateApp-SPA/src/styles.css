@@ -7,6 +7,20 @@
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 
+/* buttons */
+.btn {
+  padding: 0.75rem 0.90rem;
+}
+
+.bg-primary {
+  background-color: #4388bf !important;
+}
+
+.btn-primary {
+  background-color: #4388bf !important;
+  border-color: #4388bf !important;
+}
+
 /* tabs */
 .tab-panel {
     border: 1px solid #ddd;
