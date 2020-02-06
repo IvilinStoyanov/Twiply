@@ -1,9 +1,8 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-body" #scrollMe [scrollTop]="scrollMe.scrollHeight">
     <div *ngIf="messages?.length === 0">
       <p>No messages yet</p>
     </div>
-
     <ul class="chat">
       <li *ngFor="let message of messages">
         <!-- to them -->
@@ -13,30 +12,25 @@
           </span>
           <div class="chat-body">
             <div class="header">
-              <!-- <strong class="primary-font">{{message.senderKnownAs}}</strong> -->
-
             </div>
             <p class="mb-0">{{message.content}}</p>
             <small class="text-muted">
-              <span class="fa fa-clock-o">{{message.messageSent | timeAgo}}</span>
+              <span class="fa fa-clock-o"> {{message.messageSent | timeAgo}}</span>
             </small>
           </div>
         </div>
-
         <!-- to me -->
         <div *ngIf="message.senderId != recipientId">
-          <!-- <span class="chat-img float-right">
-            <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="rounded-circle">
-          </span> -->
           <div class="chat-body text-right">
+            <div>
             <p class="my-message mb-0">{{message.content}}</p>
+          </div>
             <div class="header">
               <small class="text-muted">
-                <span class="fa fa-clock-o">{{message.messageSent | timeAgo}}</span>
-                <span *ngIf="!message.isRead" class="text-danger ml-1">(unread)</span>
-                <span *ngIf="message.isRead" class="text-success ml-1">(read {{message.dateRead | timeAgo}})</span>
+                <span class="fa fa-clock-o"> {{message.messageSent | timeAgo}}</span>
+                <span *ngIf="message.isRead" class="fa fa-check text-success ml-1"></span>
+                <span *ngIf="!message.isRead" class="fa fa-check text-unread ml-1"></span>
               </small>
-              <!-- <strong class="primary-font float-right">{{message.senderKnownAs}}</strong> -->
             </div>
           </div>
         </div>

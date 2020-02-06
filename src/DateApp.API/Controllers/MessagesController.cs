@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -66,7 +67,8 @@ namespace DateApp.API.Controllers
 
             var messagesFromRepo = await _repo.GetMessagesThread(userId, recipientId);
 
-            var messageThread = _mapper.Map<IEnumerable<MessageToRuturnDto>>(messagesFromRepo);
+            var messageThread = _mapper.Map<IEnumerable<MessageToRuturnDto>>(messagesFromRepo)
+            .OrderBy(x => x.MessageSent);
 
             return Ok(messageThread);
         }
@@ -107,7 +109,7 @@ namespace DateApp.API.Controllers
 
             var message = await _repo.GetMessage(id);
 
-            if(message.RecipientId != userId)
+            if (message.RecipientId != userId)
                 return Unauthorized();
 
             message.IsRead = true;

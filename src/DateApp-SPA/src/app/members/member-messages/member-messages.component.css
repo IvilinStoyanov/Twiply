@@ -23,3 +23,7 @@
     overflow-y: scroll;
     height: 400px;
 }
+
+.text-unread {
+    color: #c4c3c3 !important;
+}
