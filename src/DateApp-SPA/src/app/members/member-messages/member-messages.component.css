@@ -27,3 +27,27 @@
 .text-unread {
     color: #c4c3c3 !important;
 }
+
+.chat-body-me {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.my-message {
+    border-radius: 5px;
+    padding: 5px;  
+    color: white;
+}
+
+.chat-body-recipient {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.recipient-message {
+    border-radius: 5px;
+    padding: 5px;  
+    color: white;
+}
