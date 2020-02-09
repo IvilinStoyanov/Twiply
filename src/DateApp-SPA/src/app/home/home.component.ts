@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -6,18 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  registerMode = false;
-  constructor() { }
+  modalRef: BsModalRef;
+
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
   }
 
-  registerToggle() {
-    this.registerMode = true;
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
-
-  cancelRegisterMode(registerMode: boolean) {
-    this.registerMode = registerMode;
-  }
-
 }

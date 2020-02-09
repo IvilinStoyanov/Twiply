@@ -1,18 +1,18 @@
-<div class="container mt-5">
-  <div *ngIf="!registerMode" style="text-align: center">
+<div class="main-container">
+  <div class="text-container" style="text-align: center">
     <h1>Find your match</h1>
     <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
     <div class="text-center">
-      <button class="btn btn-primary mr-2" (click)="registerToggle()">Register</button>
-      <button class="btn btn-info">Learn more</button>
+      <button type="button" class="btn btn-info" (click)="openModal(template)">Register</button>
+      <!-- <button class="btn btn-info">Learn more</button> -->
     </div>
   </div>
 
-  <div *ngIf="registerMode" class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
-      </div>
-    </div>
+<ng-template #template>   
+  <div class="modal-body">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <app-register></app-register>
   </div>
-</div>
+</ng-template>

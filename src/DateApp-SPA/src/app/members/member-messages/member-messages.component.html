@@ -13,7 +13,7 @@
           <div class="chat-body chat-body-recipient">
             <div class="header">
             </div>
-            <p class="mb-0 recipient-message bg-primary">{{message.content}}</p>
+            <p class="mb-0 recipient-message bg-info">{{message.content}}</p>
             <small class="text-muted">
               <span class="fa fa-clock-o"> {{message.messageSent | timeAgo}}</span>
             </small>
@@ -23,7 +23,7 @@
         <div *ngIf="message.senderId != recipientId">
           <div class="chat-body text-right chat-body-me">
             <div>
-            <p class="mb-0 my-message bg-info">{{message.content}}</p>
+            <p class="mb-0 my-message bg-primary">{{message.content}}</p>
           </div>
             <div class="header">
               <small class="text-muted">

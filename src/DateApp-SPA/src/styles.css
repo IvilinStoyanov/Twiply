@@ -1,28 +1,24 @@
 /* You can add global stdoyles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import 'node_modules/bootswatch/dist/materia/bootstrap.min.css';
+@import 'node_modules/bootswatch/dist/pulse/bootstrap.min.css';
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 
-/* buttons */
-.btn {
-  padding: 0.75rem 0.90rem;
+/* navbar */
+.navbar {
+  padding: 10px;
 }
 
-.bg-primary {
-  background-color: #4388bf !important;
-}
-
-.btn-primary {
-  background-color: #4388bf !important;
-  border-color: #4388bf !important;
+/* forms */
+.form-control {
+  border-radius: 1px !important;
 }
 
 /* tabs */
-.tab-panel {
+/* .tab-panel {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 4px;
@@ -66,4 +62,4 @@
     border: 0;
     border-top: 1px solid #eee;
     padding: 15px 0;
-  }
+  } */
