@@ -5,8 +5,7 @@
     -ms-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     -o-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background: linear-gradient(90deg, rgba(89,49,150,1) 0%, rgba(105,49,150,1) 100%);
-    
+    background: linear-gradient(90deg, rgba(89, 49, 150, 1) 0%, rgba(105, 49, 150, 1) 100%);
 }
 
 .dropdown-menu {
@@ -22,7 +21,7 @@ img {
     border: 2px solid #b5b5b5;
     border-radius: 50%;
     display: inline;
-    background-size: cover;  
+    background-size: cover;
 }
 
 li {
@@ -35,4 +34,28 @@ li, a {
 
 li:hover {
     color: rgb(206, 205, 205) !important;
+}
+
+.side-menu {
+    padding-right: 20px;
+}
+
+.side-menu li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.side-menu a:hover {}
+
+.side-menu a.active {}
+
+.side-menu img {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid grey;
 }

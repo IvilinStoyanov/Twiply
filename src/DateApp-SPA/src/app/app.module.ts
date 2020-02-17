@@ -10,6 +10,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ButtonsModule } from 'ngx-bootstrap';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { FlyoutModule } from 'ngx-flyout';
 
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { ListsResolver } from './_resolvers/list.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { ReversePipe } from './_pipes/reverse.pipe';
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -80,6 +82,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ModalModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
+      FlyoutModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,

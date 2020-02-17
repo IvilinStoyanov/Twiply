@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-nav',
@@ -11,12 +12,22 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   model: any = {};
   photoUrl: string;
+  modalRef: BsModalRef;
+  openFlyout = false;
 
   constructor(public authService: AuthService, private alertify: AlertifyService,
-     private router: Router) { }
+     private router: Router, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
+  }
+
+  toggleSidebar() {
+    this.openFlyout = !this.openFlyout;
+  }
+
+  openLoginModal(template1: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template1);
   }
 
   login() {

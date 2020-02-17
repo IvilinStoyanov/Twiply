@@ -1,38 +1,87 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">   
-      <a class="navbar-brand" [routerLink]="['/home']">Datery</a>
-      <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-        <li class="nav-item text-center" routerLinkActive="active">
-          <i class="fa fa-heart"></i>
-          <a class="nav-link pt-0" [routerLink]="['/members']" >Matches </a>
-          
-        </li>
-        <li class="nav-item text-center" routerLinkActive="active">
-          <i class="fa fa-user"></i>
-          <a class="nav-link pt-0" [routerLink]="['/lists']" >Lists</a>
-        </li>
-        <li class="nav-item text-center" routerLinkActive="active" >
-          <i class="fa fa-comment"></i>
-          <a class="nav-link pt-0" [routerLink]="['/messages']">Messages</a>
-        </li>
-      </ul>
-      <div *ngIf="loggedIn()" class="dropdown text-light" dropdown>
-          <a class="dropdown-toggle" dropdownToggle>
+  <div class="container">
+    <a class="navbar-brand" (click)="toggleSidebar()">Datery</a>
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item text-center" routerLinkActive="active">
+        <i class="fa fa-heart"></i>
+        <a class="nav-link pt-0" [routerLink]="['/members']">Matches </a>
+
+      </li>
+      <li class="nav-item text-center" routerLinkActive="active">
+        <i class="fa fa-user"></i>
+        <a class="nav-link pt-0" [routerLink]="['/lists']">Lists</a>
+      </li>
+      <li class="nav-item text-center" routerLinkActive="active">
+        <i class="fa fa-comment"></i>
+        <a class="nav-link pt-0" [routerLink]="['/messages']">Messages</a>
+      </li>
+    </ul>
+    <div *ngIf="loggedIn()" class="dropdown text-light" dropdown>
+      <a class="dropdown-toggle" dropdownToggle>
         <span class="mr-1">
           <img src="{{photoUrl || '../../../../assets/user.png'}}" alt="">
-        </span>     
-          {{ authService.decodedToken?.unique_name | titlecase }}
-        </a>    
-        <div class="dropdown-menu mt-3"  *dropdownMenu>
-          <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
-        </div>
+        </span>
+        {{ authService.decodedToken?.unique_name | titlecase }}
+      </a>
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
       </div>
-      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-        <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required [(ngModel)]="model.username">
-        <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="model.password">
-        <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
-      </form>
+    </div>
+    <button *ngIf="!loggedIn()" class="btn btn-info" (click)="openLoginModal(template)">Sign In</button>
+
   </div>
 </nav>
+
+
+<!-- sidebar -->
+<ngx-flyout [(open)]="openFlyout">
+  <ul class="side-menu">
+    <div *ngIf="loggedIn()" class="dropdown text-light" dropdown>
+      <a class="dropdown-toggle" dropdownToggle>
+        <span class="mr-1">
+          <img src="{{photoUrl || '../../../../assets/user.png'}}" alt="">
+        </span>
+        {{ authService.decodedToken?.unique_name | titlecase }}
+      </a>
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+      </div>
+    </div>
+    <button *ngIf="!loggedIn()" class="btn btn-info" (click)="openLoginModal(template)">Sign In</button>
+    <hr>
+    <li class="nav-item text-center" routerLinkActive="active">
+      <a class="nav-link pt-0" [routerLink]="['/members']">Matches</a>
+      <i class="fa fa-heart"></i> 
+    </li>
+    <li class="nav-item text-center" routerLinkActive="active">
+      <a class="nav-link pt-0" [routerLink]="['/lists']">Lists</a>
+      <i class="fa fa-user"></i> 
+    </li>
+    <li class="nav-item text-center" routerLinkActive="active">
+      <a class="nav-link pt-0" [routerLink]="['/messages']">Messages</a>
+      <i class="fa fa-comment"></i>
+    </li>
+  </ul>
+</ngx-flyout>
+<!-- sidebar -->
+
+<ng-template #template>
+  <div class="modal-body">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div>Login</div>
+    <hr>
+    <form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+      <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required
+        [(ngModel)]="model.username">
+      <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required
+        [(ngModel)]="model.password">
+      <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+    </form>
+  </div>
+</ng-template>
