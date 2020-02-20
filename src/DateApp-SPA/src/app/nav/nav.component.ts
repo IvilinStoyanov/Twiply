@@ -30,6 +30,10 @@ export class NavComponent implements OnInit {
     this.modalRef = this.modalService.show(template1);
   }
 
+  closeLoginModal() {
+    this.modalRef.hide();
+  }
+
   login() {
     this.authService.login(this.model).subscribe(next => {
       // add noty
@@ -37,6 +41,7 @@ export class NavComponent implements OnInit {
     }, error => {
      this.alertify.error('Logged in failed');
     }, () => {
+      this.closeLoginModal();
       this.router.navigate(['/members']);
     });
   }

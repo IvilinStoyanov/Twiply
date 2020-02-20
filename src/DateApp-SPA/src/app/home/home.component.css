@@ -1,11 +1,11 @@
 .main-container {
     position: absolute;
-    height: calc(100% - 77px);
+    height: calc(100% - 58px);
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url(../../assets/couple.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url(../../assets/couple.jpg);
     background-size: cover;
     background-position: center;
-    color: white;
+    color: #dfdfdf !important;
 }
 
 .text-container {

@@ -6,6 +6,12 @@
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
+body {
+  /* font-family: 'EB Garamond', serif !important; */
+  font-family: 'Roboto Slab', serif !important;
+
+}
+
 
 /* navbar */
 .navbar {
@@ -14,12 +20,20 @@
 
 .flyout {
     z-index: 100 !important;
-    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+    padding: 10px !important;
+    /* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(247,241,255,1) 43%, rgba(245,238,255,1) 71%) !important; */
+    background: linear-gradient( rgb(68, 50, 83) 0%,  rgb(128, 101, 170) 100%) !important;
+    /* -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
     -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
     -ms-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
     -o-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
-    background: linear-gradient(90deg, rgba(89,49,150,1) 0%, rgba(105,49,150,1) 100%) !important;
+    background: linear-gradient(90deg, rgba(89,49,150,1) 0%, rgba(105,49,150,1) 100%) !important; */
+}
+
+
+.close-btn-container .close-btn::before, .close-btn::after {
+      background-color: #dfdfdf !important;
 }
 
 /* forms */
