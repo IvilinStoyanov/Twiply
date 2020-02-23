@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand">Datery</a>
-  <div class="container">
+  <a class="navbar-brand ml-3" [routerLink]="['/']">
+    Date 
+  <img src="../../assets/logo.png">
+  Me
+  </a>
+  <!-- <div class="container">
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item text-center" routerLinkActive="active">
         <a class="nav-link pt-0" [routerLink]="['/members']">Matches </a>
@@ -26,9 +30,8 @@
       </div>
     </div>
     <button *ngIf="!loggedIn()" class="btn btn-info" (click)="openLoginModal(template)">Sign In</button>
-
-  </div>
-  <div>
+  </div> -->
+  <div class=sidebar-icon-container>
     <i class="fa fa-bars sidebar-icon" (click)="toggleSidebar()"></i>
   </div>
 </nav>
@@ -37,14 +40,12 @@
 <!-- sidebar -->
 <ngx-flyout [(open)]="openFlyout" [showBackdrop]="false">
   <ul class="side-menu">
-    <div class="main-profile-container text-center">
-      <div *ngIf="loggedIn()">
+    <div *ngIf="loggedIn()" class="main-profile-container text-center">
+      <div>
         <img src="{{photoUrl || '../../../../assets/user.png'}}" alt="" class="mb-2">
       </div>
       {{ authService.decodedToken?.unique_name | titlecase }}
     </div>
-
-
     <button *ngIf="!loggedIn()" class="btn btn-outline-info" (click)="openLoginModal(template)">Sign In</button>
     <hr>
     <li class="nav-item text-center hover-red" routerLinkActive="active">
@@ -60,7 +61,7 @@
       <a class="nav-link pt-0" [routerLink]="['/messages']">Messages</a>
     </li>
   </ul>
-  <div class="bottom-container">
+  <div *ngIf="loggedIn()" class="bottom-container">
     <div [routerLink]="['/member/edit']"><i class="fa fa-sliders"></i></div>
     <div (click)="logout()"><i class="fa fa-sign-out"></i></div>
   </div>
@@ -72,14 +73,14 @@
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
-    <div>Login</div>
+    <h4 class="text-center text-primary">Sign In</h4>
     <hr>
     <form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
       <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required
         [(ngModel)]="model.username">
       <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required
         [(ngModel)]="model.password">
-      <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+      <button [disabled]="!loginForm.valid" class="btn btn-success mt-2 float-right" type="submit">Login</button>
     </form>
   </div>
 </ng-template>
