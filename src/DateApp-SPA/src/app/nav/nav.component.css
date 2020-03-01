@@ -1,23 +1,47 @@
 .navbar {
     position: relative;
     z-index: 1 !important;
-    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    -ms-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    -o-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);   
-    background: linear-gradient(90deg, rgb(59, 41, 74) 0%, rgb(128, 101, 170) 100%);    
+    background: none !important;
+    box-shadow: none !important;
     min-height: 75px;
 }
 
+.navbar-nav {
+    flex-direction: row;
+    line-height: 50px;
+}
 
+img {
+    max-height: 55px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    display: inline;
+    background-size: cover;
+}
+
+.navbar-nav li {
+    padding-right: 40px;
+}
+
+li, a, .main-profile-container {
+    color: #000000 !important;
+    text-transform: uppercase;
+    font-weight: bold !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+
+}
 
 .navbar-brand > img {
     width: 50px !important;
     border: none;
 }
 
+
+
+
     .sidebar-icon-container {
+        display: none;
         position: absolute;
         right: 40px;
     }
@@ -29,32 +53,13 @@
 }
 
 @media screen and (min-width: 0px) and (max-width: 700px) {
-    /* .container { display: none; } 
-    .sidebar-icon { display: block; } */
+    .container { display: none; } 
+    .sidebar-icon-container { display: block; }
   }
   
-.dropdown-menu {
-    background: linear-gradient(90deg, rgb(128, 101, 170) 0%, rgb(68, 50, 83) 100%);
-}
 
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
-}
-
-img {
-    max-height: 55px;
-    border: 2px solid #b5b5b5;
-    border-radius: 50%;
-    display: inline;
-    background-size: cover;
-}
-
-li {
-    padding-right: 10px;
-}
-
-li, a, .main-profile-container {
-    color: #dfdfdf !important;
 }
 
 .side-menu {
@@ -78,18 +83,6 @@ li, a, .main-profile-container {
     line-height: 35px;
     font-size: 16px
 }
-
-/* .side-menu .fa-heart {
-    background: #8f3147;
-}
-
-.side-menu .sidebar-user-icon {
-    background: #2bacb0;
-}
-
-.side-menu .fa-comment {
-    background: #3aba74;
-} */
 
 .side-menu li {
     padding: 10px 0;

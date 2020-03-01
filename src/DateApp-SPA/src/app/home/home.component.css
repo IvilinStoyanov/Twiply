@@ -1,17 +1,51 @@
-.main-container {
+.white-img-container {
     position: absolute;
-    height: calc(100% - 75px);
-    width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url(../../assets/couple.jpg);
-    background-size: cover;
-    background-position: center;
-    color: #dfdfdf !important;
+    right: 0px;
+    left: 0px;
+    height: 920px;
+    top: 610px;
+    z-index: 20003;
+    overflow: hidden;
 }
 
-.text-container {
-    position: relative;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.couple-img-container {
+    position: absolute;
+    width: 768px;
+    height: auto;
+    top: 188px;
+    left: 669px;
+    z-index: 20004;
+}
+
+.banner-container .banner-text {
+    color: #ff5252;
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+.banner-container h4 {
+    color: #a29ea3;
+    font-size: 22px;
+    font-style: italic;
+    font-family: 'Josefin Sans', Helvetica, sans-serif;
+}
+
+.content-container {
+    width: 400px;
+}
+
+.content-container h1 {
+    margin-top: 4em;
+    color: #000000;
+    font-size: 45px;
+    text-transform: uppercase;
+}
+
+.content-container h4 {
+    color: #ff5252;
+    font-size: 40px;
+    font-style: italic;
+    font-family: 'Lora' !important;
+
 }
 

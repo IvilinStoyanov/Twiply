@@ -6,9 +6,16 @@
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
+* {
+  font-family: 'Josefin Sans' !important;
+}
+
 body {
-  /* font-family: 'EB Garamond', serif !important; */
-  font-family: 'Roboto Slab', serif !important;
+  background: url("assets/parallax.gif") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* theme override */
@@ -22,7 +29,7 @@ label {
   font-size: 12px !important;
 }
 
-.bg-primary {
+/* .bg-primary {
   border: none;
   background: linear-gradient( rgb(68, 50, 83) 0%,  rgb(128, 101, 170) 100%) !important;
 }
@@ -35,7 +42,7 @@ label {
 .btn-primary {
   background: rgb(128, 101, 170) !important;
   border: none;
-}
+} */
 
 
 /* navbar */
