@@ -23,8 +23,8 @@ img {
     padding-right: 40px;
 }
 
-li, a, .main-profile-container {
-    color: #000000 !important;
+.nav-item, .nav-link, .dropdown-toggle {
+    color: #5c5c5c !important;
     text-transform: uppercase;
     font-weight: bold !important;
     font-size: 16px;
@@ -36,10 +36,6 @@ li, a, .main-profile-container {
     width: 50px !important;
     border: none;
 }
-
-
-
-
     .sidebar-icon-container {
         display: none;
         position: absolute;
@@ -53,7 +49,7 @@ li, a, .main-profile-container {
 }
 
 @media screen and (min-width: 0px) and (max-width: 700px) {
-    .container { display: none; } 
+    .navbar-nav { display: none; } 
     .sidebar-icon-container { display: block; }
   }
   
@@ -88,21 +84,20 @@ li, a, .main-profile-container {
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
     border-right: 3px solid transparent;
 }
 
-.side-menu .hover-red:hover {
-    border-right: 3px solid #8f3147;
+.side-menu a {
+    color: #5c5c5c;
+    padding-right: 5px;
+    text-decoration: none;
+    line-height: 35px;
 }
 
-.side-menu .hover-blue:hover {
-    border-right: 3px solid #2bacb0;
-}
-
-.side-menu .hover-green:hover {
-    border-right: 3px solid #3aba74;
+.side-menu .hover-effect:hover {
+    border-right: 3px solid #ff5252;
 }
 
 .side-menu img {

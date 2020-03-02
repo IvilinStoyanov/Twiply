@@ -36,7 +36,7 @@
 
 
 <!-- sidebar -->
-<ngx-flyout [(open)]="openFlyout" [showBackdrop]="false">
+<ngx-flyout [(open)]="openFlyout" [showBackdrop]="false" [position]="'left'">
   <ul class="side-menu">
     <div *ngIf="loggedIn()" class="main-profile-container text-center">
       <div>
@@ -46,17 +46,17 @@
     </div>
     <button *ngIf="!loggedIn()" class="btn btn-outline-info" (click)="openLoginModal(template)">Sign In</button>
     <hr>
-    <li class="nav-item text-center hover-red" routerLinkActive="active">
+    <li class="nav-item text-center hover-effect" routerLinkActive="active">
       <i class="fa fa-heart"></i>
-      <a class="nav-link pt-0" [routerLink]="['/members']">Matches</a>
+      <a class="pt-0" [routerLink]="['/members']">Matches</a>
     </li>
-    <li class="nav-item text-center hover-blue" routerLinkActive="active">
+    <li class="nav-item text-center hover-effect" routerLinkActive="active">
       <i class="fa fa-user sidebar-user-icon"></i>
-      <a class="nav-link pt-0" [routerLink]="['/lists']">Lists</a>
+      <a class="pt-0" [routerLink]="['/lists']">Lists</a>
     </li>
-    <li class="nav-item text-center hover-green" routerLinkActive="active">
+    <li class="nav-item text-center hover-effect" routerLinkActive="active">
       <i class="fa fa-comment"></i>
-      <a class="nav-link pt-0" [routerLink]="['/messages']">Messages</a>
+      <a class=" pt-0" [routerLink]="['/messages']">Messages</a>
     </li>
   </ul>
   <div *ngIf="loggedIn()" class="bottom-container">
