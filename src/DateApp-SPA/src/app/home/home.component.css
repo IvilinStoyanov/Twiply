@@ -38,15 +38,24 @@
     background: white;
 }
 
+.love-stories-container {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto
+}
+
 .love-stories .text-container {
     position: absolute;
-    width: 610px;
+    width: 580px;
     border: 5px solid #ff5252;
+    z-index: 300;
+    left: 50px;
+    top: 80px;
 }
 
 .love-stories .text-container h1 {
     margin-left: -50px;
-    font-size: 48px;
+    font-size: 46px;
     text-transform: uppercase;
     margin-top: 50px;
 }
@@ -54,28 +63,42 @@
 .love-stories .text-container p {
     position: relative;
     left: 50%;
-    margin-top: 90px;
+    margin-top: 85px;
     transform: translate(-50%, -50%);
-    font-size: 18px;
-    width: 350px;
+    font-size: 17px;
+    width: 340px;
     font-style: italic;
 }
 
+.love-stories .images-container-left {
+    right: 180px;
+    width: 368px;
+    top: 45px;
+    position: absolute;
+    z-index: 200;
+}
 
+.love-stories .images-container-right {
+    right: -6px;
+    width: 186px;
+    top: 226px;
+    position: absolute;
+    z-index: 200;
+}
 
 .couple-bg {
     position: absolute;
-    width: 500px;
+    width: 446px;
     height: auto;
-    top: 135px;
-    left: 60%;
-    z-index: 20004;
+    top: 202px;
+    left: 50%;
+    z-index: 100;
 }
 
-@media only screen and (max-width: 1016px) {
+@media only screen and (max-width: 1216px) {
     .couple-bg {
         width: 420px;
-        left: 50%;
+        left: 490px;
     }
 
     .banner-container .banner-text {
@@ -89,12 +112,41 @@
     .content-container h4 {
         font-size: 35px;
     }
+
+    .love-stories-container {
+        width: 900px;
+    }
+
+    .love-stories .text-container {
+        width: 420px;
+        left: 8px;
+    }
+
+    .love-stories .text-container h1 {
+        font-size: 38px;
+        margin-left: -50px;
+    }
+
+    .love-stories .text-container p {
+        margin-top: 60px;
+        font-size: 14px;
+    }
+
+    .love-stories .images-container-left {
+        right: 150px;
+    }
+
+    .love-stories .images-container-right {
+        right: -36px;
+    }
+
   }
 
-  @media only screen and (max-width: 854px) {
+  @media only screen and (max-width: 999px) {
     .couple-bg {
-        width: 320px;
-        left: 50%;
+        width: 375px;
+        top: 225px;
+        left: 40%;
     }
 
     .content-container {
@@ -112,6 +164,164 @@
     .content-container h4 {
         font-size: 25px;
     }
+
+    .love-stories-container {
+        width: 700px;
+    }
+
+    .love-stories .text-container {
+        width: 330px;
+        left: 50px;
+    }
+
+    .love-stories .text-container h1 {
+        font-size: 30px;
+        margin-left: -50px;
+    }
+
+    .love-stories .text-container p {
+        margin-top: 60px;
+        font-size: 12px;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .love-stories .images-container-left {
+        right: 122px;
+        width: 242px;
+    }
+
+    .love-stories .images-container-right {
+        right: 0px;
+        width: 122px;
+        top: 164px;
+    }
+
     
+    
+  }
+
+  @media only screen and (max-width: 766px) {
+    .couple-bg {
+        width: 330px;
+    top: 260px;
+    left: 42%;
+    }
+
+    .content-container {
+        width: 245px;
+    }
+
+    .banner-container .banner-text {
+        font-size: 45px;
+    }
+
+    .content-container h1 {
+        font-size: 32px;
+        margin-top: 5em;
+    }
+
+    .content-container h4 {
+        font-size: 24px;
+    }
+
+    .love-stories-container {
+        width: 490px;
+    }
+
+    .love-stories .text-container {
+        width: 262px;
+        left: 0px
+    }
+
+    .love-stories .text-container h1 {
+        font-size: 30px;
+        margin-left: -50px;
+    }
+
+    .love-stories .text-container p {
+        margin-top: 60px;
+        font-size: 12px;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .love-stories .images-container-left {
+        right: 0px;
+        top: 30px;
+        width: 300px;
+    }
+
+    .love-stories .images-container-right {
+        /* right: -107px;
+        width: 111px;
+        top: 144px; */
+        display: none;
+    }  
+  }
+
+  @media only screen and (max-width: 576px) {
+    .couple-bg {
+        width: 296px;
+        top: 333px;
+        left: 30%;
+    }
+
+    .content-container {
+        width: 215;
+    }
+
+    .banner-container .banner-text {
+        font-size: 45px;
+    }
+
+    .content-container h1 {
+        font-size: 28px;
+        margin-top: 5em;
+    }
+
+    .content-container h4 {
+        font-size: 20px;
+    }
+
+    .love-stories-container {
+        width: 100%;
+    }
+
+    .love-stories .text-container {
+        background: #0000009e;
+        color: white;
+        left: 20px;
+    }
+
+    .love-stories .text-container h1 {
+        font-size: 30px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .love-stories .text-container p {
+        margin-top: 60px;
+        font-size: 12px;
+        padding: 8px;
+        width: 100%;
+        color: white !important;
+    }
+
+    .love-stories .images-container-left {
+        right: 30px;
+        top: 48px;
+        width: 285px;
+    }
+
+    .love-stories .images-container-right {
+       display: none;
+    }  
+  }
+
+  @media only screen and (max-width: 426px) {
+    .love-stories {
+        width: 408px;
+    }
   }
 

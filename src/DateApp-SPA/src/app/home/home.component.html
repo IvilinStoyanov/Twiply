@@ -11,23 +11,34 @@
   <img src="../../assets/couple-bg.png" class="couple-bg">
 </div>
 <section class="love-stories">
-  <div class="container">
+  <div class="love-stories-container">
     <div class="text-container mt-5">
       <h1>Love Stories</h1>
-      <p class="text-muted">Today, on our 50th wedding anniversary, my husband took out an old envelope and 
+      <p class="text-muted">Today, on our 50th wedding anniversary, my husband took out an old envelope and
         handed me back the love note I wrote him in the 7th grade.</p>
       <h5 class="text-center text-uppercase font-weight-bold">Kory Robbins & Teresa Briggs</h5>
       <!-- <button type="button" class="btn btn-outline-primary" (click)="openModal(template)">Register</button> -->
       <!-- <button class="btn btn-info">Learn more</button> -->
     </div>
-  </div>
-  </section>
-
-  <ng-template #template>
-    <div class="modal-body">
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <app-register></app-register>
+    <div class="images-container-left">
+      <img src="../../assets/img/home-03.jpg" style="width: 100%;">
+      <img src="../../assets/img/home-04.jpg" style="width: 50%;">
+      <img src="../../assets/img/home-05.jpg" style="width: 50%;">
+      <img src="../../assets/img/home-06.jpg" style="width: 50%;">
+      <img src="../../assets/img/home-07.jpg" style="width: 50%;">
     </div>
-  </ng-template>
+    <div class="images-container-right">
+      <img src="../../assets/img/home-08.jpg" style="width: 100%;">
+      <img src="../../assets/img/home-09.jpg" style="width: 100%;">
+    </div>
+  </div>
+</section>
+
+<ng-template #template>
+  <div class="modal-body">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <app-register></app-register>
+  </div>
+</ng-template>

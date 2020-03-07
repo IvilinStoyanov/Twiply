@@ -16,6 +16,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 /* theme override */
