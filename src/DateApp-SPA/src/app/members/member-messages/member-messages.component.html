@@ -5,7 +5,6 @@
     </div>
     <ul class="chat">
       <li *ngFor="let message of messages">
-        <!-- them -->
         <div *ngIf="message.senderId == recipientId" class="text-left">
           <span class="chat-img float-left">
             <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="rounded-circle mr-1">
@@ -19,7 +18,6 @@
             </small>
           </div>
         </div>
-        <!-- me -->
         <div *ngIf="message.senderId != recipientId">
           <div class="chat-body text-right chat-body-me">
             <div>
