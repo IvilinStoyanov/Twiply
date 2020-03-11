@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "DateApp-SPA"
+  "defaultProject": "DateApp-SPA",
+  "cli": {
+    "analytics": false
+  }
 }
