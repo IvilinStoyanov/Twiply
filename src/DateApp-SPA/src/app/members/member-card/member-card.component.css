@@ -1,14 +1,18 @@
+.card {
+    box-shadow: none;
+    max-width: 180px;
+}
+
 .card:hover img {
-    transform: scale(1.2, 1.2);
     transition-duration: 200ms; 
     transition-timing-function: ease-out;
-    opacity: 0.85;
+    opacity: 0.65;
 }
 
 .card img {
-    transform: scale(1.0, 1.0);
     transition-duration: 500ms; 
     transition-timing-function: ease-out;
+    border-radius: 50%;
 }
 
 .card-img-wrapper {
