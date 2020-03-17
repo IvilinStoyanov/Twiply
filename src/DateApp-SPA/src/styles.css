@@ -10,14 +10,14 @@ body {
   font-family: 'Josefin Sans' !important;
 }
 
-body {
+/* body {
   background: url("assets/parallax.gif") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   overflow-x: hidden;
-}
+} */
 
 /* theme override */
 .btn {
@@ -58,7 +58,7 @@ label {
 
 
 .close-btn-container .close-btn::before, .close-btn::after {
-      background-color: #dfdfdf !important;
+      background-color: #5c5c5c !important;
 }
 
 /* forms */

@@ -6,3 +6,11 @@
     top: 0;
     left: 0;
 }
+
+.woman-bg {
+    position: absolute;
+    left: -140px;
+    bottom: 0px;
+    width: 520px;
+    z-index: 100;
+}
