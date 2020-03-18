@@ -8,22 +8,43 @@
 
 body {
   font-family: 'Josefin Sans' !important;
+  overflow-x: hidden;
 }
 
-/* body {
-  background: url("assets/parallax.gif") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow-x: hidden;
-} */
+/* alertify */
+.ajs-message.ajs-visible {
+  border-radius: 8px;
+}
 
 /* theme override */
 .btn {
   padding: 0.55rem 0.65rem;
   font-size: 12px;
   outline: none;
+}
+
+.btn-custom {
+  text-transform: uppercase;
+  border: none;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  color: black;
+  box-shadow: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-custom:hover .arrow-right {
+  background: #ff5252;
+  color: white;
+}
+
+.arrow-right {
+  color: #ff5252;
+  font-size: 24px;
+  border: 3px solid #ff5252;
+  padding: 3px 6px;
+  vertical-align: sub;
 }
 
 label {
