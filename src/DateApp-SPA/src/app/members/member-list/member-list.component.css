@@ -14,3 +14,15 @@
     width: 520px;
     z-index: 100;
 }
+
+@media only screen and (max-width: 999px) {
+    .woman-bg {
+        max-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .woman-bg {
+        max-width: 125px;
+    }
+}

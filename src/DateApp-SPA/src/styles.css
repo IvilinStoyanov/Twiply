@@ -73,8 +73,9 @@ label {
 }
 
 .flyout {
-    z-index: 2147483647 !important;
+    z-index: 1040 !important;
     padding: 10px !important;
+    height: 100% !important;
 }
 
 
