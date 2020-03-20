@@ -4,14 +4,16 @@ using DateApp.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DateApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200320153358_addisActiveColumn")]
+    partial class addisActiveColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,11 +110,11 @@ namespace DateApp.API.Migrations
 
                     b.Property<string>("Introduction");
 
+                    b.Property<bool>("IsActive");
+
                     b.Property<string>("KnownAs");
 
                     b.Property<DateTime>("LastActive");
-
-                    b.Property<int>("LastActiveSeconds");
 
                     b.Property<string>("LookingFor");
 

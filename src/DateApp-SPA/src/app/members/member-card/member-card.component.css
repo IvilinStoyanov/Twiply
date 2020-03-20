@@ -1,19 +1,48 @@
-.card {
-    box-shadow: none;
-    max-width: 180px;
-    margin: 0 auto;
-    z-index: 100;
-    background: transparent;
+img {
+    width: 90px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
 }
 
-.card:hover img {
-    transition-duration: 200ms; 
+.card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbfbfb;
+    background: linear-gradient(to top, #ffffff, #f9f9f9) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.active-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3px;
+    right: 15px;
+}
+
+.active-true {
+    background: rgb(90, 245, 90);
+}
+
+.active-false {
+    background: rgb(255, 29, 29);
+}
+
+.fa-map-marker {
+    color: #ff4d3f;
+    font-size: 18px;
+}
+
+.card-inner:hover img {
+    transition-duration: 200ms;
     transition-timing-function: ease-out;
     opacity: 0.65;
 }
 
-.card img {
-    transition-duration: 500ms; 
+.card-inner img {
+    transition-duration: 500ms;
     transition-timing-function: ease-out;
     border-radius: 50%;
 }
@@ -34,15 +63,15 @@
 }
 
 .card-img-wrapper:hover .member-icons {
-bottom: 0;
-opacity: 1;
+    bottom: 0;
+    opacity: 1;
 }
 
 .animate {
     transition: all 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 999px) {
+/* @media only screen and (max-width: 999px) {
     .card {
         max-width: 150px;
     }
@@ -52,6 +81,4 @@ opacity: 1;
     .card {
         max-width: 115px;
     }
-}
-
-
+} */

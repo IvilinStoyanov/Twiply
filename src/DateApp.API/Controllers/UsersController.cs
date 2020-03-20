@@ -24,7 +24,6 @@ namespace DateApp.API.Controllers
         {
             _mapper = mapper;
             _repo = repo;
-
         }
 
         [HttpGet]

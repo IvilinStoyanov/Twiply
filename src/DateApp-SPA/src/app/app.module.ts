@@ -38,6 +38,7 @@ import { ListsResolver } from './_resolvers/list.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { ReversePipe } from './_pipes/reverse.pipe';
+import { IsActivePipe } from './_pipes/is-active.pipe';
 
 
 export function tokenGetter() {
@@ -67,7 +68,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       MemberMessagesComponent,
       PhotoEditorComponent,
       TimeAgoPipe,
-      ReversePipe
+      ReversePipe,
+      IsActivePipe
    ],
    imports: [
       BrowserModule,

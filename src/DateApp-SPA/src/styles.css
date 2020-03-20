@@ -9,7 +9,23 @@
 body {
   font-family: 'Josefin Sans' !important;
   overflow-x: hidden;
+  background-color: #f7f8fb;
 }
+
+.card {
+  background: #fbfbfb;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #ffffff, #f9f9f9) !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #ffffff, #f9f9f9) !important;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* font sizes */
+
+.small-font { font-size: 12px }
+.medium-font { font-size: 15px; }
+.large-font { font-size: 18px; }
 
 /* alertify */
 .ajs-message.ajs-visible {
