@@ -10,7 +10,7 @@ img {
     justify-content: center;
     background: #fbfbfb;
     background: linear-gradient(to top, #ffffff, #f9f9f9) !important;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .active-status {
@@ -33,6 +33,36 @@ img {
 .fa-map-marker {
     color: #ff4d3f;
     font-size: 18px;
+}
+
+.user-menu {
+    position: absolute;
+    top: 10px;
+    right: 33px;
+}
+
+.icon-menu {
+    font-size: 18px;
+    color: grey;
+}
+
+.user-menu-btn {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.icon-heart {
+    position: absolute;
+    bottom: 15px;
+    right: 35px;
+    font-size: 20px;
+    background: -moz-linear-gradient(to right top, #00e0fe, #00d5ff, #00c9ff, #00bdff, #15b0fe);
+    background: -webkit-linear-gradient(to right top, #00e0fe, #00d5ff, #00c9ff, #00bdff, #15b0fe);
+    background: linear-gradient(to right top, #00e0fe, #00d5ff, #00c9ff, #00bdff, #15b0fe);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .gender-icon-container {

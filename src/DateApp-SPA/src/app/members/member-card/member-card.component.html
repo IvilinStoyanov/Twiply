@@ -5,13 +5,11 @@
     <ul class="list-inline member-icons animate text-center">
       <li class="list-inline-item"><button class="btn btn-primary" [routerLink]="['/members/', user.id]"><i
             class="fa fa-user"></i></button></li>
-      <li class="list-inline-item"><button class="btn btn-primary" (click)=sendLike(user.id)><i
-            class="fa fa-heart"></i></button></li>
       <li class="list-inline-item"><button class="btn btn-primary" [routerLink]="['/members/', user.id]"
           [queryParams]="{tab: 3}"><i class="fa fa-envelope"></i></button></li>
     </ul>
   </div>
-  <div class="card-body text-left pl-3">
+  <div class="card-body text-left p-0 pl-1">
     <h5 class="card-title font-weight-bold medium-font mb-1">
       {{user.knownAs}}, {{user.age}}
       <div class="d-inline-block gender-icon-container">
@@ -22,5 +20,18 @@
     <p class="card-text text-muted text-centre">
       <i class="fa fa-map-marker mr-1"></i>{{user.country}} / {{user.city}}
     </p>
+    <div class="user-menu" dropdown>
+      <button id="user-menu-button" dropdownToggle type="button" class="btn user-menu-btn"
+        aria-controls="dropdown-basic">
+        <i class="fa fa-ellipsis-v icon-menu"></i>
+      </button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/members/', user.id]">View Profile</a></li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/members/', user.id]"
+            [queryParams]="{tab: 3}">Message</a></li>
+      </ul>
+    </div>
+    <i class="fa fa-heart icon-heart"></i>
   </div>
 </div>

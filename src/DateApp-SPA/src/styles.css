@@ -39,6 +39,10 @@ body {
   outline: none;
 }
 
+button:focus {
+  outline: none !important;
+}
+
 .btn-custom {
   text-transform: uppercase;
   border: none;
