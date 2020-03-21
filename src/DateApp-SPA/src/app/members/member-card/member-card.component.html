@@ -3,19 +3,24 @@
     <img class="card-img-top" src="{{user.photoUrl || '../../../../../assets/user.png'}}" alt="{{user.knownAs}}">
     <div class="active-status active-{{user.lastActive | isActive}}"></div>
     <ul class="list-inline member-icons animate text-center">
-      <li class="list-inline-item"><button class="btn btn-primary"
-         [routerLink]="['/members/', user.id]"><i class="fa fa-user"></i></button></li>
-      <li class="list-inline-item"><button class="btn btn-primary" (click)=sendLike(user.id)><i class="fa fa-heart"></i></button></li>
-      <li class="list-inline-item"><button class="btn btn-primary" 
-        [routerLink]="['/members/', user.id]" [queryParams]="{tab: 3}"><i class="fa fa-envelope"></i></button></li>
+      <li class="list-inline-item"><button class="btn btn-primary" [routerLink]="['/members/', user.id]"><i
+            class="fa fa-user"></i></button></li>
+      <li class="list-inline-item"><button class="btn btn-primary" (click)=sendLike(user.id)><i
+            class="fa fa-heart"></i></button></li>
+      <li class="list-inline-item"><button class="btn btn-primary" [routerLink]="['/members/', user.id]"
+          [queryParams]="{tab: 3}"><i class="fa fa-envelope"></i></button></li>
     </ul>
   </div>
   <div class="card-body text-left pl-3">
-   <h5 class="card-title font-weight-bold medium-font mb-1">
-     {{user.knownAs}}, {{user.age}}
-   </h5>
-   <p class="card-text text-muted text-centre">
-    <i class="fa fa-map-marker mr-1"></i>{{user.country}} / {{user.city}}
-   </p>
+    <h5 class="card-title font-weight-bold medium-font mb-1">
+      {{user.knownAs}}, {{user.age}}
+      <div class="d-inline-block gender-icon-container">
+        <i *ngIf="user.gender=='male'" class="gender-icon fa fa-mars"></i>
+        <i *ngIf="user.gender=='female'" class="gender-icon fa fa-venus"></i>
+      </div>
+    </h5>
+    <p class="card-text text-muted text-centre">
+      <i class="fa fa-map-marker mr-1"></i>{{user.country}} / {{user.city}}
+    </p>
   </div>
 </div>
