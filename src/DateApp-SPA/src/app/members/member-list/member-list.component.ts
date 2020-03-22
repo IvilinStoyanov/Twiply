@@ -4,8 +4,6 @@ import { AlertifyService } from '../../_services/alertify.service';
 import { User } from '../../_models/user';
 import { ActivatedRoute } from '@angular/router';
 import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
-import { TimeAgoPipe } from 'time-ago-pipe';
-import { IsActivePipe } from 'src/app/_pipes/is-active.pipe';
 
 @Component({
   selector: 'app-member-list',
@@ -28,8 +26,6 @@ export class MemberListComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.users = data['users'].result;
       this.pagination = data['users'].pagination;
-
-      // this.calculateUserActiveTime();
     });
 
     this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
@@ -37,11 +33,6 @@ export class MemberListComponent implements OnInit {
     this.userParams.maxAge = 99;
     this.userParams.orderBy = 'lastactive';
   }
-
-  // calculateUserActiveTime() {
-  //   const pipe = new IsActivePipe(this.changeDetectorRef, this.ngZone);
-  //  this.users.forEach(u => { console.log(pipe.transform(u.lastActive.toString())); });
-  // }
 
   pageChanged(event: any): void {
     this.pagination.currentPage = event.page;

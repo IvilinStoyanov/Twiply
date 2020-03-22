@@ -44,8 +44,7 @@ img {
 
    .sidebar-icon {
     color: #5c5c5c;
-    font-size: 33px;
-    padding-right: 20px;
+    font-size: 26px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 700px) {
