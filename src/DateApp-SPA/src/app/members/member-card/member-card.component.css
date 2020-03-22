@@ -81,17 +81,18 @@ img {
     width: 90px;
     border-radius: 50%;
     border: 4px solid #ffffff;
+    cursor: pointer;
 }
 
-.card-inner:hover img {
+/* .card-inner:hover img {
     transition-duration: 200ms;
     transition-timing-function: ease-out;
     opacity: 0.65;
-}
+} */
 
 .card-inner img {
-    transition-duration: 500ms;
-    transition-timing-function: ease-out;
+    /* transition-duration: 500ms;
+    transition-timing-function: ease-out; */
     border-radius: 50%;
 }
 

@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   jwtHelper = new JwtHelperService();
-
   constructor(public authService: AuthService, private alertify: AlertifyService, private modalService: BsModalService,
     private router: Router) { }
 

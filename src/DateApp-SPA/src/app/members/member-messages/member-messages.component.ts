@@ -4,6 +4,7 @@ import { UserService } from 'src/app/_services/user.service';
 import { AuthService } from 'src/app/_services/auth.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { tap } from 'rxjs/operators';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-member-messages',
@@ -14,12 +15,15 @@ export class MemberMessagesComponent implements OnInit {
   @Input() recipientId: number;
   messages: Message[];
   newMessage: any = {};
+  subscription: Subscription;
+  source = interval(10000);
 
   constructor(private userService: UserService,
     private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.loadMessages();
+    // this.subscription = this.source.subscribe(() => {this.loadMessages(); });
   }
 
   loadMessages() {

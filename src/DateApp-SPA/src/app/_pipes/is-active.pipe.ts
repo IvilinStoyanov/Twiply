@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform, NgZone, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { min } from 'rxjs/operators';
 
 @Pipe({
   name: 'isActive',
@@ -24,13 +25,13 @@ export class IsActivePipe implements PipeTransform {
       return null;
     });
 
-    let minutes = Math.round(Math.abs(seconds / 60));
+    const minutes = Math.round(Math.abs(seconds / 60));
 
     if (Number.isNaN(seconds)) {
       return false;
-    } else if (seconds <= 45) {
+    } else if (seconds <= 59) {
       return true;
-    } else if (seconds > 45) {
+    } else if (seconds > 60) {
       return false;
     } else {
       return false;

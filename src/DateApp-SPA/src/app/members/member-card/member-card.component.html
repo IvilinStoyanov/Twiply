@@ -1,5 +1,5 @@
 <div class="card-inner p-2">
-  <div class="card-img-wrapper">
+  <div class="card-img-wrapper" tooltip="last seen {{user.lastActive | timeAgo}}" placement="bottom">
     <img class="card-img-top" src="{{user.photoUrl || '../../../../../assets/user.png'}}" alt="{{user.knownAs}}">
     <div class="active-status active-{{user.lastActive | isActive}}"></div>
   </div>

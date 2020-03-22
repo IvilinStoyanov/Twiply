@@ -13,8 +13,6 @@ import { ButtonsModule } from 'ngx-bootstrap';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { FlyoutModule } from 'ngx-flyout';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
@@ -40,6 +38,7 @@ import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { ReversePipe } from './_pipes/reverse.pipe';
 import { IsActivePipe } from './_pipes/is-active.pipe';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 export function tokenGetter() {
@@ -86,6 +85,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       PaginationModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       ModalModule.forRoot(),
+      TooltipModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
       FlyoutModule,
