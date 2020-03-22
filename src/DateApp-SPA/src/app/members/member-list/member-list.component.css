@@ -1,35 +1,24 @@
-.woman-bg {
-    position: absolute;
-    right: -140px;
-    bottom: 0px;
-    width: 520px;
-    z-index: 100;
+.search-container {
+    height: 60px;
+    background: #efeff4;
+    padding: 12px;
 }
 
-.custom-badge {
-    background: linear-gradient(to right bottom, #ff4943, #ff6454, #ff7a66, #ff8f79, #ffa28d);
-    color: white;
-    font-size: 12px;
-}
-
-input {
-    background: white;
-    border-radius: 6px !important;
-    height: 30px !important;
-    box-shadow: none !important;
-}
-
-input:focus {
-    border-radius: 6px !important;
-    box-shadow: none !important;
-    background: white;
-}
-
-input.empty {
+input.search {
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
+    background: white;
+    border-radius: 6px !important;
+    height: 34px !important;
+    box-shadow: none !important;
+}
+
+input.search:focus {
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    background: white;
 }
 
 .input-group {
@@ -37,14 +26,8 @@ input.empty {
     margin: 0 auto;
 }
 
-/* @media only screen and (max-width: 999px) {
-    .woman-bg {
-        max-width: 350px;
-    }
+.custom-badge {
+    background: linear-gradient(to right bottom, #ff4943, #ff6454, #ff7a66, #ff8f79, #ffa28d);
+    color: white;
+    font-size: 12px;
 }
-
-@media only screen and (max-width: 768px) {
-    .woman-bg {
-        max-width: 125px;
-    }
-} */

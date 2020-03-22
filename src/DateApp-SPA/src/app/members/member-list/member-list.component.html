@@ -1,17 +1,13 @@
 <!-- <img src="../../../assets/aikig-0mN84vxigL0-unsplash.png" alt="woman" class="woman-bg"> -->
 <section>
-  <div class="mb-3" style="
-  height: 60px;
-  background: #efeff4;
-  padding: 15px;">
+  <div class="search-container mb-3">
     <div class="input-group input-group-sm mb-3">
-      <input type="text" class="form-control empty" aria-label="Small" [(ngModel)]="searchText"
+      <input type="text" class="form-control search" aria-label="Small" [(ngModel)]="searchText"
         aria-describedby="inputGroup-sizing-sm" placeholder="&#xf002; Search">
     </div>
   </div>
   <div class="container">
     <!-- search field -->
-
     <div class="d-flex justify-content-between">
       <p class="text-muted">All Matches<span class="badge custom-badge ml-1">{{pagination.totalItems}}</span></p>
       <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
