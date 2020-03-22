@@ -1,9 +1,3 @@
-img {
-    width: 90px;
-    border-radius: 50%;
-    border: 4px solid #ffffff;
-}
-
 .card-inner {
     display: flex;
     align-items: center;
@@ -63,6 +57,7 @@ img {
     -moz-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    cursor: pointer;
 }
 
 .gender-icon-container {
@@ -82,6 +77,12 @@ img {
     font-size: 12px;
 }
 
+img {
+    width: 90px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+}
+
 .card-inner:hover img {
     transition-duration: 200ms;
     transition-timing-function: ease-out;
@@ -98,34 +99,3 @@ img {
     overflow: hidden;
     position: relative;
 }
-
-.member-icons {
-    position: absolute;
-    bottom: -30%;
-    left: 0;
-    right: 0;
-    margin-right: auto;
-    margin-left: auto;
-    opacity: 0;
-}
-
-.card-img-wrapper:hover .member-icons {
-    bottom: 0;
-    opacity: 1;
-}
-
-.animate {
-    transition: all 0.3s ease-in-out;
-}
-
-/* @media only screen and (max-width: 999px) {
-    .card {
-        max-width: 150px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .card {
-        max-width: 115px;
-    }
-} */

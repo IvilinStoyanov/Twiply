@@ -19,6 +19,7 @@ export class MemberListComponent implements OnInit {
   userParams: any = {};
   pagination: Pagination;
   isCollapsed = true;
+  searchText;
 
   constructor(private userService: UserService, private alertify: AlertifyService,
     private route: ActivatedRoute, private changeDetectorRef: ChangeDetectorRef, private ngZone: NgZone) { }

@@ -6,6 +6,37 @@
     z-index: 100;
 }
 
+.custom-badge {
+    background: linear-gradient(to right bottom, #ff4943, #ff6454, #ff7a66, #ff8f79, #ffa28d);
+    color: white;
+    font-size: 12px;
+}
+
+input {
+    background: white;
+    border-radius: 6px !important;
+    height: 30px !important;
+    box-shadow: none !important;
+}
+
+input:focus {
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    background: white;
+}
+
+input.empty {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+
+.input-group {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* @media only screen and (max-width: 999px) {
     .woman-bg {
         max-width: 350px;

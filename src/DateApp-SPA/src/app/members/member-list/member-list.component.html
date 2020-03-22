@@ -1,13 +1,24 @@
 <!-- <img src="../../../assets/aikig-0mN84vxigL0-unsplash.png" alt="woman" class="woman-bg"> -->
 <section>
-  <div class="container">
-    <div class="text-center" style="margin-top: 90px">
-      <h4>Your matches - {{pagination.totalItems}} found</h4>
+  <div class="mb-3" style="
+  height: 60px;
+  background: #efeff4;
+  padding: 15px;">
+    <div class="input-group input-group-sm mb-3">
+      <input type="text" class="form-control empty" aria-label="Small" [(ngModel)]="searchText"
+        aria-describedby="inputGroup-sizing-sm" placeholder="&#xf002; Search">
     </div>
-    <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
-    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Filters<i class="fa fa-filter ml-1"></i>
-  </button>
-  <hr>
+  </div>
+  <div class="container">
+    <!-- search field -->
+
+    <div class="d-flex justify-content-between">
+      <p class="text-muted">All Matches<span class="badge custom-badge ml-1">{{pagination.totalItems}}</span></p>
+      <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Filters<i class="fa fa-filter ml-1"></i>
+      </button>
+    </div>
+    <hr>
     <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
       <div class="container mt-3">
         <form class="form-inline" #form="ngForm" (ngSubmit)="loadUsers()" novalidate>
@@ -49,7 +60,7 @@
       <br>
     </div>
     <div class="row">
-      <div *ngFor="let user of users" class="mb-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+      <div *ngFor="let user of users | filter:searchText" class="mb-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
         <app-member-card [user]="user"></app-member-card>
       </div>
     </div>

@@ -26,6 +26,7 @@
     "core-js": "^3.6.4",
     "font-awesome": "^4.7.0",
     "ng2-file-upload": "^1.4.0",
+    "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "^5.5.0",
     "ngx-flyout": "^1.0.0",
     "ngx-gallery": "^5.10.0",

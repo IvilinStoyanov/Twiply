@@ -12,6 +12,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ButtonsModule } from 'ngx-bootstrap';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { FlyoutModule } from 'ngx-flyout';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 import { AppComponent } from './app.component';
@@ -88,6 +89,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       NgxGalleryModule,
       FileUploadModule,
       FlyoutModule,
+      Ng2SearchPipeModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,

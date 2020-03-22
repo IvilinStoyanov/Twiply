@@ -2,12 +2,6 @@
   <div class="card-img-wrapper">
     <img class="card-img-top" src="{{user.photoUrl || '../../../../../assets/user.png'}}" alt="{{user.knownAs}}">
     <div class="active-status active-{{user.lastActive | isActive}}"></div>
-    <ul class="list-inline member-icons animate text-center">
-      <li class="list-inline-item"><button class="btn btn-primary" [routerLink]="['/members/', user.id]"><i
-            class="fa fa-user"></i></button></li>
-      <li class="list-inline-item"><button class="btn btn-primary" [routerLink]="['/members/', user.id]"
-          [queryParams]="{tab: 3}"><i class="fa fa-envelope"></i></button></li>
-    </ul>
   </div>
   <div class="card-body text-left p-0 pl-1">
     <h5 class="card-title font-weight-bold medium-font mb-1">
@@ -32,6 +26,6 @@
             [queryParams]="{tab: 3}">Message</a></li>
       </ul>
     </div>
-    <i class="fa fa-heart icon-heart"></i>
+    <i class="fa fa-heart icon-heart" (click)="sendLike(user.id)"></i>
   </div>
 </div>
