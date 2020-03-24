@@ -39,6 +39,8 @@ import { MemberMessagesComponent } from './members/member-messages/member-messag
 import { ReversePipe } from './_pipes/reverse.pipe';
 import { IsActivePipe } from './_pipes/is-active.pipe';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { PostService } from './_services/post.service';
+import { PostsComponent } from './components/posts/posts.component';
 
 
 export function tokenGetter() {
@@ -67,6 +69,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       MemberEditComponent,
       MemberMessagesComponent,
       PhotoEditorComponent,
+      PostsComponent,
       TimeAgoPipe,
       ReversePipe,
       IsActivePipe
@@ -102,6 +105,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       AuthService,
       ErrorInterceptorProvider,
       AlertifyService,
+      PostService,
       AuthGuard,
       MemberDetailResolver,
       MemberListResolver,
