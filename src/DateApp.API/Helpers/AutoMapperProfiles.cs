@@ -26,7 +26,8 @@ namespace DateApp.API.Helpers
             CreateMap<UserForRegisterDto, User>();
             CreateMap<Post, PostForReturnDto>()
             .ForMember(p => p.Author,
-             opt => opt.MapFrom(src => src.User.KnownAs));
+             opt => opt.MapFrom(src => src.User.KnownAs))
+             .ForMember(p => p.AuthorPhotoUrl, opt => opt.MapFrom(u => u.User.Photos.FirstOrDefault(p => p.IsMain).Url));
             CreateMap<MessageForCreationDto, Message>().ReverseMap();
             CreateMap<Message, MessageToRuturnDto>()
                 .ForMember(m => m.SenderPhotoUrl, opt =>

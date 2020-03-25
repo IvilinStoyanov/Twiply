@@ -30,7 +30,6 @@ namespace DateApp.API.Controllers
         public async Task<IActionResult> GetPosts() {
 
             var posts = await _repo.GetPosts();
-            // var postsToReturn = posts.Select(_ => _mapper.Map<PostForReturnDto>(_));
             var postsToReturn = _mapper.Map<IEnumerable<Post>, IEnumerable<PostForReturnDto>>(posts);
 
             return Ok(postsToReturn);

@@ -27,6 +27,7 @@
     height: 60px;
     display: block;
     margin-right: 15px;
+    border-radius: 50%;
 }
 
 .post .post-heading .meta .title {

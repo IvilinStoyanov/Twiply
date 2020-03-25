@@ -166,6 +166,7 @@ namespace DateApp.API.Data.Repository
         public async Task<IEnumerable<Post>> GetPosts() {
              var posts = _context.Posts
             .Include(u => u.User)
+            .ThenInclude(p => p.Photos)
             .OrderByDescending(p => p.Created)
             .ToListAsync();
 
