@@ -125,7 +125,6 @@ namespace DateApp.API.Data.Repository
         {
             return await _context.Messages.FirstOrDefaultAsync(m => m.Id == id);
         }
-
         public async Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams)
         {
             var messages = _context.Messages
@@ -162,6 +161,15 @@ namespace DateApp.API.Data.Repository
                 .ToListAsync();
 
             return messages;
+        }
+    
+        public async Task<IEnumerable<Post>> GetPosts() {
+             var posts = _context.Posts
+            .Include(u => u.User)
+            .OrderByDescending(p => p.Created)
+            .ToListAsync();
+
+            return await posts;
         }
     }
 }

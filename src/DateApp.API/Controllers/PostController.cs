@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -22,6 +24,16 @@ namespace DateApp.API.Controllers
         {
             _mapper = mapper;
             _repo = repo;
+        }
+
+        [HttpGet("getPosts")]
+        public async Task<IActionResult> GetPosts() {
+
+            var posts = await _repo.GetPosts();
+            // var postsToReturn = posts.Select(_ => _mapper.Map<PostForReturnDto>(_));
+            var postsToReturn = _mapper.Map<IEnumerable<Post>, IEnumerable<PostForReturnDto>>(posts);
+
+            return Ok(postsToReturn);
         }
 
         [HttpPost("add")]
