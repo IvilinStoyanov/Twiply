@@ -12,6 +12,7 @@ namespace DateApp.API.Data
         public DbSet<Like> Likes { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -39,6 +40,12 @@ namespace DateApp.API.Data
                 .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessagesReceived)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Comment>()
+                    .HasOne(p => p.Post)
+                    .WithMany(c => c.Comments)
+                    .OnDelete(DeleteBehavior.Restrict);     
+                
         }
     }
 }

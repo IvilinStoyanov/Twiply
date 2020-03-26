@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DateApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200324181148_Posts")]
-    partial class Posts
+    [Migration("20200326161004_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,29 @@ namespace DateApp.API.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("DateApp.API.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<int>("PostId");
+
+                    b.Property<string>("Text");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
 
             modelBuilder.Entity("DateApp.API.Models.Like", b =>
                 {
@@ -96,6 +119,8 @@ namespace DateApp.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CommentId");
+
                     b.Property<DateTime>("Created");
 
                     b.Property<string>("Description");
@@ -161,6 +186,19 @@ namespace DateApp.API.Migrations
                     b.ToTable("Values");
                 });
 
+            modelBuilder.Entity("DateApp.API.Models.Comment", b =>
+                {
+                    b.HasOne("DateApp.API.Models.Post", "Post")
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DateApp.API.Models.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("DateApp.API.Models.Like", b =>
                 {
                     b.HasOne("DateApp.API.Models.User", "Likee")
@@ -198,7 +236,7 @@ namespace DateApp.API.Migrations
             modelBuilder.Entity("DateApp.API.Models.Post", b =>
                 {
                     b.HasOne("DateApp.API.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Post")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

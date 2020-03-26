@@ -24,6 +24,7 @@ namespace DateApp.API.Models
        public ICollection<Post> Post { get; set;}
        public ICollection<Like> Likers { get; set; }
        public ICollection<Like> Likees { get; set; }
+       public ICollection<Comment> Comments { get; set; }
        public ICollection<Message> MessagesSent { get; set; }
        public ICollection<Message> MessagesReceived { get; set; }
     }
