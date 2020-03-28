@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using DateApp.API.Models;
 
 namespace DateApp.API.Dtos
 {
@@ -13,5 +15,6 @@ namespace DateApp.API.Dtos
         public DateTime Created { get; set; }
         public string Author { get; set; }
         public string AuthorPhotoUrl { get; set; }
+        public ICollection<CommentToReturnDto> Comments { get; set; }
     }
 }

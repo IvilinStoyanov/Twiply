@@ -167,6 +167,7 @@ namespace DateApp.API.Data.Repository
              var posts = _context.Posts
             .Include(u => u.User)
             .ThenInclude(p => p.Photos)
+            .Include(c => c.Comments)           
             .OrderByDescending(p => p.Created)
             .ToListAsync();
 

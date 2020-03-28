@@ -57,42 +57,18 @@
               </div>
               <ul class="comments-list">
                   <li class="comment">
+                      <div *ngFor="let comment of post.comments">
                       <a class="pull-left" href="#">
-                          <img class="avatar" src="https://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+                          <img class="avatar" src="{{comment.user.photoUrl}}" alt="avatar">
                       </a>
                       <div class="comment-body">
                           <div class="comment-heading">
-                              <h4 class="user">Gavino Free</h4>
-                              <h5 class="time">5 minutes ago</h5>
+                              <h4 class="user">{{comment.user.knownAs}}</h4>
+                              <h5 class="time">{{comment.created | timeAgo}}</h5>
                           </div>
-                          <p>Sure, oooooooooooooooohhhhhhhhhhhhhhhh</p>
+                          <p>{{comment.text}}</p>
                       </div>
-                      <ul class="comments-list">
-                          <li class="comment">
-                              <a class="pull-left" href="#">
-                                  <img class="avatar" src="https://bootdey.com/img/Content/user_3.jpg" alt="avatar">
-                              </a>
-                              <div class="comment-body">
-                                  <div class="comment-heading">
-                                      <h4 class="user">Ryan Haywood</h4>
-                                      <h5 class="time">3 minutes ago</h5>
-                                  </div>
-                                  <p>Relax my friend</p>
-                              </div>
-                          </li> 
-                          <li class="comment">
-                              <a class="pull-left" href="#">
-                                  <img class="avatar" src="https://bootdey.com/img/Content/user_2.jpg" alt="avatar">
-                              </a>
-                              <div class="comment-body">
-                                  <div class="comment-heading">
-                                      <h4 class="user">Gavino Free</h4>
-                                      <h5 class="time">3 minutes ago</h5>
-                                  </div>
-                                  <p>Ok, cool.</p>
-                              </div>
-                          </li> 
-                      </ul>
+                    </div>
                   </li>
               </ul>
           </div>

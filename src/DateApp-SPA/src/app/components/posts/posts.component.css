@@ -97,6 +97,8 @@
 .post .post-footer .comments-list .comment .avatar {
     width: 35px;
     height: 35px;
+    border-radius: 50%;
+    border: 1px solid #d1d1d1;
 }
 
 .post .post-footer .comments-list .comment .comment-heading {

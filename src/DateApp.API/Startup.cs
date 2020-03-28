@@ -56,6 +56,9 @@ namespace DateApp.API
                 };
             });
             services.AddScoped<LogUserActivity>();
+            services.AddMvc(options => {
+        })
+        .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             
         }
 
