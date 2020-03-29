@@ -41,7 +41,7 @@ import { IsActivePipe } from './_pipes/is-active.pipe';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { PostService } from './_services/post.service';
 import { PostsComponent } from './components/posts/posts.component';
-
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -90,6 +90,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ModalModule.forRoot(),
       TooltipModule.forRoot(),
       NgxGalleryModule,
+      PickerModule,
       FileUploadModule,
       FlyoutModule,
       Ng2SearchPipeModule,

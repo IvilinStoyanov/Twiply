@@ -13,6 +13,7 @@ namespace DateApp.API.Dtos
         public int Id { get; set; }
         public string Description { get; set; }
         public DateTime Created { get; set; }
+        public int AuthorId { get; set; }
         public string Author { get; set; }
         public string AuthorPhotoUrl { get; set; }
         public ICollection<CommentToReturnDto> Comments { get; set; }

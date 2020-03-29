@@ -1,5 +1,6 @@
 .panel-shadow {
-    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+    /* box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px; */
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 10px;
 }
 
 .panel-white {
@@ -10,6 +11,11 @@
     color: #333;
     background-color: #fff;
     border-color: #ddd;
+}
+
+.panel-white .btn-comment {
+    font-size: 10px !important;
+    height: 30px !important;
 }
 
 .panel-white .panel-footer {
@@ -28,6 +34,7 @@
     display: block;
     margin-right: 15px;
     border-radius: 50%;
+    border: 1px solid #d1d1d1;
 }
 
 .post .post-heading .meta .title {
@@ -62,6 +69,12 @@
 
 .post .post-description .stats {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post .post-description .stats .comment-wrapper {
+    line-height: 35px;
 }
 
 .post .post-description .stats .stat-item {
@@ -76,6 +89,7 @@
 .post .post-footer {
     border-top: 1px solid #ddd;
     padding: 15px;
+    background: #f6efefb0;
 }
 
 .post .post-footer .input-group-addon a {
@@ -84,14 +98,16 @@
 
 .post .post-footer .comments-list {
     padding: 0;
-    margin-top: 20px;
+    margin-top: 10px;
     list-style-type: none;
+    max-height: 215px;
+    overflow-y: auto;
 }
 
 .post .post-footer .comments-list .comment {
     display: block;
     width: 100%;
-    margin: 20px 0;
+    margin: 0;
 }
 
 .post .post-footer .comments-list .comment .avatar {
@@ -199,4 +215,12 @@
 .profile-post-form .form-options .post-submit .btn {
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.emoji-picker-icon {
+    font-size: 22px;
+    color: #2a9af3;
+    line-height: 48px;
+    border-bottom: 1px solid #e5e3e4;
+    cursor: pointer;
 }
