@@ -80,10 +80,13 @@
 .post .post-description .stats .stat-item {
     display: inline-block;
     margin-right: 15px;
+    font-size: 15px;
 }
 
 .post .post-description .stats .stat-item .icon {
     margin-right: 8px;
+    font-size: 18px;
+    color: #ff5252;
 }
 
 .post .post-footer {
@@ -191,7 +194,7 @@
 
 .profile-post-form .form-options .post-type {
     float: left;
-    padding-top: 6px;
+    padding-top: 0px;
 }
 
 .profile-post-form .form-options .post-type a {
@@ -219,8 +222,7 @@
 
 .emoji-picker-icon {
     font-size: 22px;
-    color: #2a9af3;
+    color: #ff5252;
     line-height: 48px;
-    border-bottom: 1px solid #e5e3e4;
     cursor: pointer;
 }

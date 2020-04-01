@@ -35,7 +35,7 @@ namespace DateApp.API.Data
                 .HasOne(u => u.Sender)
                 .WithMany(m => m.MessagesSent)
                 .OnDelete(DeleteBehavior.Restrict);
-            
+
             builder.Entity<Message>()
                 .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessagesReceived)
@@ -44,8 +44,7 @@ namespace DateApp.API.Data
             builder.Entity<Comment>()
                     .HasOne(p => p.Post)
                     .WithMany(c => c.Comments)
-                    .OnDelete(DeleteBehavior.Restrict);     
-                
+                    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
