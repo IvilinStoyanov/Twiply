@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DateApp.API.Controllers
-{    
+{
     [Authorize]
     [Route("api/post")]
     [ApiController]
@@ -27,10 +27,19 @@ namespace DateApp.API.Controllers
         }
 
         [HttpGet("getPosts")]
-        public async Task<IActionResult> GetPosts() {
+        public async Task<IActionResult> GetPosts()
+        {
 
             var posts = await _repo.GetPosts();
-            var postsToReturn = _mapper.Map<IEnumerable<Post>, IEnumerable<PostForReturnDto>>(posts);
+
+            foreach (var post in posts)
+            {
+                post.Comments = post.Comments
+                                    .OrderBy(comment => comment.Created)
+                                    .ToList();
+            }
+
+            var postsToReturn = _mapper.Map<ICollection<Post>, ICollection<PostForReturnDto>>(posts);
 
             return Ok(postsToReturn);
         }

@@ -163,14 +163,14 @@ namespace DateApp.API.Data.Repository
             return messages;
         }
     
-        public async Task<IEnumerable<Post>> GetPosts() {
+        public async Task<IList<Post>> GetPosts() {
              var posts = _context.Posts
             .Include(u => u.User)
             .ThenInclude(p => p.Photos)
             .Include(c => c.Comments)           
             .OrderByDescending(p => p.Created)
             .ToListAsync();
-
+            
             return await posts;
         }
     }

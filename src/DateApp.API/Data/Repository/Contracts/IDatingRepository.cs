@@ -18,6 +18,6 @@ namespace DateApp.API.Data.Repository.Contracts
         Task<Message> GetMessage(int id);
         Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams);
         Task<IEnumerable<Message>> GetMessagesThread(int userId, int recipientId);
-        Task<IEnumerable<Post>> GetPosts();
+        Task<IList<Post>> GetPosts();
     }
 }
