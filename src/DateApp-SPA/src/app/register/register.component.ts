@@ -15,13 +15,14 @@ export class RegisterComponent implements OnInit {
   user: User;
   registerForm: FormGroup;
   bsCongif: Partial<BsDatepickerConfig>;
+  @Output() closeModal = new EventEmitter();
 
   constructor(private authService: AuthService, private fb: FormBuilder,
     private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
     this.bsCongif = {
-      containerClass: 'theme-dark-blue',
+      containerClass: 'theme-orange',
       showWeekNumbers: false
     };
 
@@ -55,6 +56,7 @@ export class RegisterComponent implements OnInit {
           this.alertify.error(error);
         }, () => {
           this.authService.login(this.user).subscribe(() => {
+            this.closeModal.emit();
             this.router.navigate(['/members']);
           });
         });

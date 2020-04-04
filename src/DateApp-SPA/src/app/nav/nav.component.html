@@ -30,13 +30,12 @@
       </div>
     </div>
   </ul>
-    <button *ngIf="!loggedIn()" class="btn btn-info" (click)="openLoginModal(template)">Sign In</button>
+    <button *ngIf="!loggedIn()" class="btn btn-primary" (click)="openLoginModal(template)">Sign In</button>
   </div>
   <div class=sidebar-icon-container>
     <i class="fa fa-bars sidebar-icon" (click)="toggleSidebar()"></i>
   </div>
 </nav>
-
 
 <!-- sidebar -->
 <ngx-flyout [(open)]="openFlyout" [showBackdrop]="false" [position]="'left'">
