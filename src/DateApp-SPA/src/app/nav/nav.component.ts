@@ -27,7 +27,11 @@ export class NavComponent implements OnInit {
   }
 
   openLoginModal(template1: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template1);
+    this.modalRef = this.modalService.show(template1,
+      {
+        class: 'modal-dialog-centered',
+        animated: false
+      });
   }
 
   closeLoginModal() {

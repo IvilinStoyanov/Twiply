@@ -42,6 +42,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { PostService } from './_services/post.service';
 import { PostsComponent } from './components/posts/posts.component';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { AutofocusDirective } from './_directives/autofocus.directive';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -72,7 +73,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       PostsComponent,
       TimeAgoPipe,
       ReversePipe,
-      IsActivePipe
+      IsActivePipe,
+      AutofocusDirective
    ],
    imports: [
       BrowserModule,

@@ -226,3 +226,7 @@
     line-height: 48px;
     cursor: pointer;
 }
+
+.emoji-mart {
+    width: 100% !important;
+}

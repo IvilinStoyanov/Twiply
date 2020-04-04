@@ -76,17 +76,20 @@
 
 <ng-template #template>
     <div class="modal-body p-3">
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-    </button>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
         <h5 class="text-left text-muted pl-1">add comment</h5>
         <div class="input-group mt-3">
-        <i class="fa fa-smile-o emoji-picker-icon mr-1" (click)="toggleEmojiPickerForComment($event)"></i>
-        <input class="form-control" [(ngModel)]="textForComment" placeholder="share your thoughts" type="text">
-        <i class="fa fa-paper-plane emoji-picker-icon" (click)="addComment()"></i>
+            <i class="fa fa-smile-o emoji-picker-icon mr-1" (click)="toggleEmojiPickerForComment($event)"
+                (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                aria-controls="collapseBasic"></i>
+            <input class="form-control" [(ngModel)]="textForComment" placeholder="share your thoughts" type="text">
+            <i class="fa fa-paper-plane emoji-picker-icon" (click)="addComment()"></i>
         </div>
     </div>
-   
-    <emoji-mart class="emoji-mart p-3" set="apple" (emojiSelect)="addEmojiForComment($event)"
-    *ngIf="showEmojiPickerForComment" title="Pick your emoji…"></emoji-mart>
+    <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="false">
+        <emoji-mart class="emoji-mart p-3" set="apple" (emojiSelect)="addEmojiForComment($event)"
+            title="Pick your emoji…"></emoji-mart>
+    </div>
 </ng-template>
