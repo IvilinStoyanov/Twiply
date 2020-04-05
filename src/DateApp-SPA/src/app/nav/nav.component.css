@@ -126,3 +126,13 @@ img {
     color: #6798e2 !important;
 }
 
+.logo {
+    width: auto !important;
+    min-height: 85px !important;
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    border: none;
+    border-radius: 0;
+}
+

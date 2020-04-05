@@ -43,10 +43,39 @@ import { PostService } from './_services/post.service';
 import { PostsComponent } from './components/posts/posts.component';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { AutofocusDirective } from './_directives/autofocus.directive';
+import { FooterComponent } from './components/posts/footer/footer.component';
+import { NgxUiLoaderModule, NgxUiLoaderConfig } from 'ngx-ui-loader';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
 }
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+   bgsColor: '#ff5252d3',
+   bgsOpacity: 0.7,
+   bgsPosition: 'center-center',
+   bgsSize: 60,
+   bgsType: 'cube-grid',
+   blur: 0,
+   delay: 0,
+   fgsColor: '#ff5252d3',
+   fgsPosition: 'center-center',
+   fgsSize: 110,
+   fgsType: 'cube-grid',
+   gap: 20,
+   logoPosition: 'bottom-right',
+   logoSize: 120,
+   logoUrl: '',
+   masterLoaderId: 'master',
+   overlayBorderRadius: '0',
+   overlayColor: 'rgb(255,255,255)',
+   pbColor: '#ff5252d3',
+   pbDirection: 'ltr',
+   pbThickness: 4,
+   hasProgressBar: true,
+   maxTime: -1,
+   minTime: 500
+ };
 
 @Injectable()
 export class CustomHammerConfig extends HammerGestureConfig {
@@ -71,6 +100,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       MemberMessagesComponent,
       PhotoEditorComponent,
       PostsComponent,
+      FooterComponent,
       TimeAgoPipe,
       ReversePipe,
       IsActivePipe,
@@ -96,6 +126,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       FileUploadModule,
       FlyoutModule,
       Ng2SearchPipeModule,
+      NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
