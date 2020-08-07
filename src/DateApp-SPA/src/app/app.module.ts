@@ -43,7 +43,7 @@ import { PostService } from './_services/post.service';
 import { PostsComponent } from './components/posts/posts.component';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { AutofocusDirective } from './_directives/autofocus.directive';
-import { FooterComponent } from './components/posts/footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NgxUiLoaderModule, NgxUiLoaderConfig } from 'ngx-ui-loader';
 
 export function tokenGetter() {

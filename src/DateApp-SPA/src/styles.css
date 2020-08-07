@@ -9,7 +9,7 @@
 body {
   font-family: 'Josefin Sans' !important;
   overflow-x: hidden;
-  background-color: #f7f8fb;
+  background-color: #fff;
 }
 
 .card {
@@ -22,10 +22,10 @@ body {
 }
 
 /* font sizes */
-
 .small-font { font-size: 12px }
-.medium-font { font-size: 15px; }
+.medium-font { font-size: 14px; }
 .large-font { font-size: 18px; }
+.xl-font { font-size: 24px; }
 
 /* alertify */
 .ajs-message.ajs-visible {
@@ -39,7 +39,12 @@ body {
   outline: none;
 }
 
-button:focus {
+.btn-clean {
+  background: none;
+  box-shadow: none
+}
+
+button:focus, button:active {
   outline: none !important;
 }
 
@@ -69,6 +74,10 @@ button:focus {
 
 label {
   font-size: 12px !important;
+}
+
+.nav-tabs {
+  margin-bottom: 15px !important;
 }
 
 /* .bg-primary {
@@ -110,6 +119,10 @@ label {
 /* forms */
 .form-control {
   border-radius: 1px !important;
+}
+
+.input-sm {
+  height: 35px;
 }
 
 /* tabs */
