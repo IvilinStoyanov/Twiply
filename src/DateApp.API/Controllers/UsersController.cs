@@ -58,7 +58,7 @@ namespace DateApp.API.Controllers
 
             return Ok(userToReturn);
         }
-        [HttpPut("{id}")]
+        [HttpPost("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UserForUpdateDto userForUpdateDto) 
         {
             if(id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))           
@@ -71,7 +71,7 @@ namespace DateApp.API.Controllers
             if(await _repo.SaveAll()) 
                 return NoContent();
             
-            throw new Exception($"Updating user with {id} failed on save");
+            throw new Exception("Not able to update user data.");
         }
 
         [HttpPost("{id}/like/{recipientId}")]

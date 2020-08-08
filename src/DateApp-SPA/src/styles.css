@@ -125,6 +125,16 @@ label {
   height: 35px;
 }
 
+.input-edit-mode {
+  height: 20px;
+  padding: 0;
+  width: 60%;
+}
+
+.wrap-text {
+  overflow-wrap: anywhere;
+}
+
 /* tabs */
 /* .tab-panel {
     border: 1px solid #ddd;

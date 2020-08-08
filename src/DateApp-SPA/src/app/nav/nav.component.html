@@ -12,7 +12,7 @@
         <a class="nav-link pt-0" [routerLink]="['/lists']">Lists</a>
       </li>
       <li class="nav-item text-center" routerLinkActive="active">
-        <a class="nav-link pt-0" [routerLink]="['/posts']">Posts</a>
+        <a class="nav-link pt-0" [routerLink]="['/posts']">News Feed</a>
       </li>
       <li class="nav-item text-center" routerLinkActive="active">
         <a class="nav-link pt-0" [routerLink]="['/messages']">Messages</a>
@@ -25,7 +25,7 @@
         {{ authService.decodedToken?.unique_name | titlecase }}
       </a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
+        <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
       </div>

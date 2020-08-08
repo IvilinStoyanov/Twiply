@@ -1,85 +1,82 @@
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-sm-4">
-
-    </div>
-    <div class="col-sm-8">
-      <div *ngIf="editForm.dirty" class="alert alert-info">
-        <strong>Information: </strong>You have made changes. Any changes will be lost!
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="card">
-        <img
-          class="card-img-top img-thumbnail"
-          src="{{photoUrl || '../../../../../assets/user.png'}}"
-          alt="{{ user.knownAs }}"
-        />
-        <div class="card-body">
-          <div>
-            <strong>Location:</strong>
-            <p>{{ user.city }}, {{ user.country }}</p>
-          </div>
-          <div>
-            <strong>Age:</strong>
-            <p>{{ user.age }}</p>
-          </div>
+    <div class="col-sm-3 m-2">
+      <div>
+        <img class="img-thumbnail" src="{{photoUrl || '../../../../../assets/user.png'}}" alt="{{ user.knownAs }}" />
+        <div class="mt-3">
+          <div class="d-flex"></div>
+          <div class="text-muted small-font text-uppercase mr-2 mb-2 border-bottom w-85">Activity</div>
           <div>
             <strong>Last Active:</strong>
-            <p>{{ user.lastActive | timeAgo }}</p>
+            <p>{{user.lastActive | timeAgo }}</p>
           </div>
           <div>
             <strong>Member since:</strong>
-            <p>{{ user.created | date }}</p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="d-flex">
-            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success w-100">Save Changes</button>
+            <p>{{user.created | date }}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 m-2">
+      <div class="d-flex user-top-container">
+        <div class="d-flex">
+          <span class="mr-4 xl-font">{{user.username | titlecase}}</span>
+          <span *ngIf="!editMode" class="align-self-center medium-font text-muted"><i class="fa fa-map-marker mr-1"></i>{{user.city}},
+            {{user.country}}</span>
+        </div>
+        <div class="d-flex align-items-center" *ngIf="editMode">
+          <input class="input-edit-mode form-control mr-2" type="text" name="city" [(ngModel)]="user.city">
+          <input class="input-edit-mode form-control" type="text" name="country" [(ngModel)]="user.country">
+        </div>
+        <div>
+          <button *ngIf="!editMode" class="btn btn-clean" (click)="edit()"><i
+              class="fa fa-pencil-square-o mr-1"></i>Edit profile</button>
+          <button *ngIf="editMode" class="btn btn-clean" (click)="cancel()">Cancel</button>
+          <button *ngIf="editMode" class="btn btn-clean" (click)="updateUser()"><i
+              class="fa fa-pencil-square-o mr-1"></i>Save</button>
+        </div>
+      </div>
+      <div class="mb-4">
+        <span class="sub-title medium-font">{{user.age}} years old</span>
+      </div>
       <div class="tab-panel">
         <tabset class="member-tabset">
-          <tab heading="Edit Profile">
-            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
-              <h4>Description</h4>
-              <textarea
-                name="introduction"
-                rows="6"
-                class="form-control"
-                [(ngModel)]="user.introduction"
-              ></textarea>
-              <h4>Looking For</h4>
-              <textarea
-                name="lookingFor"
-                rows="6"
-                class="form-control"
-                [(ngModel)]="user.lookingFor"
-              ></textarea>
-              <h4>Interests</h4>
-              <textarea
-                name="interests"
-                rows="6"
-                class="form-control"
-                [(ngModel)]="user.interests"
-              ></textarea>
-              <h4>Location Details</h4>
-              <div class="form-inline">
-                <label for="city">City</label>
-                <input class="form-control" type="text" name="city" [(ngModel)]="user.city">
-                <label for="city">Country</label>
-                <input class="form-control" type="text" name="country" [(ngModel)]="user.country">  
-              </div>
-            </form>
+          <tab heading="About">
+            <div class="d-flex">
+              <p class="mr-2 about-title">Known As:</p>
+              <p>{{user.knownAs || 'N/A'}}</p>
+            </div>
+            <div class="d-flex">
+              <p class="mr-2 about-title">Description:</p>
+              <p *ngIf="!editMode" class="wrap-text">{{user.introduction || 'N/A'}}</p>
+              <input *ngIf="editMode" name="introduction" class="input-edit-mode form-control"
+                [(ngModel)]="user.introduction" />
+            </div>
+            <div class="d-flex">
+              <p class="mr-2 about-title">Looking For:</p>
+              <p *ngIf="!editMode" class="wrap-text">{{user.lookingFor || 'N/A'}}</p>
+              <input *ngIf="editMode" name="lookingFor" class="input-edit-mode form-control"
+                [(ngModel)]="user.lookingFor" />
+            </div>
+            <div class="d-flex">
+              <p class="mr-2 about-title">Interests:</p>
+              <p *ngIf="!editMode" class="wrap-text">{{user.interests || 'N/A'}}</p>
+              <input *ngIf="editMode" name="interests" class="input-edit-mode form-control"
+                [(ngModel)]="user.interests" />
+            </div>
+            <div class="text-muted small-font text-uppercase mr-2 mb-2 mt-3">Basic information</div>
+            <div class="d-flex">
+              <p class="about-title mr-2">Gender:</p>
+              <p>{{user.gender | titlecase}}</p>
+            </div>
+            <div class="d-flex">
+              <p class="about-title mr-2">Birthday:</p>
+              <p>{{user.dateOfBirth | date}}</p>
+            </div>
           </tab>
           <tab heading="Edit Photo">
-            <app-photo-editor [photos]="user.photos"
-             (getMemberPhotoChange)="updateMainPhoto($event)"></app-photo-editor>
+            <app-photo-editor [photos]="user.photos" (getMemberPhotoChange)="updateMainPhoto($event)">
+            </app-photo-editor>
           </tab>
         </tabset>
       </div>

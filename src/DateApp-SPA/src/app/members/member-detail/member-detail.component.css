@@ -9,6 +9,10 @@
     color: #2196F3;
 }
 
+.about-title {
+    min-width: 80px;
+}
+
 .line {
     width: 100%;
     height: 1px;
