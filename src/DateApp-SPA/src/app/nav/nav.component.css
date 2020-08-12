@@ -3,7 +3,9 @@
     z-index: 1 !important;
     background: none !important;
     box-shadow: none !important;
-    min-height: 75px;
+    min-height: 70px;
+    padding-top: 10px;
+    padding-bottom: 0;
 }
 
 .navbar-nav {
@@ -21,6 +23,7 @@ img {
 
 .navbar-nav li {
     padding-right: 40px;
+    padding-top: 8px;
 }
 
 .nav-item, .nav-link, .dropdown-toggle {
@@ -128,7 +131,7 @@ img {
 
 .logo {
     width: auto !important;
-    min-height: 85px !important;
+    min-height: 65px !important;
     position: absolute;
     top: 1px;
     left: 10px;
