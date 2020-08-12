@@ -84,19 +84,18 @@ img {
     cursor: pointer;
 }
 
-/* .card-inner:hover img {
-    transition-duration: 200ms;
-    transition-timing-function: ease-out;
-    opacity: 0.65;
-} */
-
 .card-inner img {
-    /* transition-duration: 500ms;
-    transition-timing-function: ease-out; */
     border-radius: 50%;
 }
 
 .card-img-wrapper {
     overflow: hidden;
     position: relative;
+}
+
+@media only screen and (max-width: 940px) {
+    .dropdown-card {
+        left: auto !important;
+        right: 0 !important;
+    }
 }

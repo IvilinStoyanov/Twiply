@@ -56,8 +56,14 @@ img {
   }
   
 
+.navbar-nav .dropdown-menu {
+    position: absolute !important;
+}
+
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
+    height: 28px;
+    line-height: 25px;
 }
 
 .side-menu {
