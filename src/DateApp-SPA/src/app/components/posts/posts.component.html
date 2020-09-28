@@ -84,7 +84,10 @@
             <i class="fa fa-smile-o emoji-picker-icon mr-1" (click)="toggleEmojiPickerForComment($event)"
                 (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
                 aria-controls="collapseBasic"></i>
-            <input class="form-control" [(ngModel)]="textForComment" placeholder="share your thoughts" type="text">
+            <!-- <input class="form-control" [(ngModel)]="textForComment" placeholder="share your thoughts" type="text"> -->
+            <textarea class="form-control autogrow pl-2" placeholder="share your thoughts"
+            style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 80px;"
+            [(ngModel)]="textForComment" name="description"></textarea>
             <i class="fa fa-paper-plane emoji-picker-icon" (click)="addComment()"></i>
         </div>
     </div>

@@ -21,8 +21,11 @@
       <div class="d-flex user-top-container">
         <div class="d-flex">
           <span class="mr-4 xl-font">{{user.username | titlecase}}</span>
-          <span *ngIf="!editMode" class="align-self-center medium-font text-muted"><i class="fa fa-map-marker mr-1"></i>{{user.city}},
-            {{user.country}}</span>
+          <span *ngIf="!editMode" class="align-self-center medium-font text-muted">
+            <i class="fa fa-map-marker mr-1"></i>
+            <span>{{user.city}}</span>
+            <span *ngIf="user.country">, {{user.country}}</span>
+          </span>
         </div>
         <div class="d-flex align-items-center" *ngIf="editMode">
           <input class="input-edit-mode form-control mr-2" type="text" name="city" [(ngModel)]="user.city">
