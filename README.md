@@ -1,2 +1,1 @@
-# checkery
-asp.net web api + angular app
+.net5 web api + angular 11 
