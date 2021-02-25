@@ -1,8 +1,8 @@
 <nav>
   <div fxLayout="row" fxLayoutAlign="space-between center">
     <div>
-      <button mat-raised-button color="primary" [routerLink]="['/home']" routerLinkActive="router-link-active">
-        Home
+      <button mat-raised-button color="primary" (click)="openLoginDialog()">
+        Login
       </button>
     </div>
     <div>

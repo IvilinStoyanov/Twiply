@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { NavComponent } from './components/nav/nav.component';
+import { LoginDialogComponent } from './components/nav/dialog/login-dialog/login-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, LoginDialogComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,
