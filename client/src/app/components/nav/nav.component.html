@@ -1,11 +1,16 @@
 <nav>
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <div>
+    <div *ngIf="!loggenIn">
       <button mat-raised-button color="primary" (click)="openLoginDialog()">
         Login
       </button>
     </div>
-    <div>
+    <div *ngIf="loggenIn">
+      <button mat-raised-button color="primary" (click)="logout()">
+        Logout
+      </button>
+    </div>
+    <div *ngIf="loggenIn">
       <button mat-raised-button color="primary" [routerLink]="['/members']" routerLinkActive="router-link-active">
         Members
       </button>

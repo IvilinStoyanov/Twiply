@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -11,19 +12,22 @@ export class LoginDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) {}
+    @Inject(MAT_DIALOG_DATA) public data, private accountService: AccountService) {}
 
 
   ngOnInit(): void {
   }
 
   login() {
-    console.log(this.model);
+    this.accountService.login(this.model).subscribe(response => {
+      console.log(response);
+      this.dialogRef.close(true);
+    }, error => {
+      console.log(error);
+    })
   }
 
   close(): void {
     this.dialogRef.close();
   }
-
-
 }
