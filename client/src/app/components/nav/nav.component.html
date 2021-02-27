@@ -1,22 +1,15 @@
-<nav>
+<nav class="p-1 mb-4">
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <button mat-raised-button color="primary" [routerLink]="['/home']" routerLinkActive="router-link-active">
-      Home
-    </button>
+    <a [routerLink]="['/home']"> Home </a>
     <div *ngIf="(accountService.currentUser$ | async) === null">
-      <button mat-raised-button color="primary" (click)="openLoginDialog()">
-        Login
-      </button>
+      <a class="mr-1" (click)="openLoginDialog()">Login</a>
+      <a (click)="openRegisterDialog()">Sign In</a>
     </div>
     <div *ngIf="accountService.currentUser$ | async">
-      <button mat-raised-button color="primary" [routerLink]="['/members']" routerLinkActive="router-link-active">
-        Members
-      </button>
+      <a [routerLink]="['/members']"> Members </a>
     </div>
     <div *ngIf="accountService.currentUser$ | async">
-      <button mat-raised-button color="primary" (click)="logout()">
-        Logout
-      </button>
+      <a (click)="logout()"> Logout </a>
     </div>
   </div>
 </nav>

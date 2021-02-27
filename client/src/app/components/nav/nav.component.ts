@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { LoginDialogComponent } from './dialog/login-dialog/login-dialog.component';
+import { RegisterDialogComponent } from './dialog/register-dialog/register-dialog.component';
 
 @Component({
   selector: 'app-nav',
@@ -24,9 +25,12 @@ export class NavComponent implements OnInit {
       width: '230px',
       autoFocus: false
     });
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-    
+  openRegisterDialog() {
+    const dialogRef = this.dialog.open(RegisterDialogComponent, {
+      width: '230px',
+      autoFocus: false
     });
   }
 

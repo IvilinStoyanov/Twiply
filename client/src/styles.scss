@@ -1,9 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'style/utilities';
+@import "style/theme";
+@import "style/utilities";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "style/material/mat-button.scss";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #292929;
+}
 
 .mat-dialog-content {
-    overflow: visible !important;
+  overflow: visible !important;
 }

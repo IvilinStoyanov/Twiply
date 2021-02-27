@@ -8,7 +8,7 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./login-dialog.component.scss']
 })
 export class LoginDialogComponent implements OnInit {
-  model: any = {}
+  model: any = {};
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogComponent>,
