@@ -17,7 +17,10 @@ export class RegisterDialogComponent implements OnInit {
   }
 
   register() {
-
+    this.accountService.register(this.model).subscribe(() => {
+      console.log(this.model);
+      this.close();
+    })
   }
 
   close(): void {
