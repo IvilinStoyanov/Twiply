@@ -1,0 +1,19 @@
+@import "../_colors";
+
+.mat-simple-snackbar {
+    font-size: 14px;
+    color: $white;
+    font-weight: 500;
+  }
+  
+  .snackbar-error {
+    background-color: $red;
+  }
+  
+  .snackbar-success {
+    background-color: $green;
+  }
+  
+  .snackbar-info {
+    background-color: $blue;
+  }

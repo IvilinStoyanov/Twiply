@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -15,6 +16,7 @@ export class LoginDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
     private accountService: AccountService,
+    private notificationService: NotificationService,
     private router: Router
   ) {}
 
@@ -23,11 +25,14 @@ export class LoginDialogComponent implements OnInit {
   login() {
     this.accountService.login(this.model).subscribe(
       (response) => {
+        this.notificationService.success("succesfull login")
         this.router.navigateByUrl('/members');
         this.dialogRef.close(true);
       },
       (error) => {
         console.log(error);
+        this.notificationService.error(error.error);
+
       }
     );
   }
