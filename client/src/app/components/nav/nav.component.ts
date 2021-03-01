@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { LoginDialogComponent } from './dialog/login-dialog/login-dialog.component';
 import { RegisterDialogComponent } from './dialog/register-dialog/register-dialog.component';
 
@@ -13,7 +14,7 @@ import { RegisterDialogComponent } from './dialog/register-dialog/register-dialo
 export class NavComponent implements OnInit {
 
 
-  constructor(public dialog: MatDialog, public accountService: AccountService, private router: Router) { }
+  constructor(public dialog: MatDialog, public accountService: AccountService, private notificationService: NotificationService, private router: Router) { }
 
   ngOnInit() {
 
@@ -36,5 +37,6 @@ export class NavComponent implements OnInit {
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
+    this.notificationService.success('logout successful');
   }
 }
