@@ -8,9 +8,16 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then(h => h.HomeModule),
   },
   {
-    path: 'members',
-    loadChildren: () => import ('./modules/list/list.module').then(l => l.ListModule),
-    canActivate: [AuthGuard]
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'members',
+        loadChildren: () => import ('./modules/list/list.module').then(l => l.ListModule),
+        canActivate: [AuthGuard]
+      }
+    ]
   },
   {
     path: '**',
