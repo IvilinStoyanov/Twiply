@@ -1,3 +1,5 @@
+@import '../style/_colors';
+
 $spacer:                     1rem;
 $spacer-x:                   $spacer;
 $spacer-y:                   $spacer;
@@ -47,6 +49,10 @@ $spacers: (
 
 .text-center {
     text-align: center;
+}
+
+.active {
+  color: $primary;
 }
 
 .navigate {
