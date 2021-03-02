@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
 
 @NgModule({
   imports: [
@@ -23,7 +25,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatIconModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports: [
     CommonModule,
@@ -35,7 +37,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatIconModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
 })
 export class SharedModule {}

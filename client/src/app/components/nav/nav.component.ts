@@ -14,7 +14,7 @@ import { RegisterDialogComponent } from './dialog/register-dialog/register-dialo
 export class NavComponent implements OnInit {
 
 
-  constructor(public dialog: MatDialog, public accountService: AccountService, private notificationService: NotificationService, private router: Router) { }
+  constructor(public dialog: MatDialog, public accountService: AccountService, private notification: NotificationService, private router: Router) { }
 
   ngOnInit() {
 
@@ -37,6 +37,6 @@ export class NavComponent implements OnInit {
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
-    this.notificationService.success('logout successful');
+    this.notification.success('logout successful');
   }
 }

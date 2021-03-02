@@ -8,9 +8,11 @@ import { SharedModule } from './modules/shared/shared.module';
 import { NavComponent } from './components/nav/nav.component';
 import { LoginDialogComponent } from './components/nav/dialog/login-dialog/login-dialog.component';
 import { RegisterDialogComponent } from './components/nav/dialog/register-dialog/register-dialog.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ServerErrorComponent } from './components/server-error/server-error.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, LoginDialogComponent, RegisterDialogComponent],
+  declarations: [AppComponent, NavComponent, NotFoundComponent, ServerErrorComponent, LoginDialogComponent, RegisterDialogComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,

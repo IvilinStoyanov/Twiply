@@ -7,5 +7,9 @@
     <h1>Choose your soul mate</h1>
     <h4>from 300,000+ lonely hearts</h4>
     <button mat-raised-button color="accent">Join Us</button>
+    <button mat-raised-button color="warn" (click)="notFound()">Not found method</button>
+    <button mat-raised-button color="warn" (click)="get401Error()">auth</button>
+    <button mat-raised-button color="warn" (click)="serverError()">serverError</button>
+    <button mat-raised-button color="warn" (click)="badRequest()">badRequest</button>
   </div>
 </div>
