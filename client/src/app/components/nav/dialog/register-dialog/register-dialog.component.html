@@ -5,17 +5,17 @@
   </button>
 </div>
 <div mat-dialog-content>
-<form #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off">
-  <mat-form-field>
+<form fxLayout="column" #loginForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+  <mat-form-field fxFlex="100">
       <mat-label>Username</mat-label>
       <input matInput name="username" [(ngModel)]="model.username" />
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field fxFlex="100">
       <mat-label>Password</mat-label>
       <input matInput name="password" type="password" [(ngModel)]="model.password" />
   </mat-form-field>
-  <div mat-dialog-actions>
-      <button mat-raised-button color="primary" type="submit">Enter</button>
+  <div mat-dialog-actions fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" type="submit">Register</button>
   </div>
 </form>
 </div>

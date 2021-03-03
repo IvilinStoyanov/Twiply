@@ -1,3 +1,10 @@
+@import "../colors";
+
 button {
     font-size: 13px !important;
+
+    &.mat-primary {
+        background-color: $primary !important;
+        color: #fff !important;
+    }
 }

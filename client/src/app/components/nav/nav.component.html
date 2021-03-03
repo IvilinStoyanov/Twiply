@@ -1,4 +1,4 @@
-<nav class="p-1 mb-4">
+<nav class="p-1 mb-3">
   <div fxLayout="row" fxLayoutAlign="space-between center">
     <a [routerLink]="['/']">Home</a>
     <div *ngIf="(accountService.currentUser$ | async) === null">

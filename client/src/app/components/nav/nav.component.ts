@@ -22,14 +22,14 @@ export class NavComponent implements OnInit {
 
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
-      width: '230px',
+      width: '300px',
       autoFocus: false
     });
   }
 
   openRegisterDialog() {
     const dialogRef = this.dialog.open(RegisterDialogComponent, {
-      width: '230px',
+      width: '300px',
       autoFocus: false
     });
   }

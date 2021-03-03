@@ -4,6 +4,8 @@
 
 @import "style/material/mat-button.scss";
 @import "style/material/mat-snackbar.scss";
+@import "style/material/mat-dialog.scss";
+@import "style/material//mat-button.scss";
 
 html,
 body {
@@ -12,12 +14,8 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Josefin Sans', "Helvetica Neue", sans-serif;
   color: #292929;
-}
-
-.mat-dialog-content {
-  overflow: visible !important;
 }
 
 .material-icons {
