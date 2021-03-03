@@ -1,9 +1,9 @@
-<nav class="p-1 mb-3">
+<nav class="mb-3">
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <a [routerLink]="['/']">Home</a>
-    <div *ngIf="(accountService.currentUser$ | async) === null">
-      <a class="mr-1" (click)="openLoginDialog()">Login</a>
-      <a (click)="openRegisterDialog()">Register</a>
+    <a [routerLink]="['/']"><a href="#"><img src="../../../assets/img/logo/dateme_logo_white.png" class="logo"></a></a>
+    <div *ngIf="(accountService.currentUser$ | async) === null"> 
+        <a class="mr-1" (click)="openLoginDialog()">Login</a>
+        <a (click)="openRegisterDialog()">Register</a>
     </div>
     <div *ngIf="accountService.currentUser$ | async">
       <a [routerLink]="['/members']" routerLinkActive="active">Members </a>

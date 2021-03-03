@@ -16,6 +16,17 @@
   z-index: -1;
 }
 
+.arrow-btn {
+    color: $primary;
+    font-size: 22px !important;
+
+    .mat-icon {
+        font-size: 38px !important;
+        vertical-align: top !important;
+        line-height: 37px !important;
+    }
+}
+
 .white-bg {
   position: absolute;
   top: -140px;
