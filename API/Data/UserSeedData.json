@@ -13,8 +13,8 @@
         "Country": "Rwanda",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/women/50.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/women/50.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -32,8 +32,8 @@
         "Country": "Japan",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/women/24.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/women/24.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -51,8 +51,8 @@
         "Country": "Nauru",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/women/74.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/women/74.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -70,8 +70,8 @@
         "Country": "Antarctica",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/women/55.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/women/55.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -89,8 +89,8 @@
         "Country": "Mozambique",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/women/3.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/women/3.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -108,8 +108,8 @@
         "Country": "Cuba",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/men/43.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/men/43.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -127,8 +127,8 @@
         "Country": "Tunisia",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/men/99.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/men/99.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -146,8 +146,8 @@
         "Country": "Svalbard and Jan Mayen Islands",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/men/19.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/men/19.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -165,8 +165,8 @@
         "Country": "Spain",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/men/81.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/men/81.jpg",
+                "IsMain": true
             }
         ]
     },
@@ -184,8 +184,8 @@
         "Country": "Guam",
         "Photos": [
             {
-                "url": "https://randomuser.me/api/portraits/men/6.jpg",
-                "isMain": true
+                "Url": "https://randomuser.me/api/portraits/men/6.jpg",
+                "IsMain": true
             }
         ]
     }
