@@ -1,28 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { MembersService } from './services/members.service';
+import { Member } from 'src/app/models/member';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html'
 })
 export class ListComponent implements OnInit {
-  users: any;
+  members: Member[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private membersService: MembersService) { }
 
   ngOnInit() {
-    this.getUsers();
+    this.getMembers();
   }
 
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users').subscribe(
-      (response) => {
-        this.users = response;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  getMembers() {
+    this.membersService.getMembers().subscribe(members => this.members = members);
   }
-
 }
