@@ -1,6 +1,6 @@
 <nav class="mb-3">
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <a [routerLink]="['/']"><a href="#"><img src="../../../assets/img/logo/dateme_logo_white.png" class="logo"></a></a>
+    <a [routerLink]="['/']"><a href="#"><img src="../../../assets/img/logo/dateme_logo_black.png" class="logo"></a></a>
     <div *ngIf="(accountService.currentUser$ | async) === null"> 
         <a class="mr-1" (click)="openLoginDialog()">Login</a>
         <a (click)="openRegisterDialog()">Register</a>
