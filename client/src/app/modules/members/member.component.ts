@@ -3,10 +3,10 @@ import { MembersService } from './services/members.service';
 import { Member } from 'src/app/models/member';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html'
+  selector: 'app-member',
+  templateUrl: './member.component.html'
 })
-export class ListComponent implements OnInit {
+export class MemberComponent implements OnInit {
   members: Member[];
 
   constructor(private membersService: MembersService) { }

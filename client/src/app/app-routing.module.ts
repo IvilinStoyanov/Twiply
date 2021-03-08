@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       {
         path: 'members',
-        loadChildren: () => import ('./modules/list/list.module').then(l => l.ListModule),
+        loadChildren: () => import ('./modules/members/member.module').then(m => m.MemberModule),
         canActivate: [AuthGuard]
       }
     ]

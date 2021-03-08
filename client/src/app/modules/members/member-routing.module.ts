@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
-import { ListComponent } from './list.component';
+import { MemberComponent } from './member.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ListComponent,
+    component: MemberComponent,
     children: [{ path: 'members/:id', component: MemberDetailComponent }],
   },
 ];
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ListRoutingModule {}
+export class MemberRoutingModule {}

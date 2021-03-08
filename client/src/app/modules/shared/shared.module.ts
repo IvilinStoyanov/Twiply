@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
 
@@ -26,6 +28,7 @@ import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
     MatIconModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatCardModule
   ],
   exports: [
     CommonModule,
@@ -38,6 +41,7 @@ import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
     MatIconModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

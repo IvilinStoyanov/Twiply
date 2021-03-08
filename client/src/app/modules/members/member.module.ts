@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list.component';
-import { ListRoutingModule } from './list-routing.module';
+import { MemberComponent } from './member.component';
+import { MemberRoutingModule } from './member-routing.module';
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    ListRoutingModule
+    MemberRoutingModule
   ],
-  declarations: [ListComponent, MemberDetailComponent]
+  declarations: [MemberComponent, MemberDetailComponent]
 })
-export class ListModule { }
+export class MemberModule { }
