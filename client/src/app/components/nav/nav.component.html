@@ -11,7 +11,7 @@
     <div *ngIf="accountService.currentUser$ | async as user">
       <button mat-button [matMenuTriggerFor]="menu">
         {{ user.username | titlecase }}
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>Edit Profile</button>

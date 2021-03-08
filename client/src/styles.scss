@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "style/theme";
 @import "style/utilities";
+@import "style/fonts";
 
 @import "style/material/mat-button.scss";
 @import "style/material/mat-snackbar.scss";
@@ -16,6 +17,11 @@ body {
   margin: 0;
   font-family: 'Josefin Sans', "Helvetica Neue", sans-serif;
   color: #292929;
+}
+
+.mat-icon {
+  width: 22px !important;
+  height: 22px !important;
 }
 
 .material-icons {
