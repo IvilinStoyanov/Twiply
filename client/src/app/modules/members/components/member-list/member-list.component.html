@@ -1,6 +1,23 @@
-<p>member-list works!</p>
-<ul>
-    <li *ngFor="let member of members">
-      {{member.username}}
-    </li>
-  </ul>
+<div fxLayout="row wrap">
+    <div *ngFor="let member of members" fxFlex="33">
+        <mat-card class="m-1">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title> {{member.username}}</mat-card-title>
+                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{member.photoUrl}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
