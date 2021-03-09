@@ -3,24 +3,36 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { NavComponent } from './components/nav/nav.component';
 import { LoginDialogComponent } from './components/nav/dialog/login-dialog/login-dialog.component';
 import { RegisterDialogComponent } from './components/nav/dialog/register-dialog/register-dialog.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, NotFoundComponent, ServerErrorComponent, LoginDialogComponent, RegisterDialogComponent],
+  declarations: [
+    AppComponent,
+    NavComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
+    LoginDialogComponent,
+    RegisterDialogComponent,
+  ],
   imports: [
     AppRoutingModule,
-    HttpClientModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

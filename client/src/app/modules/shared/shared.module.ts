@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 /* material modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -13,12 +14,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
-
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     FlexLayoutModule,
     FormsModule,
     MatButtonModule,
@@ -32,6 +31,7 @@ import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
   ],
   exports: [
     CommonModule,
+    RouterModule,
     FlexLayoutModule,
     FormsModule,
     MatButtonModule,
@@ -42,9 +42,6 @@ import { ErrorInterceptor } from 'src/app/interceptors/error.interceptor';
     MatSnackBarModule,
     MatMenuModule,
     MatCardModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  ],
+  ]
 })
-export class SharedModule {}
+export class SharedModule { }

@@ -1,6 +1,6 @@
 @import "../style/_colors";
 
-$spacer: 1rem;
+$spacer: 0.5rem;
 $spacer-x: $spacer;
 $spacer-y: $spacer;
 $spacers: (
@@ -79,6 +79,10 @@ $spacers: (
 
 .active {
   color: $primary;
+}
+
+.muted {
+  color: $muted;
 }
 
 .navigate {

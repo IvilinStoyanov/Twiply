@@ -16,7 +16,12 @@ const routes: Routes = [
     children: [
       {
         path: 'members',
-        loadChildren: () => import ('./modules/members/member.module').then(m => m.MemberModule),
+        loadChildren: () => import ('./modules/members/modules/member-list/member-list.module').then(m => m.MemberListModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'members/:username',
+        loadChildren: () => import ('./modules/members/modules/member-detail/member-detail.module').then(m => m.MemberDetailModule),
         canActivate: [AuthGuard]
       }
     ]
