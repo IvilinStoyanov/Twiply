@@ -7,6 +7,8 @@
 @import "style/material/mat-snackbar.scss";
 @import "style/material/mat-dialog.scss";
 @import "style/material//mat-button.scss";
+@import "style/material//mat-tab.scss";
+@import "style/material//mat-icon.scss";
 
 html,
 body {
@@ -17,13 +19,4 @@ body {
   margin: 0;
   font-family: 'Josefin Sans', "Helvetica Neue", sans-serif;
   color: #292929;
-}
-
-.mat-icon {
-  width: 22px !important;
-  height: 22px !important;
-}
-
-.material-icons {
-  font-size: 22px !important
 }

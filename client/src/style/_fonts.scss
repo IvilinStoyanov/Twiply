@@ -1,19 +1,31 @@
-.xs-small {
+.text-bold {
+    font-weight: bold;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-xs-small {
     font-size: 10px !important;
 }
 
-.small {
+.text-xs {
     font-size: 12px !important;
 }
 
-.xs-medium {
+.text-xs-md {
     font-size: 13px !important;
 }
 
-.medium {
+.text-md {
     font-size: 14px !important;
 }
 
-.text-large {
+.text-lg {
     font-size: 19px !important;
 }

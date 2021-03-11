@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { }

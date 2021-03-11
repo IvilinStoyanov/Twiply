@@ -4,12 +4,12 @@
           <div fxLayout="row">
               <img mat-card-image src="{{member.photoUrl}}" alt="photo of a member" class="mt-0">
               <mat-card-header class="mt-1">
-                  <mat-card-title class="medium">
-                      {{member.knownAs}}, {{member.age}} 
+                  <mat-card-title class="text-md">
+                      <strong>{{member.knownAs}}</strong>, {{member.age}} 
                       <mat-icon *ngIf="member.gender=='male'" class="gender-icon">male</mat-icon>
                       <mat-icon *ngIf="member.gender=='female'" class="gender-icon">female</mat-icon>
                   </mat-card-title>
-                  <mat-card-subtitle class="small">
+                  <mat-card-subtitle class="text-xs">
                       <mat-icon class="location-icon">location_on</mat-icon>{{member.city}}, {{member.country}}
                   </mat-card-subtitle>
               </mat-card-header>

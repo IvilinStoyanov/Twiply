@@ -1,4 +1,20 @@
+@import "../../../../../style/_colors";
+
 .member-img {
     width: 200px;
     height: auto;
+}
+
+.location-icon {
+    font-size: 17px !important;
+    height: 17px !important;
+    width: 17px !important;
+}
+
+.table-title {
+    min-width: 85px;
+}
+
+.age {
+    color: $blue;
 }
