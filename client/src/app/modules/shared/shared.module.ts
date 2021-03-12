@@ -4,6 +4,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+
 /* material modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -20,6 +22,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     CommonModule,
     RouterModule,
     FlexLayoutModule,
+    NgxGalleryModule,
     FormsModule,
     MatButtonModule,
     MatDialogModule,
@@ -35,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     CommonModule,
     RouterModule,
     FlexLayoutModule,
+    NgxGalleryModule,
     FormsModule,
     MatButtonModule,
     MatDialogModule,
