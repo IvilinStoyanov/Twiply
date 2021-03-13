@@ -14,8 +14,8 @@
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Edit Profile</button>
-        <button mat-menu-item (click)="logout()">Logout</button>
+        <button mat-menu-item [routerLink]="['/my-profile']"><mat-icon class="mr-1">person</mat-icon>My Profile</button>
+        <button mat-menu-item (click)="logout()"><mat-icon class="mr-1">logout</mat-icon>Logout</button>
       </mat-menu>
     </div>
   </div>

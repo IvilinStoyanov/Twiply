@@ -23,6 +23,11 @@ const routes: Routes = [
         path: 'members/:username',
         loadChildren: () => import ('./modules/members/modules/member-detail/member-detail.module').then(m => m.MemberDetailModule),
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'my-profile',
+        loadChildren: () => import ('./modules/members/modules/member-edit/member-edit.module').then(m => m.MemberEditModule),
+        canActivate: [AuthGuard]
       }
     ]
   },
