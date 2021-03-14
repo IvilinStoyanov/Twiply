@@ -3,8 +3,12 @@
 }
 
 .text-justify {
-    text-align: justify;
+    text-align: justify !important;
 }
+
+.text-center {
+    text-align: center;
+  }
 
 .text-uppercase {
     text-transform: uppercase;

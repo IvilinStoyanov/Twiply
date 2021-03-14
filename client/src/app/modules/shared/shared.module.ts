@@ -16,6 +16,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { PerfectScrollbarConfigInterface, PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   imports: [
@@ -23,6 +28,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     RouterModule,
     FlexLayoutModule,
     NgxGalleryModule,
+    PerfectScrollbarModule,
     FormsModule,
     MatButtonModule,
     MatDialogModule,
@@ -39,6 +45,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     RouterModule,
     FlexLayoutModule,
     NgxGalleryModule,
+    PerfectScrollbarModule,
     FormsModule,
     MatButtonModule,
     MatDialogModule,
@@ -49,6 +56,12 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatMenuModule,
     MatCardModule,
     MatTabsModule
+  ],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
   ]
 })
 export class SharedModule { }

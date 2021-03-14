@@ -1,17 +1,38 @@
+@import "../../../../../style/_colors";
+
+.second-column {
+    width: calc(100% - 160px);
+}
+
 .table-title {
-    min-width: 90px;
+  min-width: 90px;
 }
 
 .edit-icon {
-    font-size: 22px !important;
-    width: 22px !important;
-    height: 22px !important;
+  font-size: 22px !important;
+  width: 22px !important;
+  height: 22px !important;
 }
 
 .textarea-edit {
-    height: 120px;
+  height: 120px;
 }
 
-.mat-tab-group {
-    width: 500px !important;
+textarea {
+  overflow: hidden !important;
+}
+
+perfect-scrollbar {
+    margin-bottom: 10px;
+    padding-right: 15px;
+    height: 120px;
+    max-height: 120px;
+}
+
+.age {
+    color: $blue;
+}
+
+p {
+    margin-top: 3px;
 }

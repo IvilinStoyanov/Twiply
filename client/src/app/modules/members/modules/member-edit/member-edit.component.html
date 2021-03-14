@@ -1,14 +1,14 @@
 <div *ngIf="member" fxLayoutAlign="center start">
-  <div fxLayout="row" fxFlex="60">
+  <div fxLayout="row" fxFlex="100" class="pl-4 pr-4" style="margin: 0 auto;">
     <div fxLayout="column" class="text-xs-md mr-4">
       <img src="{{ member.photoUrl }}" class="member-img" />
-      <p class="muted">ACTIVITY</p>
+      <p class="muted mt-1">ACTIVITY</p>
       <strong>Last Active:</strong>
       <span class="mb-2">{{ member.lastActive }}</span>
       <strong>Members since:</strong>
       <span>{{member.created | date}}</span>
     </div>
-    <div fxLayout="column">
+    <div fxLayout="column" class="second-column">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <div>
           <strong class="text-lg mr-3">{{member.username | titlecase}}</strong>
@@ -17,8 +17,11 @@
           </span>
         </div>
         <div>
-          <button *ngIf="!isEditable" mat-stroked-button color="primary" class="pl-2" (click)="toggleEdit()"><mat-icon>create</mat-icon> Edit Profile</button>
-          <button *ngIf="isEditable" mat-stroked-button color="secondary" class="mr-1" (click)="toggleEdit()">Cancel</button>
+          <button *ngIf="!isEditable" mat-stroked-button color="primary" class="pl-2" (click)="toggleEdit()">
+            <mat-icon>create</mat-icon> Edit Profile
+          </button>
+          <button *ngIf="isEditable" mat-stroked-button color="secondary" class="mr-1"
+            (click)="toggleEdit()">Cancel</button>
           <button *ngIf="isEditable" mat-stroked-button color="success" (click)="save()">Save</button>
         </div>
       </div>
@@ -39,6 +42,21 @@
       <div>
         <mat-tab-group class="mt-3">
           <mat-tab label="About">
+            <div fxLayout="column" class="mt-1">
+              <!-- <div class="muted text-xs text-bold text-uppercase mb-2 mt-1">Basic information</div> -->
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Gender:</p>
+                <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                  <input matInput value="{{member.gender | titlecase}}">
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Birthday:</p>
+                <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                  <input matInput value="{{member.dateOfBirth | date}}">
+                </mat-form-field>
+              </div>
+            </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Known As:</p>
               <mat-form-field [class.editable]="!isEditable" class="input-edit">
@@ -47,30 +65,27 @@
             </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Description:</p>
-              <mat-form-field [class.editable]="!isEditable" class="input-edit" fxFlex="100">
-                <textarea matInput class="textarea-edit" value="{{member.introduction}}"></textarea>
-              </mat-form-field>
+              <perfect-scrollbar style="height: 120px; max-height: 120px;">
+                <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                  <textarea matInput class="textarea-edit" value="{{member.introduction}}"></textarea>
+                </mat-form-field>
+              </perfect-scrollbar>
             </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Looking For:</p>
-              <mat-form-field [class.editable]="!isEditable" class="input-edit" fxFlex="100">
-                <textarea matInput class="textarea-edit textarea-edit" value="{{member.lookingFor}}"></textarea>
-              </mat-form-field>
+              <perfect-scrollbar>
+                <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                  <textarea matInput class="textarea-edit" value="{{member.lookingFor}}"></textarea>
+                </mat-form-field>
+              </perfect-scrollbar>
             </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Interests:</p>
-              <mat-form-field [class.editable]="!isEditable" class="input-edit" fxFlex="100">
-                <textarea matInput class="textarea-edit" value="{{member.interests}}"></textarea>
-              </mat-form-field>
-            </div>
-            <div class="muted text-xs text-bold text-uppercase mb-2 mt-3">Basic information</div>
-            <div fxLayout="row" class="muted text-md">
-              <p class="table-title text-bold mr-2">Gender:</p>
-              <p>{{member.gender | titlecase}}</p>
-            </div>
-            <div fxLayout="row" class="muted text-md">
-              <p class="table-title text-bold mr-2">Birthday:</p>
-              <p>{{member.dateOfBirth | date}}</p>
+              <perfect-scrollbar>
+                <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                  <textarea matInput class="textarea-edit" value="{{member.interests}}"></textarea>
+                </mat-form-field>
+              </perfect-scrollbar>
             </div>
           </mat-tab>
           <mat-tab label="Photos">
