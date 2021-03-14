@@ -1,0 +1,15 @@
+.mat-form-field {
+  font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
+
+  .mat-form-field-infix {
+    padding-top: 2px;
+    height: 29px;
+  }
+
+  &.editable {
+      pointer-events: none;
+    .mat-form-field-underline {
+        height: 0 !important;
+    }
+}
+}

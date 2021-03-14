@@ -8,12 +8,32 @@ button {
       border-color: $primary !important;
       color: $primary !important;
     }
+
+    &.mat-success {
+      border-color: $green !important;
+      color: $green !important; 
+    }
+
+    &.mat-secondary {
+      border-color: $secondary !important;
+      color: $secondary !important; 
+    }
   }
 
   &.mat-raised-button {
     &.mat-primary {
       background-color: $primary !important;
-      color: #fff !important;
+      color: $white !important;
+    }
+
+    &.mat-success {
+      background-color: $green !important;
+      color: $white !important; 
+    }
+
+    &.mat-secondary {
+      border-color: $secondary !important;
+      color: $white !important; 
     }
   }
 }

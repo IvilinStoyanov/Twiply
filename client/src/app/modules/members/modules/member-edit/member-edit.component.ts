@@ -19,6 +19,8 @@ export class MemberEditComponent implements OnInit {
   member: Member;
   user: User;
 
+  isEditable: boolean;
+
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
@@ -50,5 +52,14 @@ export class MemberEditComponent implements OnInit {
     this.memberService
       .getMember(this.user.username)
       .subscribe((member) => (this.member = member));
+  }
+
+  toggleEdit() {
+    this.isEditable = !this.isEditable;
+  }
+
+  save() {
+    // TODO: Add function to save details.
+    this.toggleEdit();
   }
 }

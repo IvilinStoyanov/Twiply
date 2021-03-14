@@ -17,7 +17,9 @@
           </span>
         </div>
         <div>
-          <button mat-stroked-button color="primary" class="pl-2"><mat-icon>create</mat-icon> Edit Profile</button>
+          <button *ngIf="!isEditable" mat-stroked-button color="primary" class="pl-2" (click)="toggleEdit()"><mat-icon>create</mat-icon> Edit Profile</button>
+          <button *ngIf="isEditable" mat-stroked-button color="secondary" class="mr-1" (click)="toggleEdit()">Cancel</button>
+          <button *ngIf="isEditable" mat-stroked-button color="success" (click)="save()">Save</button>
         </div>
       </div>
       <div class="age text-md mt-1 mb-1">
@@ -39,19 +41,27 @@
           <mat-tab label="About">
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Known As:</p>
-              <p>{{member.knownAs || 'N/A'}}</p>
+              <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                <input matInput value="{{member.knownAs}}">
+              </mat-form-field>
             </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Description:</p>
-              <p class="text-justify">{{member.introduction || 'N/A'}}</p>
+              <mat-form-field [class.editable]="!isEditable" class="input-edit" fxFlex="100">
+                <textarea matInput class="textarea-edit" value="{{member.introduction}}"></textarea>
+              </mat-form-field>
             </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Looking For:</p>
-              <p class="text-justify">{{member.lookingFor || 'N/A'}}</p>
+              <mat-form-field [class.editable]="!isEditable" class="input-edit" fxFlex="100">
+                <textarea matInput class="textarea-edit textarea-edit" value="{{member.lookingFor}}"></textarea>
+              </mat-form-field>
             </div>
             <div fxLayout="row" class="muted text-md">
               <p class="table-title text-bold mr-2">Interests:</p>
-              <p class="text-justify">{{member.interests || 'N/A'}}</p>
+              <mat-form-field [class.editable]="!isEditable" class="input-edit" fxFlex="100">
+                <textarea matInput class="textarea-edit" value="{{member.interests}}"></textarea>
+              </mat-form-field>
             </div>
             <div class="muted text-xs text-bold text-uppercase mb-2 mt-3">Basic information</div>
             <div fxLayout="row" class="muted text-md">
