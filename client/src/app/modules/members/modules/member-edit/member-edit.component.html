@@ -17,12 +17,13 @@
           </span>
         </div>
         <div>
+          <span *ngIf="editForm.dirty" class="bg-primary border-rounder text-xs mr-2 p-2">You have made changes. Any unsaved changes will be lost.</span>
           <button *ngIf="!isEditable" mat-stroked-button color="primary" class="pl-2" (click)="toggleEdit()">
             <mat-icon>create</mat-icon> Edit Profile
           </button>
           <button *ngIf="isEditable" mat-stroked-button color="secondary" class="mr-1"
             (click)="toggleEdit()">Cancel</button>
-          <button *ngIf="isEditable" mat-stroked-button color="success" (click)="save()">Save</button>
+          <button *ngIf="isEditable" [disabled]="!editForm.dirty" form="editForm" mat-stroked-button color="success">Save</button>
         </div>
       </div>
       <div class="age text-md mt-1 mb-1">
@@ -42,51 +43,55 @@
       <div>
         <mat-tab-group class="mt-3">
           <mat-tab label="About">
-            <div fxLayout="column" class="mt-1">
-              <!-- <div class="muted text-xs text-bold text-uppercase mb-2 mt-1">Basic information</div> -->
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="save()">
+              <div fxLayout="column" class="mt-1">
+                <!-- <div class="muted text-xs text-bold text-uppercase mb-2 mt-1">Basic information</div> -->
+                <div fxLayout="row" class="muted text-md">
+                  <p class="table-title text-bold mr-2">Gender:</p>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                    <input matInput value="{{member.gender | titlecase}}">
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" class="muted text-md">
+                  <p class="table-title text-bold mr-2">Birthday:</p>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                    <input matInput value="{{member.dateOfBirth | date}}">
+                  </mat-form-field>
+                </div>
+              </div>
               <div fxLayout="row" class="muted text-md">
-                <p class="table-title text-bold mr-2">Gender:</p>
+                <p class="table-title text-bold mr-2">Known As:</p>
                 <mat-form-field [class.editable]="!isEditable" class="input-edit">
-                  <input matInput value="{{member.gender | titlecase}}">
+                  <input matInput value="{{member.knownAs}}" [(ngModel)]="member.knownAs" name="knownAs">
                 </mat-form-field>
               </div>
               <div fxLayout="row" class="muted text-md">
-                <p class="table-title text-bold mr-2">Birthday:</p>
-                <mat-form-field [class.editable]="!isEditable" class="input-edit">
-                  <input matInput value="{{member.dateOfBirth | date}}">
-                </mat-form-field>
+                <p class="table-title text-bold mr-2">Description:</p>
+                <perfect-scrollbar style="height: 120px; max-height: 120px;">
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                    <textarea matInput class="textarea-edit" [(ngModel)]="member.introduction"
+                      name="introduction"></textarea>
+                  </mat-form-field>
+                </perfect-scrollbar>
               </div>
-            </div>
-            <div fxLayout="row" class="muted text-md">
-              <p class="table-title text-bold mr-2">Known As:</p>
-              <mat-form-field [class.editable]="!isEditable" class="input-edit">
-                <input matInput value="{{member.knownAs}}">
-              </mat-form-field>
-            </div>
-            <div fxLayout="row" class="muted text-md">
-              <p class="table-title text-bold mr-2">Description:</p>
-              <perfect-scrollbar style="height: 120px; max-height: 120px;">
-                <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
-                  <textarea matInput class="textarea-edit" value="{{member.introduction}}"></textarea>
-                </mat-form-field>
-              </perfect-scrollbar>
-            </div>
-            <div fxLayout="row" class="muted text-md">
-              <p class="table-title text-bold mr-2">Looking For:</p>
-              <perfect-scrollbar>
-                <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
-                  <textarea matInput class="textarea-edit" value="{{member.lookingFor}}"></textarea>
-                </mat-form-field>
-              </perfect-scrollbar>
-            </div>
-            <div fxLayout="row" class="muted text-md">
-              <p class="table-title text-bold mr-2">Interests:</p>
-              <perfect-scrollbar>
-                <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
-                  <textarea matInput class="textarea-edit" value="{{member.interests}}"></textarea>
-                </mat-form-field>
-              </perfect-scrollbar>
-            </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Looking For:</p>
+                <perfect-scrollbar>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                    <textarea matInput class="textarea-edit" [(ngModel)]="member.lookingFor"
+                      name="lookingFor"></textarea>
+                  </mat-form-field>
+                </perfect-scrollbar>
+              </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Interests:</p>
+                <perfect-scrollbar>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                    <textarea matInput class="textarea-edit" [(ngModel)]="member.interests" name="interests"></textarea>
+                  </mat-form-field>
+                </perfect-scrollbar>
+              </div>
+            </form>
           </mat-tab>
           <mat-tab label="Photos">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"

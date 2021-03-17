@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {
   NgxGalleryAnimation,
   NgxGalleryImage,
@@ -8,6 +9,7 @@ import { take } from 'rxjs/operators';
 import { Member } from 'src/app/models/member';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { MembersService } from '../../services/members.service';
 
 @Component({
@@ -16,6 +18,8 @@ import { MembersService } from '../../services/members.service';
   styleUrls: ['./member-edit.component.scss'],
 })
 export class MemberEditComponent implements OnInit {
+  @ViewChild('editForm') editForm: NgForm;
+  
   member: Member;
   user: User;
 
@@ -26,7 +30,8 @@ export class MemberEditComponent implements OnInit {
 
   constructor(
     private accountService: AccountService,
-    private memberService: MembersService
+    private memberService: MembersService,
+    private notificationService: NotificationService
   ) {
     this.accountService.currentUser$
       .pipe(take(1))
@@ -60,6 +65,9 @@ export class MemberEditComponent implements OnInit {
 
   save() {
     // TODO: Add function to save details.
+    this.editForm.reset(this.member);
+    this.notificationService.success('Profile has been updated.');
+    console.log(this.member);
     this.toggleEdit();
   }
 }
