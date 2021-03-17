@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {
   NgxGalleryAnimation,
@@ -19,7 +19,12 @@ import { MembersService } from '../../services/members.service';
 })
 export class MemberEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
-  
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any) {
+    if (this.editForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
+
   member: Member;
   user: User;
 
@@ -65,9 +70,11 @@ export class MemberEditComponent implements OnInit {
 
   save() {
     // TODO: Add function to save details.
-    this.editForm.reset(this.member);
-    this.notificationService.success('Profile has been updated.');
-    console.log(this.member);
-    this.toggleEdit();
+    this.memberService.updateMember(this.member).subscribe(() => {
+      this.editForm.reset(this.member);
+      this.notificationService.success('Profile has been updated.');
+      console.log(this.member);
+      this.toggleEdit();
+    }, error => this.notificationService.error(error));
   }
 }
