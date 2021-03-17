@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PreventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {
@@ -16,18 +17,16 @@ const routes: Routes = [
     children: [
       {
         path: 'members',
-        loadChildren: () => import ('./modules/members/modules/member-list/member-list.module').then(m => m.MemberListModule),
-        canActivate: [AuthGuard]
+        loadChildren: () => import ('./modules/members/modules/member-list/member-list.module').then(m => m.MemberListModule)
       },
       {
         path: 'members/:username',
-        loadChildren: () => import ('./modules/members/modules/member-detail/member-detail.module').then(m => m.MemberDetailModule),
-        canActivate: [AuthGuard]
+        loadChildren: () => import ('./modules/members/modules/member-detail/member-detail.module').then(m => m.MemberDetailModule)
       },
       {
         path: 'my-profile',
         loadChildren: () => import ('./modules/members/modules/member-edit/member-edit.module').then(m => m.MemberEditModule),
-        canActivate: [AuthGuard]
+        canDeactivate: [PreventUnsavedChangesGuard]
       }
     ]
   },

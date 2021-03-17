@@ -93,3 +93,14 @@ $spacers: (
     vertical-align: super;
   }
 }
+
+.border-rounder {
+  border-radius: 4px;
+}
+
+
+.bg-primary {
+  background: $primary;
+  color: $white;
+  opacity: .8;
+}
