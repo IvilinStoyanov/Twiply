@@ -1,9 +1,65 @@
 <div fxLayout="row wrap">
-    <div fxLayout="column" *ngFor="let photo of member.photos" class="mr-2">
-      <img src="{{photo.url}}" alt="{{photo.url}}" class="member-photo">
-      <div fxLayout="row">
-        <button mat-raised-button color="secondary" class="border-radius-right-none border-radius-left-top-none ">Main</button>
-        <button mat-raised-button color="warn" class="border-radius-left-none border-radius-right-top-none "><mat-icon>delete</mat-icon></button>
+  <div fxLayout="column" *ngFor="let photo of member.photos" class="mr-2 mb-2">
+    <img src="{{ photo.url }}" alt="{{ photo.url }}" class="member-photo" />
+    <div fxLayout="row">
+      <button mat-stroked-button color="secondary" class="border-radius-right-none border-radius-left-top-none">
+        Main
+      </button>
+      <button mat-stroked-button color="warn" class="border-radius-left-none border-radius-right-top-none">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-3">
+    <h4 class="mb-1">Upload image</h4>
+    <div fxLayout="column" fxLayoutAlign="center center" ng2FileDrop [ngClass]="{ 'nv-file-over': hasBaseDropzoneOver }"
+      (fileOver)="fileOverBase($event)" [uploader]="uploader" class="well my-drop-zone">
+      <mat-icon>file_upload</mat-icon>
+      Drop photo
+    </div>
+
+    <!-- Multiple
+    <input type="file" ng2FileSelect [uploader]="uploader" multiple /><br />
+
+    Single
+    <input type="file" ng2FileSelect [uploader]="uploader" />
+  </div> -->
+
+    <div class="col-md-9" style="margin-bottom: 40px">
+      <h3>Upload queue</h3>
+      <p>Queue length: {{ uploader?.queue?.length }}</p>
+
+      <div>Name</div>
+      <div>Size</div>
+      <div *ngFor="let item of uploader.queue">
+        <span>
+          <strong>{{ item?.file?.name }}</strong>
+        </span>
+        <div *ngIf="uploader.options.isHTML5" nowrap>
+          {{ item?.file?.size / 1024 / 1024 | number: ".2" }} MB
+        </div>
+      </div>
+      <div>
+        <div>
+          Queue progress:
+          <div class="progress">
+            <div class="progress-bar" [ngStyle]="{ width: uploader.progress + '%' }"></div>
+          </div>
+        </div>
+        <button mat-raised-button color="success" type="button" class="mr-1" (click)="uploader.uploadAll()"
+          [disabled]="!uploader.getNotUploadedItems().length">
+          <mat-icon>cloud_upload</mat-icon> Upload all
+        </button>
+        <button mat-raised-button color="accent" type="button" class="mr-1" (click)="uploader.cancelAll()"
+          [disabled]="!uploader.isUploading">
+          <mat-icon>do_disturb</mat-icon> Cancel all
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="uploader.clearQueue()"
+          [disabled]="!uploader.queue.length">
+          <mat-icon>delete</mat-icon> Remove all
+        </button>
       </div>
     </div>
-</div>
+  </div>
