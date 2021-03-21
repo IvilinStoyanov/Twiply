@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.2.1",
     "@angular/router": "~11.2.1",
     "@kolkov/ngx-gallery": "^1.2.3",
+    "ng2-file-upload": "^1.4.0",
     "ngx-perfect-scrollbar": "^10.1.0",
     "ngx-spinner": "^10.0.1",
     "rxjs": "~6.6.0",
