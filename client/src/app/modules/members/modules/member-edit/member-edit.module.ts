@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MemberEditComponent } from './member-edit.component';
 import { MemberEditRoutingModule } from './member-edit.routing';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { MemberEditComponent } from './member-edit.component';
+import { PhotoEditComponent } from './components/photo-edit/photo-edit.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
     MemberEditRoutingModule,
     SharedModule
   ],
-  declarations: [MemberEditComponent]
+  declarations: [MemberEditComponent, PhotoEditComponent]
 })
 export class MemberEditModule { }

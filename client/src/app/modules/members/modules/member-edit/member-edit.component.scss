@@ -1,5 +1,9 @@
 @import "../../../../../style/_colors";
 
+  .member-img {
+    width: 100%;
+  }
+
 .second-column {
     width: calc(100% - 160px);
 }
@@ -35,4 +39,12 @@ perfect-scrollbar {
 
 p {
     margin-top: 3px;
+}
+
+@media only screen and (max-width: 599px) {
+  .second-column{
+     width: 100%;
+     margin-top: 10px;
+     margin-left: 0 !important;
+  }
 }

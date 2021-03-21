@@ -98,6 +98,23 @@ $spacers: (
   border-radius: 4px;
 }
 
+.border-radius-left-none {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.border-radius-right-none {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.border-radius-left-top-none {
+  border-top-left-radius: 0 !important;
+}
+
+.border-radius-right-top-none {
+  border-top-right-radius: 0 !important;
+}
 
 .bg-primary {
   background: $primary;

@@ -18,6 +18,11 @@ button {
       border-color: $secondary !important;
       color: $secondary !important; 
     }
+
+    &.mat-warn {
+      border-color: $red !important;
+      color: $red !important; 
+    }
   }
 
   &.mat-raised-button {
@@ -32,7 +37,12 @@ button {
     }
 
     &.mat-secondary {
-      border-color: $secondary !important;
+      background-color: $secondary !important;
+      color: $white !important; 
+    }
+
+    &.mat-warn {
+      background-color: $red !important;
       color: $white !important; 
     }
   }
