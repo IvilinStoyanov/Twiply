@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
   imports: [
     CommonModule,
     MemberDetailRoutingModule,
+
     SharedModule
   ],
   declarations: [MemberDetailComponent]

@@ -45,7 +45,8 @@
         <div>
           Queue progress:
           <div class="progress">
-            <div class="progress-bar" [ngStyle]="{ width: uploader.progress + '%' }"></div>
+            <ngx-progress-bar [value]="uploader.progress"></ngx-progress-bar>
+            <!-- <div class="progress-bar" [ngStyle]="{ width: uploader.progress + '%' }"></div> -->
           </div>
         </div>
         <button mat-raised-button color="success" type="button" class="mr-1" (click)="uploader.uploadAll()"

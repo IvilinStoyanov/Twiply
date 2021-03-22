@@ -16,7 +16,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { PerfectScrollbarConfigInterface, PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 
@@ -40,8 +39,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSnackBarModule,
     MatMenuModule,
     MatCardModule,
-    MatTabsModule,
-    MatProgressBarModule
+    MatTabsModule
   ],
   exports: [
     CommonModule,
@@ -58,8 +56,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSnackBarModule,
     MatMenuModule,
     MatCardModule,
-    MatTabsModule,
-    MatProgressBarModule
+    MatTabsModule
   ],
   providers: [
     {
