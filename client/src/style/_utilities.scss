@@ -85,6 +85,10 @@ $spacers: (
   cursor: pointer;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .inline-text-icon {
   mat-icon {
     vertical-align: revert;
@@ -92,6 +96,10 @@ $spacers: (
   span {
     vertical-align: super;
   }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $border;
 }
 
 .border-rounder {
