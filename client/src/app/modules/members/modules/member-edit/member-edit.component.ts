@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import {
   NgxGalleryAnimation,
   NgxGalleryImage,
@@ -11,6 +12,7 @@ import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MembersService } from '../../services/members.service';
+import { UploadPhotoDialogComponent } from './components/upload-photo-dialog/upload-photo-dialog.component';
 
 @Component({
   selector: 'app-member-edit',
@@ -36,7 +38,8 @@ export class MemberEditComponent implements OnInit {
   constructor(
     private accountService: AccountService,
     private memberService: MembersService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private dialog: MatDialog
   ) {
     this.accountService.currentUser$
       .pipe(take(1))
@@ -76,5 +79,12 @@ export class MemberEditComponent implements OnInit {
       console.log(this.member);
       this.toggleEdit();
     }, error => this.notificationService.error(error));
+  }
+
+  openUploadPhotoDialog(): void {
+    const dialogRef = this.dialog.open(UploadPhotoDialogComponent, {
+      width: '300px',
+      autoFocus: false
+    });
   }
 }

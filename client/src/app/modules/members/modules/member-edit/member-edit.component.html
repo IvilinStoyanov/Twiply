@@ -94,6 +94,7 @@
             </form>
           </mat-tab>
           <mat-tab label="Edit Photos">
+            <mat-icon class="navigate" (click)="openUploadPhotoDialog()">add_photo_alternate</mat-icon>
             <app-photo-edit [member]="member"></app-photo-edit>
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"
               style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>

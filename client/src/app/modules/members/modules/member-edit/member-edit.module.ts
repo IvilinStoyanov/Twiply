@@ -6,6 +6,7 @@ import { MemberEditComponent } from './member-edit.component';
 import { PhotoEditComponent } from './components/photo-edit/photo-edit.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { NgxProgressModule } from '@ngx-lite/progress';
+import { UploadPhotoDialogComponent } from './components/upload-photo-dialog/upload-photo-dialog.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,11 @@ import { NgxProgressModule } from '@ngx-lite/progress';
     NgxProgressModule,
     FileUploadModule
   ],
-  declarations: [MemberEditComponent, PhotoEditComponent]
+  declarations: 
+  [
+    MemberEditComponent,
+    PhotoEditComponent,
+    UploadPhotoDialogComponent
+  ]
 })
 export class MemberEditModule { }
