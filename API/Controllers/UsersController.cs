@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using API.DTOs;
@@ -78,6 +79,26 @@ namespace API.Controllers
                 return CreatedAtRoute("GetUser", new { Username = user.UserName }, _mapper.Map<PhotoDto>(photo));
 
             return BadRequest("Not able to upload photo.");
+        }
+
+        [HttpPut("set-main-photo/{photoId}")]
+        public async Task<ActionResult> SetMainPhoto(int photoId)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
+            var photo = user.Photos.FirstOrDefault(photo => photo.Id == photoId);
+
+            if (photo.IsMain) return BadRequest("Unable to set main photo twice.");
+
+            var currentMainPhoto = user.Photos.FirstOrDefault(photo => photo.IsMain);
+
+            if (currentMainPhoto != null) currentMainPhoto.IsMain = false;
+
+            photo.IsMain = true;
+
+            if (await _userRepository.SaveAllAsync()) return NoContent();
+
+            return BadRequest("Unable to set main photo.");
         }
     }
 }
