@@ -83,7 +83,7 @@ export class MemberEditComponent implements OnInit {
 
   openUploadPhotoDialog(): void {
     const dialogRef = this.dialog.open(UploadPhotoDialogComponent, {
-      width: '300px',
+      
       autoFocus: false
     });
   }

@@ -24,8 +24,13 @@ body {
   color: #292929;
 }
 
+.ngx-progress-bar {
+  height: 6px !important;
+}
+
 .ngx-progress-bar__value {
-  top: 3px !important;
+  display: none;
+  //top: 3px !important;
 }
 
 // .container {
