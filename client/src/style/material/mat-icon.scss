@@ -9,4 +9,14 @@
     &.mat-success {
         color: $green;
     }
+
+    &.mat-secondary {
+        color: $grey;
+    }
+}
+
+.md-icon {
+    font-size: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
 }
