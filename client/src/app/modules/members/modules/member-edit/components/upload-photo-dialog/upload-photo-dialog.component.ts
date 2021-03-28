@@ -26,6 +26,7 @@ export class UploadPhotoDialogComponent implements OnInit {
 
   fileOverBase(e: any) {
     this.hasBaseDropzoneOver = e;
+    console.log(e);
   }
 
   initializeUploader() {
@@ -41,6 +42,7 @@ export class UploadPhotoDialogComponent implements OnInit {
 
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
+      console.log(file);
     }
 
     this.uploader.onSuccessItem = (item, response, status, headers) => {
