@@ -9,4 +9,10 @@ nav {
         width: 78px;
         height: auto;
     }
+
+    .nav-user-img {
+        width: 45px;
+        border: 4px solid $border;
+        border-radius: 50%;
+    }
 }

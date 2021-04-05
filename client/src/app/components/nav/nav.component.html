@@ -10,6 +10,7 @@
     </div>
     <div *ngIf="accountService.currentUser$ | async as user">
       <button mat-button [matMenuTriggerFor]="menu">
+        <img src="{{user.photoUrl}}" alt="{{user.username}}" class="nav-user-img mr-1">
         {{ user.username | titlecase }}
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
