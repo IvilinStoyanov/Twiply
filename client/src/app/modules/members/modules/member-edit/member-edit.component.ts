@@ -8,6 +8,7 @@ import {
 } from '@kolkov/ngx-gallery';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/models/member';
+import { Photo } from 'src/app/models/photo';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { NotificationService } from 'src/app/services/notification.service';

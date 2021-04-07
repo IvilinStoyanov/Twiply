@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class MembersService {
   baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getMembers() {
     return this.http.get<Member[]>(this.baseUrl + 'users');
@@ -21,5 +21,9 @@ export class MembersService {
 
   updateMember(member: Member) {
     return this.http.put(this.baseUrl + 'users', member);
+  }
+
+  setMainPhoto(photoId: number) {
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
   }
 }
