@@ -22,12 +22,12 @@
           <div *ngFor="let item of uploader.queue; let i = index" fxLayout="row" fxLayoutAlign="start center"
             class="border-bottom mb-2 mt-2 pb-3">
             <div fxLayout="column">
-              <mat-icon class="md-icon mr-2" color="secondary">wallpaper</mat-icon>
+              <mat-icon class="lg-icon mr-2" color="secondary">wallpaper</mat-icon>
             </div>
             <div fxLayout="column" fxFlex>
               <div fxLayout="row" fxLayoutAlign="space-between center">
                 <div>
-                  <strong class="mr-1">{{ item?.file?.name }}</strong>
+                  <strong class="word-break mr-1">{{ item?.file?.name }}</strong>
                   <span *ngIf="uploader.options.isHTML5" nowrap>
                     {{ item?.file?.size / 1024 / 1024 | number: ".2" }} MB
                   </span>
