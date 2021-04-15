@@ -14,6 +14,7 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { CommonInputComponent } from './components/common-input/common-input.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     ServerErrorComponent,
     LoginDialogComponent,
     RegisterDialogComponent,
+    CommonInputComponent
   ],
   imports: [
     AppRoutingModule,

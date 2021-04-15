@@ -41,7 +41,7 @@ export class RegisterDialogComponent implements OnInit {
         this.matchValues('password'),
       ]),
     });
-    this.registerForm.controls.passwords.valueChanges.subscribe(() => {
+    this.registerForm.controls.password.valueChanges.subscribe(() => {
       this.registerForm.controls.confirmPassword.updateValueAndValidity();
     });
   }

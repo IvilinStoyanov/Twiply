@@ -1,0 +1,21 @@
+<mat-form-field fxFlex="100">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [class.is-invalid]="ngControl.touched && ngControl.invalid"
+    [type]="type"
+    [formControl]="ngControl.control"
+  />
+  <mat-error *ngIf="ngControl.control.errors?.required">
+    {{label}} is <strong>required</strong>
+  </mat-error>
+  <mat-error *ngIf="ngControl.control.errors?.minlength">
+    {{label}} must be at least {{ngControl.control.errors?.minlength['requiredLength']}} <strong>required</strong>
+  </mat-error>
+  <mat-error *ngIf="ngControl.control.errors?.maxlength">
+    {{label}} must be at most {{ngControl.control.errors?.maxlength['requiredLength']}} <strong>required</strong>
+  </mat-error>
+  <mat-error *ngIf="ngControl.control.errors?.isMatching">
+   password do not match
+  </mat-error>
+</mat-form-field>

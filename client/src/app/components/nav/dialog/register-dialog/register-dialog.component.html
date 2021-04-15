@@ -1,25 +1,33 @@
 <div fxLayout="row" fxLayoutAlign="space-between start">
   <h1 mat-dialog-title>Register</h1>
   <button mat-icon-button (click)="close()">
-      <mat-icon>close</mat-icon>
+    <mat-icon>close</mat-icon>
   </button>
 </div>
 <div mat-dialog-content>
-<form fxLayout="column" [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
-  <mat-form-field fxFlex="100">
-      <mat-label>Username</mat-label>
-      <input matInput formControlName="username" />
-  </mat-form-field>
-  <mat-form-field fxFlex="100">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password" />
-  </mat-form-field>
-  <mat-form-field fxFlex="100">
-    <mat-label>Confirm Password</mat-label>
-    <input matInput type="password" formControlName="confirmPassword" />
-</mat-form-field>
-  <div mat-dialog-actions fxLayoutAlign="end center">
+  <form
+    fxLayout="column"
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+    autocomplete="off"
+  >
+    <app-common-input
+      [label]="'Username'"
+      [formControl]="registerForm.controls['username']"
+    ></app-common-input>
+    <app-common-input
+      [label]="'Password'"
+      [type]="'password'"
+      [formControl]="registerForm.controls['password']"
+    ></app-common-input>
+    <app-common-input
+      [label]="'Confirm Password'"
+      [type]="'password'"
+      [formControl]="registerForm.controls['confirmPassword']"
+    >
+    </app-common-input>
+    <div mat-dialog-actions fxLayoutAlign="end center">
       <button mat-raised-button color="primary" type="submit">Register</button>
-  </div>
-</form>
+    </div>
+  </form>
 </div>
