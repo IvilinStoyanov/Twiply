@@ -1,10 +1,10 @@
-<div fxLayout="row" fxLayoutAlign="space-between start">
-        <h1 mat-dialog-title>Login</h1>
-        <button mat-icon-button (click)="close()">
-            <mat-icon>close</mat-icon>
-        </button>
-</div>
-<div mat-dialog-content>
+<mat-card-header fxLayout="row" fxLayoutAlign="space-between start">
+    <mat-card-title>Login</mat-card-title>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card-header>
+<mat-card-content>
     <form fxLayout="column" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
         <mat-form-field fxFlex="100">
             <mat-label>Username</mat-label>
@@ -18,4 +18,4 @@
             <button mat-raised-button color="primary" type="submit">Login</button>
         </div>
     </form>
-</div>
+</mat-card-content>

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
+  FormBuilder,
   FormControl,
   FormGroup,
   ValidatorFn,
@@ -21,7 +22,8 @@ export class RegisterDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<RegisterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -29,17 +31,22 @@ export class RegisterDialogComponent implements OnInit {
   }
 
   initializeForm() {
-    this.registerForm = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, [
+    this.registerForm = this.fb.group({
+      username: ['', Validators.required],
+      gender: ['male'],
+      knownAs: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      password: ['', [
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(8),
-      ]),
-      confirmPassword: new FormControl(null, [
+      ]],
+      confirmPassword: [null, [
         Validators.required,
         this.matchValues('password'),
-      ]),
+      ]],
     });
     this.registerForm.controls.password.valueChanges.subscribe(() => {
       this.registerForm.controls.confirmPassword.updateValueAndValidity();
