@@ -2,16 +2,18 @@ import { Component, Input, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-common-input',
-  templateUrl: './common-input.component.html',
-  styleUrls: ['./common-input.component.scss']
+  selector: 'app-date-input',
+  templateUrl: './date-input.component.html',
+  styleUrls: ['./date-input.component.scss']
 })
-export class CommonInputComponent implements ControlValueAccessor {
+export class DateInputComponent implements ControlValueAccessor {
   @Input() label: string;
-  @Input() type = 'text';
-
+  maxDate: Date;
+  
   constructor(@Self() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
    }
 
   writeValue(obj: any): void { }

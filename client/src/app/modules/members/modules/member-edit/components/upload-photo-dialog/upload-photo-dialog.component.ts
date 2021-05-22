@@ -26,7 +26,6 @@ export class UploadPhotoDialogComponent implements OnInit {
 
   fileOverBase(e: any) {
     this.hasBaseDropzoneOver = e;
-    console.log(e);
   }
 
   initializeUploader() {
@@ -42,13 +41,17 @@ export class UploadPhotoDialogComponent implements OnInit {
 
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
-      console.log(file);
     }
 
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
         const photo = JSON.parse(response);
+        // TODO: Fix this later
        // this.member.photos.push(photo);
+       if(photo.isMain) {
+         this.user.photoUrl = photo.Url;
+         this.accountService.setCurrentUser(this.user);
+       }
       }
     }
   }

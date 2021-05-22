@@ -1,7 +1,7 @@
 <div *ngIf="member" fxLayoutAlign="center start">
   <div fxLayout="row" fxLayout.lt-sm="column" fxFlex="90" style="margin: 0 auto;">
     <div fxLayout="column" class="text-xs-md">
-      <img src="{{ member.photoUrl }}" class="member-img" />
+      <img src="{{ member.photoUrl || './assets/img/common/default-user-profile-picture.png' }}" class="member-img" />
       <p class="muted mt-1">ACTIVITY</p>
       <strong>Last Active:</strong>
       <span class="mb-2">{{ member.lastActive }}</span>

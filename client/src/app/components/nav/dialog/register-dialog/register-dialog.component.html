@@ -1,59 +1,57 @@
-  <mat-card-header fxLayout="row" fxLayoutAlign="space-between start">
-    <mat-card-title>Register</mat-card-title>
-    <button mat-icon-button (click)="close()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-card-header>
-  <mat-card-content>
-    <form
-      fxLayout="column"
-      [formGroup]="registerForm"
-      (ngSubmit)="register()"
-      autocomplete="off"
+<mat-card-header fxLayout="row" fxLayoutAlign="space-between start">
+  <mat-card-title>Register</mat-card-title>
+  <button mat-icon-button (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-card-header>
+<mat-card-content>
+  <form
+    fxLayout="column"
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+    autocomplete="off"
+  >
+    <div>
+      <label class="mr-2">Gender:</label>
+      <mat-radio-group aria-label="Select a gender" formControlName="gender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <app-common-input
+      [label]="'Username'"
+      [formControl]="registerForm.controls['username']"
+    ></app-common-input>
+    <app-common-input
+      [label]="'Known As'"
+      [formControl]="registerForm.controls['knownAs']"
+    ></app-common-input>
+    <app-date-input
+      [label]="'Date of Birth'"
+      [formControl]="registerForm.controls['dateOfBirth']"
+    ></app-date-input>
+    <app-common-input
+      [label]="'City'"
+      [formControl]="registerForm.controls['city']"
+    ></app-common-input>
+    <app-common-input
+      [label]="'Country'"
+      [formControl]="registerForm.controls['country']"
+    ></app-common-input>
+    <app-common-input
+      [label]="'Password'"
+      [type]="'password'"
+      [formControl]="registerForm.controls['password']"
     >
-      <div>
-        <label class="mr-2">Gender:</label>
-        <mat-radio-group aria-label="Select a gender" formControlName="gender">
-          <mat-radio-button value="male">Male</mat-radio-button>
-          <mat-radio-button value="female">Female</mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <app-common-input
-        [label]="'Username'"
-        [formControl]="registerForm.controls['username']"
-      ></app-common-input>
-      <app-common-input
-        [label]="'Known As'"
-        [formControl]="registerForm.controls['knownAs']"
-      ></app-common-input>
-      <app-common-input
-        [label]="'Date of Birth'"
-        [formControl]="registerForm.controls['dateOfBirth']"
-      ></app-common-input>
-      <app-common-input
-        [label]="'City'"
-        [formControl]="registerForm.controls['city']"
-      ></app-common-input>
-      <app-common-input
-        [label]="'Country'"
-        [formControl]="registerForm.controls['country']"
-      ></app-common-input>
-      <app-common-input
-        [label]="'Password'"
-        [type]="'password'"
-        [formControl]="registerForm.controls['password']"
-      >
-      </app-common-input>
-      <app-common-input
-        [label]="'Confirm Password'"
-        [type]="'password'"
-        [formControl]="registerForm.controls['confirmPassword']"
-      >
-      </app-common-input>
-      <div mat-dialog-actions fxLayoutAlign="end center">
-        <button mat-raised-button color="primary" type="submit">
-          Register
-        </button>
-      </div>
-    </form>
-  </mat-card-content>
+    </app-common-input>
+    <app-common-input
+      [label]="'Confirm Password'"
+      [type]="'password'"
+      [formControl]="registerForm.controls['confirmPassword']"
+    >
+    </app-common-input>
+    <div mat-dialog-actions fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" type="submit">Register</button>
+    </div>
+  </form>
+</mat-card-content>

@@ -2,7 +2,7 @@
   <div *ngFor="let member of members" fxFlex="33" fxFlex.md="50" fxFlex.sm="100" fxFlex.xs="100">
       <mat-card fxLayout="row" fxLayoutAlign="space-between center" class="m-1">
           <div fxLayout="row">
-              <img mat-card-image src="{{member.photoUrl}}" alt="photo of a member" class="mt-0">
+              <img mat-card-image src="{{member.photoUrl || './assets/img/common/default-user-profile-picture.png'}}" alt="photo of a member" class="mt-0">
               <mat-card-header class="mt-1">
                   <mat-card-title class="text-md">
                       <strong>{{member.knownAs}}</strong>, {{member.age}} 

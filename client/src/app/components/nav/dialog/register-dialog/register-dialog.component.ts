@@ -2,13 +2,14 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
-  FormControl,
   FormGroup,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-register-dialog',
@@ -23,7 +24,9 @@ export class RegisterDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<RegisterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
     private accountService: AccountService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
@@ -62,10 +65,10 @@ export class RegisterDialogComponent implements OnInit {
   }
 
   register() {
-    console.log(this.registerForm.value);
     if (this.registerForm.valid) {
       this.accountService.register(this.registerForm.value).subscribe(() => {
         this.close();
+        this.router.navigateByUrl('/members');
       });
     }
   }

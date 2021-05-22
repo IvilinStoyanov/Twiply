@@ -15,6 +15,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { CommonInputComponent } from './components/common-input/common-input.component';
+import { DateInputComponent } from './components/date-input/date-input.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CommonInputComponent } from './components/common-input/common-input.com
     ServerErrorComponent,
     LoginDialogComponent,
     RegisterDialogComponent,
-    CommonInputComponent
+    CommonInputComponent,
+    DateInputComponent
   ],
   imports: [
     AppRoutingModule,
