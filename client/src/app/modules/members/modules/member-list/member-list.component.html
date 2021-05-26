@@ -1,33 +1,71 @@
 <div fxLayout="row wrap">
-  <div *ngFor="let member of members" fxFlex="33" fxFlex.md="50" fxFlex.sm="100" fxFlex.xs="100">
-      <mat-card fxLayout="row" fxLayoutAlign="space-between center" class="m-1">
-          <div fxLayout="row">
-              <img mat-card-image src="{{member.photoUrl || './assets/img/common/default-user-profile-picture.png'}}" alt="photo of a member" class="mt-0">
-              <mat-card-header class="mt-1">
-                  <mat-card-title class="text-md">
-                      <strong>{{member.knownAs}}</strong>, {{member.age}} 
-                      <mat-icon *ngIf="member.gender=='male'" class="gender-icon">male</mat-icon>
-                      <mat-icon *ngIf="member.gender=='female'" class="gender-icon">female</mat-icon>
-                  </mat-card-title>
-                  <mat-card-subtitle class="text-xs">
-                      <mat-icon class="location-icon">location_on</mat-icon>{{member.city}}, {{member.country}}
-                  </mat-card-subtitle>
-              </mat-card-header>
-          </div>
-          <div>
-              <mat-card-actions fxLayout="column" fxLayoutAlign="center end" class="p-0 mb-0">
-                  <span mat-button [matMenuTriggerFor]="menu" class="navigate member-menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </span>
-                    <mat-menu #menu="matMenu">
-                      <a mat-menu-item [routerLink]="['/members', member.username]">View Profile</a>
-                      <button mat-menu-item>Message</button>
-                    </mat-menu>
-                 <!-- <mat-icon class="favorite-icon">favorite</mat-icon> -->
-                 <mat-icon class="navigate favorite-icon">favorite_border</mat-icon>
-               
-              </mat-card-actions>
-          </div>
-      </mat-card>
+  <div
+    *ngFor="let member of members"
+    fxFlex="33"
+    fxFlex.md="50"
+    fxFlex.sm="100"
+    fxFlex.xs="100"
+  >
+    <mat-card fxLayout="row" fxLayoutAlign="space-between center" class="m-1">
+      <div fxLayout="row">
+        <img
+          mat-card-image
+          src="{{
+            member.photoUrl ||
+              './assets/img/common/default-user-profile-picture.png'
+          }}"
+          alt="photo of a member"
+          class="mt-0"
+        />
+        <mat-card-header class="mt-1">
+          <mat-card-title class="text-md">
+            <strong>{{ member.knownAs }}</strong
+            >, {{ member.age }}
+            <mat-icon *ngIf="member.gender == 'male'" class="gender-icon"
+              >male</mat-icon
+            >
+            <mat-icon *ngIf="member.gender == 'female'" class="gender-icon"
+              >female</mat-icon
+            >
+          </mat-card-title>
+          <mat-card-subtitle class="text-xs">
+            <mat-icon class="location-icon">location_on</mat-icon
+            >{{ member.city }}, {{ member.country }}
+          </mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <div>
+        <mat-card-actions
+          fxLayout="column"
+          fxLayoutAlign="center end"
+          class="p-0 mb-0"
+        >
+          <span
+            mat-button
+            [matMenuTriggerFor]="menu"
+            class="navigate member-menu"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </span>
+          <mat-menu #menu="matMenu">
+            <a mat-menu-item [routerLink]="['/members', member.username]"
+              >View Profile</a
+            >
+            <button mat-menu-item>Message</button>
+          </mat-menu>
+          <!-- <mat-icon class="favorite-icon">favorite</mat-icon> -->
+          <mat-icon class="navigate favorite-icon">favorite_border</mat-icon>
+        </mat-card-actions>
+      </div>
+    </mat-card>
   </div>
 </div>
+<mat-paginator
+  *ngIf="members"
+  class="mt-4"
+  [length]="pagination?.totalItems"
+  [pageSize]="pagination?.itemsPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="changePage($event)"
+>
+</mat-paginator>
