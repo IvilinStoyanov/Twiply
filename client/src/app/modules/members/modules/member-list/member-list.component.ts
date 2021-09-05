@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/models/member';
 import { Pagination } from 'src/app/models/pagination';
+import { NotificationService } from 'src/app/services/notification.service';
 import { MembersService } from '../../services/members.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class MemberListComponent implements OnInit {
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
-  constructor(private membersService: MembersService) {}
+  constructor(private membersService: MembersService, private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getMembers();
@@ -34,5 +35,9 @@ export class MemberListComponent implements OnInit {
     this.pageNumber = e.pageIndex + 1;
     this.pageSize = e.pageSize;
     this.getMembers();
+  }
+
+  addLike(member: Member) {
+    this.membersService.addLike(member.username).subscribe(() => this.notificationService.success('You have liked ' + member.knownAs));
   }
 }
