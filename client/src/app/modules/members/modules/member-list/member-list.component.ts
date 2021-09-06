@@ -17,14 +17,14 @@ export class MemberListComponent implements OnInit {
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   likedMembers: Partial<Member[]>;
-  predicate = 'liked';
 
   constructor(private membersService: MembersService, private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.getMembers();
 
-    this.loadLikes();
+    this.loadLikes('liked');
+    this.loadLikes('likedBy');
   }
 
   getMembers() {
@@ -46,8 +46,8 @@ export class MemberListComponent implements OnInit {
     this.membersService.addLike(member.username).subscribe(() => this.notificationService.success('You have liked ' + member.knownAs));
   }
 
-  loadLikes() {
-    this.membersService.getLikes(this.predicate).subscribe(resposne => {
+  loadLikes(predicate: string) {
+    this.membersService.getLikes(predicate).subscribe(resposne => {
       this.likedMembers = resposne;
     })
   }
