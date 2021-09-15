@@ -36,6 +36,8 @@ export class MemberEditComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
+  likedMembers: Partial<Member[]>;
+
   constructor(
     private accountService: AccountService,
     private memberService: MembersService,
@@ -49,6 +51,9 @@ export class MemberEditComponent implements OnInit {
 
   ngOnInit() {
     this.getMember();
+
+    this.loadLikes('liked');
+    this.loadLikes('likedBy');
 
     this.galleryOptions = [
       {
@@ -68,6 +73,12 @@ export class MemberEditComponent implements OnInit {
       .subscribe((member) => (this.member = member));
   }
 
+  loadLikes(predicate: string) {
+    this.memberService.getLikes(predicate).subscribe(response => {
+      console.log(response);
+      this.likedMembers = response;
+    })
+  }
   toggleEdit() {
     this.isEditable = !this.isEditable;
   }
@@ -84,7 +95,7 @@ export class MemberEditComponent implements OnInit {
 
   openUploadPhotoDialog(): void {
     const dialogRef = this.dialog.open(UploadPhotoDialogComponent, {
-      
+
       autoFocus: false
     });
   }
