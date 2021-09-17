@@ -81,6 +81,10 @@ $spacers: (
   color: $muted;
 }
 
+.text-primary {
+  color: $primary;
+}
+
 .text-secondary {
   color: $secondary;
 }
@@ -144,4 +148,9 @@ $spacers: (
   background: $primary;
   color: $white;
   opacity: .8;
+}
+
+.link {
+  color: $primary;
+  cursor: pointer;
 }

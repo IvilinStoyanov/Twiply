@@ -36,7 +36,9 @@ export class MemberEditComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
+  likedByMembers: Partial<Member[]>;
   likedMembers: Partial<Member[]>;
+
 
   constructor(
     private accountService: AccountService,
@@ -52,8 +54,8 @@ export class MemberEditComponent implements OnInit {
   ngOnInit() {
     this.getMember();
 
-    this.loadLikes('liked');
     this.loadLikes('likedBy');
+    this.loadLikes('liked');
 
     this.galleryOptions = [
       {
@@ -75,9 +77,9 @@ export class MemberEditComponent implements OnInit {
 
   loadLikes(predicate: string) {
     this.memberService.getLikes(predicate).subscribe(response => {
-      console.log(response);
-      this.likedMembers = response;
-    })
+      if (predicate == 'likedBy') this.likedByMembers = response;
+      if (predicate == 'liked') this.likedMembers = response;
+    });
   }
   toggleEdit() {
     this.isEditable = !this.isEditable;
