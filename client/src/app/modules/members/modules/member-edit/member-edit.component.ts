@@ -81,6 +81,7 @@ export class MemberEditComponent implements OnInit {
       if (predicate == 'liked') this.likedMembers = response;
     });
   }
+  
   toggleEdit() {
     this.isEditable = !this.isEditable;
   }
