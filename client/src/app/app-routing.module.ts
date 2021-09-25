@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import ('./modules/members/modules/member-detail/member-detail.module').then(m => m.MemberDetailModule)
       },
       {
+        path: 'messages',
+        loadChildren: () => import ('./modules/messages/messages.module').then(m => m.MessagesModule)
+      },
+      {
         path: 'my-profile',
         loadChildren: () => import ('./modules/members/modules/member-edit/member-edit.module').then(m => m.MemberEditModule),
         canDeactivate: [PreventUnsavedChangesGuard]

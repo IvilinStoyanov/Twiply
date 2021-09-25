@@ -6,7 +6,10 @@
         <a (click)="openRegisterDialog()">Register</a>
     </div>
     <div *ngIf="accountService.currentUser$ | async">
-      <a [routerLink]="['/members']" routerLinkActive="active">Members </a>
+      <a [routerLink]="['/members']">Members </a>
+    </div>
+    <div *ngIf="accountService.currentUser$ | async">
+      <a [routerLink]="['/messages']">Messages </a>
     </div>
     <div *ngIf="accountService.currentUser$ | async as user">
       <button mat-button [matMenuTriggerFor]="menu">
