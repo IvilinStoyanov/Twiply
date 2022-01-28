@@ -13,6 +13,8 @@ import { MessageService } from '../../services/message.service';
 export class MessageContainerComponent implements OnInit {
   members: Member[];
   messages: Message[] = [];
+  messageThread: any;
+  username: string;
   pagination: Pagination;
   pageNumber = 1;
   pageSize = 100;
@@ -21,27 +23,21 @@ export class MessageContainerComponent implements OnInit {
   constructor(private membersService: MembersService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.loadLikedUsers();
     this.loadMessages();
   }
 
-  // TODO: Change later to the filtered method
-  loadLikedUsers() {
-      this.membersService
-        .getMembers(this.pageNumber, this.pageSize)
-        .subscribe((response) => {
-          this.members = response.result;
-          this.pagination = response.pagination;
-        });
-  }
-
-  loadMessages(type: string = 'Unread') {
+  loadMessages(type: string = 'Inbox') {
     this.loading = true;
     this.messageService.getMessages(this.pageNumber, this.pageSize, type).subscribe(response => {
       this.messages = response.result;
       this.pagination = response.pagination;
       this.loading = false;
     })
+  }
+
+  getMessageThread(username: string) {
+    this.username = username;
+    this.messageService.getMessageThread(username).subscribe(thread => { this.messageThread = thread; console.log(thread) });
   }
   
   pageChanged(event: any) {

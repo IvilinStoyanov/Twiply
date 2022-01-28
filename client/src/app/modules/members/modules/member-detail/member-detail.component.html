@@ -4,7 +4,7 @@
     <img src="{{ member.photoUrl }}" class="member-img" />
     <p class="muted">ACTIVITY</p>
     <strong>Last Active:</strong>
-    <span class="mb-2">{{ member.lastActive }}</span>
+    <span class="mb-2">{{ member.lastActive | date }}</span>
     <strong>Members since:</strong>
     <span>{{member.created | date}}</span>
   </div>

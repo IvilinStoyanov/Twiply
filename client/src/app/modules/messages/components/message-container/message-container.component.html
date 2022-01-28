@@ -1,76 +1,52 @@
 <div fxLayout="row">
-    <div fxLayout="column">
-        <div *ngFor="let member of members">
+    <div fxLayout="column" class="border-right chat-sub-container">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <p class="text-bold">Chats</p>
             <div>
-                <img
-                mat-card-image
-                src="{{
-                  member.photoUrl ||
-                    './assets/img/common/default-user-profile-picture.png'
-                }}"
-                alt="photo of a member"
-                class="mt-0"
-              />
+                <mat-icon matSuffix class="muted navigate mr-1">settings</mat-icon>
+                <mat-icon matSuffix class="muted navigate">more_horiz</mat-icon>
+            </div>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Search contact</mat-label>
+            <input matInput value="">
+            <mat-icon matSuffix class="muted">search</mat-icon>
+          </mat-form-field>
+        <div *ngFor="let message of messages">
+            <div fxLayout="row" fxLayoutAlign="start center" class="chat-member-panel border-rounder navigate p-2" (click)="getMessageThread(message.senderUsername)">
+                <div class="mr-2">
+                    <img src="{{
+                        message.senderPhotoUrl ||
+                        './assets/img/common/default-user-profile-picture.png'
+                    }}" alt="photo of a member" class="mt-0" />
+                </div>
+                <div fxLayout="column">
+                    <span class="text-bold mb-1">{{message.senderUsername | titlecase}}</span>
+                    <span class="text-xs-md">{{message.content}} <span class="muted text-xs">{{message.messageSent | date}}</span></span>
+                </div>
             </div>
         </div>
     </div>
-    <div>
+    <div class="chat" fxFlex>
+        <div class="chat-history">
+            <ul class="m-b-0">
+                <li *ngFor="let thread of messageThread">
+                    <div *ngIf="thread.senderUsername !== username">
+                        <div class="message-data text-right">
+                            <span class="message-data-time">{{thread.messageSent | date}}</span>
+                            <img src="{{thread.senderPhotoUrl}}" alt="avatar">
+                        </div>
+                        <div class="message other-message my-message float-right">{{thread.content}}</div>
+                    </div>
+                    <div *ngIf="thread.senderUsername == username">
+                        <div class="message-data">
+                            <span class="message-data-time">{{thread.messageSent | date}}</span>
+                            <img src="{{thread.senderPhotoUrl}}" alt="avatar">
+                        </div>
+                        <div class="message my-message">{{thread.content}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-
 </div>
-
-
-
-
-
-<!-- <div class="row mb-4">
-    <mat-button-toggle-group name="messageType">
-        <mat-button-toggle value="Unread" (click)="loadMessages('Unread')">Unread</mat-button-toggle>
-        <mat-button-toggle value="Inbox" (click)="loadMessages('Inbox')">Inbox</mat-button-toggle>
-        <mat-button-toggle value="Outbox" (click)="loadMessages('Outbox')">Outbox</mat-button-toggle>
-    </mat-button-toggle-group>
-</div>
-
-<div class="row" *ngIf="messages?.length === 0">
-    <h3>No messages</h3>
-</div>
-
-<div class="row" *ngIf="messages?.length > 0">
-    <table class="table table-hover" style="cursor: pointer">
-        <tr>
-            <th style="width: 40%">Message</th>
-            <th style="width: 20%">From</th>
-            <th style="width: 20%">Sent</th>
-            <th style="width: 20%"></th>
-        </tr>
-        <tr [hidden]="loading" *ngFor="let message of messages" routerLink='{{container === "Outbox" 
-                ? "/members/" + message.recipientUsername 
-                : "/members/" + message.senderUsername}}' [queryParams]='{tab: 3}'>
-            <td>{{message.content}}</td>
-            <td>
-                <div *ngIf="container === 'Outbox'">
-                    <img class="img-circle rounded-circle mr-2"
-                        src="{{message.recipientPhotoUrl || './assets/user.png'}}" alt="{{message.recipientUsername}}">
-                    <strong>{{message.recipientUsername | titlecase}}</strong>
-                </div>
-                <div *ngIf="container !== 'Outbox'">
-                    <img class="img-circle rounded-circle mr-2" src="{{message.senderPhotoUrl || './assets/user.png'}}"
-                        alt="{{message.senderUsername}}">
-                    <strong>{{message.senderUsername | titlecase}}</strong>
-                </div>
-            </td>
-            <td>{{message.messageSent}}</td>
-            <td>
-                <button (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)"
-                    class='btn btn-danger'>Delete</button>
-            </td>
-        </tr>
-    </table>
-</div> -->
-
-<!-- <div class="d-flex justify-content-center" *ngIf="pagination && !loading">
-    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
-        [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
-        nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
-    </pagination>
-</div> -->
