@@ -1,3 +1,5 @@
+@import '../../../../../style/colors';
+
 img {
     width: 70px;
     height: auto;
@@ -12,36 +14,19 @@ img {
     background: #f7f7f7;
 }
 
-
 // test
-.chat .chat-header {
-    padding: 15px 20px;
-    border-bottom: 2px solid #f4f7f6
-}
-
-.chat .chat-header img {
-    float: left;
-    border-radius: 40px;
-    width: 40px
-}
-
-.chat .chat-header .chat-about {
-    float: left;
-    padding-left: 10px
-}
-
 .chat .chat-history {
-    padding: 20px;
-    border-bottom: 2px solid #fff
 }
 
 .chat .chat-history ul {
-    padding: 0
+    padding: 20px;
+    overflow: auto;
+    height: 72vh;
 }
 
 .chat .chat-history ul li {
     list-style: none;
-    margin-bottom: 30px
+    margin-bottom: 35px
 }
 
 .chat .chat-history ul li:last-child {
@@ -49,7 +34,7 @@ img {
 }
 
 .chat .chat-history .message-data {
-    margin-bottom: 15px
+    // margin-bottom: 10px
 }
 
 .chat .chat-history .message-data img {
@@ -58,50 +43,25 @@ img {
 }
 
 .chat .chat-history .message-data-time {
-    color: #434651;
-    padding-left: 6px
+    padding-left: 6px;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    min-width: 100px;
+    text-align: right;
 }
 
 .chat .chat-history .message {
-    color: #444;
-    padding: 18px 20px;
-    line-height: 26px;
-    font-size: 16px;
+    color: $text;
+    padding: 15px;
+    font-size: 14px;
     border-radius: 7px;
     display: inline-block;
     position: relative
 }
 
-.chat .chat-history .message:after {
-    bottom: 100%;
-    left: 7%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: #fff;
-    border-width: 10px;
-    margin-left: -10px
-}
-
 .chat .chat-history .my-message {
     background: #efefef
-}
-
-.chat .chat-history .my-message:after {
-    bottom: 100%;
-    left: 30px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: #efefef;
-    border-width: 10px;
-    margin-left: -10px
 }
 
 .chat .chat-history .other-message {
@@ -118,24 +78,12 @@ img {
     padding: 20px
 }
 
-.online,
-.offline,
-.me {
-    margin-right: 2px;
-    font-size: 8px;
-    vertical-align: middle
+.chat .message-content-container {
+    position: relative;
 }
 
-.online {
-    color: #86c541
-}
-
-.offline {
-    color: #e47297
-}
-
-.me {
-    color: #1d8ecd
+.chat .send-btn {
+    padding-left: 20px;
 }
 
 .float-right {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Member } from 'src/app/models/member';
 import { Message } from 'src/app/models/message';
 import { PaginatedResult, Pagination } from 'src/app/models/pagination';
@@ -16,11 +17,16 @@ export class MessageContainerComponent implements OnInit {
   messageThread: any;
   username: string;
   pagination: Pagination;
+  sendMessageForm: FormGroup;
   pageNumber = 1;
   pageSize = 100;
   loading = false;
 
-  constructor(private membersService: MembersService, private messageService: MessageService) { }
+  constructor(private membersService: MembersService, private messageService: MessageService, private fb: FormBuilder) {
+    this.sendMessageForm = this.fb.group({
+      content: new FormControl('')
+    });
+   }
 
   ngOnInit(): void {
     this.loadMessages();
@@ -38,6 +44,14 @@ export class MessageContainerComponent implements OnInit {
   getMessageThread(username: string) {
     this.username = username;
     this.messageService.getMessageThread(username).subscribe(thread => { this.messageThread = thread; console.log(thread) });
+  }
+
+  sendMessage() {
+    let messageContent = this.sendMessageForm.get('content').value;
+
+    this.messageService.sendMessage(this.username, messageContent).subscribe(message => {
+      this.messageThread.push(message);
+    });
   }
   
   pageChanged(event: any) {
