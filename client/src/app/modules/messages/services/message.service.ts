@@ -12,11 +12,8 @@ export class MessageService {
 
   constructor(private http: HttpClient) { }
 
-  getMessages(pageNumber, pageSize, container) {
+  getMessages(pageNumber, pageSize) {
     let params = getPaginationHeaders(pageNumber, pageSize);
-
-    params = params.append('Container', container);
-
     return getPaginatedResult<Message[]>(this.baseUrl + 'messages', params, this.http);
   }
 

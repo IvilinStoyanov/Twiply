@@ -1,4 +1,4 @@
-<div fxLayout="row">
+<div *ngIf="!isLoading" fxLayout="row">
     <div fxLayout="column" class="border-right chat-sub-container">
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <p class="text-bold">Chats</p>
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="chat" fxFlex *ngIf="messageThread">
+    <div *ngIf="!isChatLoading && messageThread" class="chat" fxFlex>
         <div class="chat-history">
             <ul class="m-b-0">
                 <li *ngFor="let thread of messageThread">

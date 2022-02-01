@@ -14,10 +14,6 @@ img {
     background: #f7f7f7;
 }
 
-// test
-.chat .chat-history {
-}
-
 .chat .chat-history ul {
     padding: 20px;
     overflow: auto;
@@ -31,10 +27,6 @@ img {
 
 .chat .chat-history ul li:last-child {
     margin-bottom: 0px
-}
-
-.chat .chat-history .message-data {
-    // margin-bottom: 10px
 }
 
 .chat .chat-history .message-data img {
@@ -97,18 +89,4 @@ img {
     content: " ";
     clear: both;
     height: 0
-}
-
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-    .chat-history {
-        height: 600px;
-        overflow-x: auto
-    }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .chat-history {
-        height: calc(100vh - 350px);
-        overflow-x: auto
-    }
 }

@@ -40,15 +40,17 @@ namespace API.Data
         public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
         {
             var query = _context.Messages
-                .OrderByDescending(m => m.MessageSent)
-                .AsQueryable();
+            .FromSqlRaw
+            (String.Format
+            ("select * from Messages m where m.Id in(select max(Id) from Messages m2 where RecipientUsername = '{0}' and m2.SenderId = m.SenderId)",
+             messageParams.Username))
+            .OrderByDescending(x => x.MessageSent);
 
-            query = messageParams.Container switch
-            {
-                "Inbox" => query.Where(u => u.Recipient.UserName == messageParams.Username),
-                "Outbox" => query.Where(u => u.Sender.UserName == messageParams.Username),
-                _ => query.Where(u => u.Recipient.UserName == messageParams.Username && u.DateRead == null)
-            };
+            // query = messageParams.Container switch
+            // {
+            //     "Unread" => query.Where(u => u.DateRead == null),
+            //     _ => query.Where(u => u.Recipient.UserName == messageParams.Username)
+            // };
 
             var messages = query.ProjectTo<MessageDto>(_mapper.ConfigurationProvider);
 

@@ -20,9 +20,10 @@ export class MessageContainerComponent implements OnInit {
   sendMessageForm: FormGroup;
   pageNumber = 1;
   pageSize = 100;
-  loading = false;
+  isLoading: boolean = true;
+  isChatLoading: boolean = true;
 
-  constructor(private membersService: MembersService, private messageService: MessageService, private fb: FormBuilder) {
+  constructor(private messageService: MessageService, private fb: FormBuilder) {
     this.sendMessageForm = this.fb.group({
       content: new FormControl('')
     });
@@ -32,18 +33,18 @@ export class MessageContainerComponent implements OnInit {
     this.loadMessages();
   }
 
-  loadMessages(type: string = 'Inbox') {
-    this.loading = true;
-    this.messageService.getMessages(this.pageNumber, this.pageSize, type).subscribe(response => {
+  loadMessages() {
+    this.messageService.getMessages(this.pageNumber, this.pageSize).subscribe(response => {
       this.messages = response.result;
       this.pagination = response.pagination;
-      this.loading = false;
+      this.isLoading = false;
     })
   }
 
   getMessageThread(username: string) {
+    this.isChatLoading = true;
     this.username = username;
-    this.messageService.getMessageThread(username).subscribe(thread => { this.messageThread = thread; console.log(thread) });
+    this.messageService.getMessageThread(username).subscribe(thread => { this.messageThread = thread; this.isChatLoading = false; });
   }
 
   sendMessage() {
@@ -51,6 +52,7 @@ export class MessageContainerComponent implements OnInit {
 
     this.messageService.sendMessage(this.username, messageContent).subscribe(message => {
       this.messageThread.push(message);
+      this.sendMessageForm.reset();
     });
   }
   
