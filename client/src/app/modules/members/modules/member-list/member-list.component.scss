@@ -38,4 +38,10 @@ img {
     border-top: none;
     margin: 0;
   }
+
+  .online {
+    border-left: 4px solid $green !important;  
+    border-right: 4px solid $green !important; 
+    border-bottom: 4px solid $green !important; 
+}
   

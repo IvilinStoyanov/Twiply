@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/models/member';
 import { Pagination } from 'src/app/models/pagination';
 import { NotificationService } from 'src/app/services/notification.service';
+import { PresenceService } from 'src/app/services/presence.service';
 import { MembersService } from '../../services/members.service';
 
 @Component({
@@ -15,8 +16,10 @@ export class MemberListComponent implements OnInit {
   pageNumber = 1;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
+  onlineUsers: string[] = [];
 
-  constructor(private membersService: MembersService, private notificationService: NotificationService) { }
+  constructor(private membersService: MembersService, private notificationService: NotificationService,
+    public presence: PresenceService) { }
 
   ngOnInit() {
     this.getMembers();

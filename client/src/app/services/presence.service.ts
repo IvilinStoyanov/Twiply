@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 import { NotificationService } from './notification.service';
@@ -10,6 +11,8 @@ import { NotificationService } from './notification.service';
 export class PresenceService {
   hubUrl = environment.hubUrl;
   private hubConnection: HubConnection;
+  private onlineUsersSource = new BehaviorSubject<string[]>([]);
+  onlineUsers$ = this.onlineUsersSource.asObservable();
 
   constructor(private notificationService: NotificationService) { }
 
@@ -23,13 +26,17 @@ export class PresenceService {
 
     this.hubConnection.start().catch(error => console.log(error));
 
-    this.hubConnection.on('UserIsOnline', username => {
-      this.notificationService.info(username + ' has connected');
-    });
+    // this.hubConnection.on('UserIsOnline', username => {
+    //   this.notificationService.info(username + ' has connected');
+    // });
 
-    this.hubConnection.on('UserIsOffline', username => {
-      this.notificationService.error(username + ' has disconected');
-    })
+    // this.hubConnection.on('UserIsOffline', username => {
+    //   this.notificationService.error(username + ' has disconected');
+    // });
+
+    this.hubConnection.on('GetOnlineUsers', (username: string[]) => {
+      this.onlineUsersSource.next(username);
+    }); 
   }
 
   stopHubConnection() {
