@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,7 +14,7 @@ export class PresenceService {
   private onlineUsersSource = new BehaviorSubject<string[]>([]);
   onlineUsers$ = this.onlineUsersSource.asObservable();
 
-  constructor(private notificationService: NotificationService) { }
+  constructor(private notificationService: NotificationService, private ngZone: NgZone) { }
 
   createHubConnection(user: User) {
     this.hubConnection = new HubConnectionBuilder()
@@ -35,7 +35,9 @@ export class PresenceService {
     // });
 
     this.hubConnection.on('GetOnlineUsers', (username: string[]) => {
+      this.ngZone.run(() => {
       this.onlineUsersSource.next(username);
+      });
     }); 
   }
 
