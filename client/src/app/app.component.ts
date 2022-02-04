@@ -12,9 +12,10 @@ import { PresenceService } from './services/presence.service';
 export class AppComponent implements OnInit {
   title = 'Date Me';
 
-  constructor(private accountService: AccountService, private presence: PresenceService) { }
+  constructor(private accountService: AccountService, private presence: PresenceService, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get('https://localhost:5001/WeatherForecast').subscribe(value => console.log(value));
     this.setCurrentUser();
   }
 

@@ -162,6 +162,14 @@ $spacers: (
   opacity: .8;
 }
 
+.bg-success {
+  background: $green;
+}
+
+.bg-danger {
+  background: $red;
+}
+
 .link {
   color: $primary;
   cursor: pointer;
