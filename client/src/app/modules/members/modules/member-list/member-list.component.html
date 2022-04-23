@@ -28,7 +28,7 @@
           </span>
           <mat-menu #menu="matMenu">
             <a mat-menu-item [routerLink]="['/members', member.username]">View Profile</a>
-            <button mat-menu-item>Message</button>
+            <a mat-menu-item [routerLink]="['/chat']" [state]="{ username: member.username }">Message</a>
           </mat-menu>
           <mat-icon class="navigate favorite-icon" (click)="addLike(member)">favorite_border</mat-icon>
         </div>

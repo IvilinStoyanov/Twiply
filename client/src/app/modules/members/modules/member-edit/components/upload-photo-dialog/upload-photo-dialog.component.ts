@@ -48,7 +48,7 @@ export class UploadPhotoDialogComponent implements OnInit {
         const photo = JSON.parse(response);
         // TODO: Fix this later
        // this.member.photos.push(photo);
-       if(photo.isMain) {
+       if (photo.isMain) {
          this.user.photoUrl = photo.Url;
          this.accountService.setCurrentUser(this.user);
        }

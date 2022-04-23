@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Member } from 'src/app/models/member';
 import { Message } from 'src/app/models/message';
 import { PaginatedResult, Pagination } from 'src/app/models/pagination';
@@ -23,7 +24,7 @@ export class MessageContainerComponent implements OnInit {
   isLoading: boolean = true;
   isChatLoading: boolean = true;
 
-  constructor(private messageService: MessageService, private fb: FormBuilder) {
+  constructor(private messageService: MessageService, private fb: FormBuilder, private dialog: MatDialog) {
     this.sendMessageForm = this.fb.group({
       content: new FormControl('')
     });

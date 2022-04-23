@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import ('./modules/messages/messages.module').then(m => m.MessagesModule)
       },
       {
+        path: 'chat',
+        loadChildren: () => import ('./modules/chat/chat.module').then(m => m.ChatModule)
+      },
+      {
         path: 'my-profile',
         loadChildren: () => import ('./modules/members/modules/member-edit/member-edit.module').then(m => m.MemberEditModule),
         canDeactivate: [PreventUnsavedChangesGuard]
