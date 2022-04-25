@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Member } from 'src/app/models/member';
 import { Pagination } from 'src/app/models/pagination';
 import { NotificationService } from 'src/app/services/notification.service';
@@ -19,7 +20,7 @@ export class MemberListComponent implements OnInit {
   onlineUsers: string[] = [];
 
   constructor(private membersService: MembersService, private notificationService: NotificationService,
-    public presence: PresenceService) { }
+    public presence: PresenceService, private router: Router) { }
 
   ngOnInit() {
     this.getMembers();
@@ -42,5 +43,9 @@ export class MemberListComponent implements OnInit {
 
   addLike(member: Member) {
     this.membersService.addLike(member.username).subscribe(() => this.notificationService.success('You have liked ' + member.knownAs));
+  }
+
+  sendToChat(memberUsername: string) {
+    this.router.navigate(['/chat'], { state: { username: memberUsername } });
   }
 }

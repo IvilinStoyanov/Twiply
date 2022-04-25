@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   constructor(private accountService: AccountService, private presence: PresenceService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/WeatherForecast').subscribe(value => console.log(value));
     this.setCurrentUser();
   }
 

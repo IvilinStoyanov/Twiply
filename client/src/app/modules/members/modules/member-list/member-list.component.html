@@ -7,7 +7,6 @@
             member.photoUrl ||
             './assets/img/common/default-user-profile-picture.png'
           }}" alt="photo of a member" />
-          <!-- <div class="online-indicator" [ngClass]="(presence.onlineUsers$ | async).includes(member.username) ? 'bg-success': 'bg-danger'"></div> -->
         </div>
         <mat-card-header class="mt-1">
           <mat-card-title class="text-md">
@@ -28,7 +27,8 @@
           </span>
           <mat-menu #menu="matMenu">
             <a mat-menu-item [routerLink]="['/members', member.username]">View Profile</a>
-            <a mat-menu-item [routerLink]="['/chat']" [state]="{ username: member.username }">Message</a>
+            <!-- <a mat-menu-item [routerLink]="['/chat']" [state]="{ username: member.username }">Message</a> -->
+            <a mat-menu-item (click)="sendToChat(member.username)">Message</a>
           </mat-menu>
           <mat-icon class="navigate favorite-icon" (click)="addLike(member)">favorite_border</mat-icon>
         </div>
