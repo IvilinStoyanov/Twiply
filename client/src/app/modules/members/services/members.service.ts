@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MembersService {
   baseUrl = environment.apiUrl;
+  
   paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
 
   constructor(private http: HttpClient) { }
@@ -25,7 +26,6 @@ export class MembersService {
 
     return this.http.get<Member[]>(this.baseUrl + 'users', {observe: 'response', params}).pipe(
       map(response => {
-        console.log(response);
         this.paginatedResult.result = response.body;
         if (response.headers.get('Pagination') !== null) {
           this.paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'))
