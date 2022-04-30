@@ -10,6 +10,7 @@ import { take } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ChatService {
+  baseUrl = environment.apiUrl;
   hubUrl = environment.hubUrl;
 
   private hubConnection: HubConnection;
@@ -48,4 +49,8 @@ export class ChatService {
     if (this.hubConnection) this.hubConnection.stop();
   }
 
+  async sendMessage(username: string, content: string) {
+    return this.hubConnection.invoke('SendMessage', { recipientUsername: username, content: content })
+      .catch(error => console.log(error));
+  }
 }

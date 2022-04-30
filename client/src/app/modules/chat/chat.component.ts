@@ -49,11 +49,10 @@ export class ChatComponent implements OnInit {
     this.chatService.createHubConnection(this.user, this.otherUsername)
   }
 
-  sendMessage() {
+   sendMessage() {
     let messageContent = this.sendMessageForm.get('content').value;
 
-    this.messageService.sendMessage(this.otherUsername, messageContent).subscribe(message => {
-      this.messageThread.push(message);
+    this.chatService.sendMessage(this.otherUsername, messageContent).then(() => {
       this.sendMessageForm.reset();
     });
   }
