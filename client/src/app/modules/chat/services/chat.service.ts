@@ -4,6 +4,7 @@ import { Message } from 'src/app/models/message';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,14 @@ export class ChatService {
     this.hubConnection.on('RecieveMessageThread', messages => {
       this.ngZone.run(() => {
         this.messageThreadSource.next(messages);
+      });
+    });
+
+    this.hubConnection.on('NewMessage', message => {
+      this.ngZone.run(() => {
+        this.messageThread$.pipe(take(1)).subscribe(messages => {
+          this.messageThreadSource.next([...messages, message]);
+        })
       });
     });
   }

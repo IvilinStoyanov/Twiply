@@ -91,5 +91,27 @@ namespace API.Data
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public void AddGroup(ChatGroup chatGroup)
+        {
+            _context.ChatGroups.Add(chatGroup);
+        }
+
+        public void RemoveConnection(Connection connection)
+        {
+            _context.Connections.Remove(connection);
+        }
+
+        public async Task<Connection> GetConnection(string connectionId)
+        {
+            return await _context.Connections.FindAsync(connectionId);
+        }
+
+        public async Task<ChatGroup> GetChatGroup(string groupName)
+        {
+            return await _context.ChatGroups
+            .Include(x => x.Connections)
+            .FirstOrDefaultAsync(x => x.Name == groupName);
+        }
     }
 }
