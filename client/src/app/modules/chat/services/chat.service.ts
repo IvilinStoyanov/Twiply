@@ -5,6 +5,7 @@ import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { take } from 'rxjs/operators';
+import { Group } from 'src/app/models/group';
 
 @Injectable({
   providedIn: 'root'
@@ -31,18 +32,35 @@ export class ChatService {
     this.hubConnection.start().catch(error => console.log(error));
 
     this.hubConnection.on('RecieveMessageThread', messages => {
+      console.log(messages);
       this.ngZone.run(() => {
         this.messageThreadSource.next(messages);
       });
     });
 
     this.hubConnection.on('NewMessage', message => {
+      console.log(message);
       this.ngZone.run(() => {
         this.messageThread$.pipe(take(1)).subscribe(messages => {
           this.messageThreadSource.next([...messages, message]);
         })
       });
     });
+
+    this.hubConnection.on('UpdatedGroup', (group: Group) => {
+      this.ngZone.run(() => {
+        if (group.connections.some(x => x.username == otherUsername)) {
+          this.messageThread$.pipe(take(1)).subscribe(messages => {
+            messages.forEach(message => {
+              if (!message.dateRead) {
+                message.dateRead = new Date(Date.now());
+              }
+            });
+            this.messageThreadSource.next([...messages]);
+          });
+        }
+      });
+    })
   }
 
   stopHubConnection() {

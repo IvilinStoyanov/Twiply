@@ -46,7 +46,7 @@ namespace API.SignalR
             await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
             var group = await AddToGroup(groupName);
 
-            await Clients.Group(groupName).SendAsync("UpdateGroup", group);
+            await Clients.Group(groupName).SendAsync("UpdatedGroup", group);
 
             var message =
                 await _messageRepository
@@ -59,7 +59,7 @@ namespace API.SignalR
         {
             var group = await RemoveFromChatGroup();
             
-            await Clients.Group(group.Name).SendAsync("UpdateGroup", group);
+            await Clients.Group(group.Name).SendAsync("UpdatedGroup", group);
 
             await base.OnDisconnectedAsync(exception);
         }
