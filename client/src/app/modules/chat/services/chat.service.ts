@@ -32,15 +32,15 @@ export class ChatService {
     this.hubConnection.start().catch(error => console.log(error));
 
     this.hubConnection.on('RecieveMessageThread', messages => {
-      console.log(messages);
       this.ngZone.run(() => {
+        console.log(messages);
         this.messageThreadSource.next(messages);
       });
     });
 
     this.hubConnection.on('NewMessage', message => {
-      console.log(message);
       this.ngZone.run(() => {
+        console.log(message);
         this.messageThread$.pipe(take(1)).subscribe(messages => {
           this.messageThreadSource.next([...messages, message]);
         })
@@ -49,9 +49,11 @@ export class ChatService {
 
     this.hubConnection.on('UpdatedGroup', (group: Group) => {
       this.ngZone.run(() => {
+        console.log(group);
         if (group.connections.some(x => x.username == otherUsername)) {
           this.messageThread$.pipe(take(1)).subscribe(messages => {
             messages.forEach(message => {
+              console.log(message);
               if (!message.dateRead) {
                 message.dateRead = new Date(Date.now());
               }

@@ -13,13 +13,9 @@ namespace API.SignalR
     public class MessageHub : Hub
     {
         private readonly IMessageRepository _messageRepository;
-
         private readonly IMapper _mapper;
-
         private readonly IUserRepository _userRepository;
-
         private readonly IHubContext<PresenceHub> _presenceHub;
-
         private readonly PresenceTracker _presenceTracker;
 
         public MessageHub(
@@ -157,7 +153,7 @@ namespace API.SignalR
                     .FirstOrDefault(x =>
                         x.ConnectionId == Context.ConnectionId);
 
-            _messageRepository.RemoveConnection (connection);
+            _messageRepository.RemoveConnection(connection);
 
             if (await _messageRepository.SaveAllAsync()) return group;
 
