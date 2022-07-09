@@ -331,3 +331,4 @@ ASALocalRun/
 *.ts
 src/DateApp.API/appsettings.json
 
+API/appsettings.json
