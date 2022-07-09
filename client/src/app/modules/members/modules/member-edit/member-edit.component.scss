@@ -1,0 +1,41 @@
+@import "../../../../../style/_colors";
+
+  .member-img {
+    width: 300px;
+    padding: 10px 0;
+  }
+
+.second-column {
+    width: calc(100% - 160px);
+}
+
+.table-title {
+  min-width: 90px;
+}
+
+.textarea-edit {
+  height: 120px;
+}
+
+textarea {
+  overflow: hidden !important;
+}
+
+perfect-scrollbar {
+    margin-bottom: 10px;
+    padding-right: 15px;
+    height: 120px;
+    max-height: 120px;
+}
+
+p {
+    margin-top: 3px;
+}
+
+@media only screen and (max-width: 599px) {
+  .second-column{
+     width: 100%;
+     margin-top: 10px;
+     margin-left: 0 !important;
+  }
+}

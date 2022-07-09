@@ -1,0 +1,59 @@
+@import "../colors";
+
+button {
+  font-size: 13px !important;
+
+  &.mat-stroked-button {
+    &.mat-primary {
+      border-color: $primary !important;
+      color: $primary !important;
+    }
+
+    &.mat-success {
+      border-color: $green !important;
+      color: $green !important; 
+    }
+
+    &.mat-secondary {
+      border-color: $secondary !important;
+      color: $secondary !important; 
+    }
+
+    &.mat-warn {
+      border-color: $red !important;
+      color: $red !important; 
+    }
+
+    &.mat-accent {
+      border-color: $yellow !important;
+      color: $yellow !important; 
+    }
+  }
+
+  &.mat-raised-button {
+    &.mat-primary {
+      background-color: $primary !important;
+      color: $white !important;
+    }
+
+    &.mat-success {
+      background-color: $green !important;
+      color: $white !important; 
+    }
+
+    &.mat-secondary {
+      background-color: $secondary !important;
+      color: $white !important; 
+    }
+
+    &.mat-warn {
+      background-color: $red !important;
+      color: $white !important; 
+    }
+
+    &.mat-accent {
+      background-color: $yellow !important;
+      color: $white !important; 
+    }
+  }
+}

@@ -1,0 +1,176 @@
+@import "../style/_colors";
+
+$spacer: 0.5rem;
+$spacer-x: $spacer;
+$spacer-y: $spacer;
+$spacers: (
+  0: (
+    x: 0,
+    y: 0,
+  ),
+  h: (
+    x: (
+      $spacer-x * 0.5,
+    ),
+    y: (
+      $spacer-y * 0.5,
+    ),
+  ),
+  1: (
+    x: $spacer-x,
+    y: $spacer-y,
+  ),
+  2: (
+    x: (
+      $spacer-x * 1.5,
+    ),
+    y: (
+      $spacer-y * 1.5,
+    ),
+  ),
+  3: (
+    x: (
+      $spacer-x * 3,
+    ),
+    y: (
+      $spacer-y * 3,
+    ),
+  ),
+  4: (
+    x: (
+      $spacer-x * 4,
+    ),
+    y: (
+      $spacer-y * 4,
+    ),
+  ),
+);
+
+@mixin spacing() {
+  @each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $lengths in $spacers {
+      $length-x: map-get($lengths, x);
+      $length-y: map-get($lengths, y);
+
+      .#{$abbrev}-#{$size} {
+        #{$prop}: $length-y $length-x !important;
+      }
+      .#{$abbrev}t-#{$size} {
+        #{$prop}-top: $length-y !important;
+      }
+      .#{$abbrev}r-#{$size} {
+        #{$prop}-right: $length-x !important;
+      }
+      .#{$abbrev}b-#{$size} {
+        #{$prop}-bottom: $length-y !important;
+      }
+      .#{$abbrev}l-#{$size} {
+        #{$prop}-left: $length-x !important;
+      }
+    }
+  }
+}
+
+@include spacing;
+
+.active {
+  color: $primary;
+}
+
+.muted {
+  color: $muted;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.navigate {
+  cursor: pointer;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+.float-right {
+  float: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.inline-text-icon {
+  mat-icon {
+    vertical-align: revert;
+  }
+  span {
+    vertical-align: super;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $border;
+}
+
+.border-right {
+  border-right: 1px solid $border;
+}
+
+.border-rounder {
+  border-radius: 6px;
+}
+
+.border-radius-left-none {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.border-radius-right-none {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.border-radius-left-top-none {
+  border-top-left-radius: 0 !important;
+}
+
+.border-radius-right-top-none {
+  border-top-right-radius: 0 !important;
+}
+
+.bg-primary {
+  background: $primary;
+  color: $white;
+  opacity: .8;
+}
+
+.bg-success {
+  background: $green;
+}
+
+.bg-danger {
+  background: $red;
+}
+
+.link {
+  color: $primary;
+  cursor: pointer;
+}

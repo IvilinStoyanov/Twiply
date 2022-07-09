@@ -1,0 +1,52 @@
+@import "../../../../../style/_colors";
+
+mat-card {
+    padding: 8px !important;
+
+    .member-menu {
+        margin-bottom: 19px;
+    }
+
+    .gender-icon {
+        background-image: linear-gradient(to right bottom, #ff4943, #ff6454, #ff7a66, #ff8f79, #ffa28d);
+        border-radius: 50%;
+        color: white;
+        font-size: 17px !important;
+        width: 17px !important;
+        height: 17px !important;
+    }
+
+    .location-icon {
+        color: $primary;
+        margin-left: -4px;
+        font-size: 20px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .favorite-icon {
+        color: #82a8ff;
+    }
+}
+.img-wrapper {
+    position: relative;
+
+    img {
+        width: 100px;
+        height: auto;
+        border-radius: 50% !important;
+        border: 3px solid $border;
+        margin: 0;
+    }
+
+  
+}
+
+.online-indicator {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #43df97;
+    font-weight: 600;
+    font-size: 11px;
+}

@@ -1,0 +1,25 @@
+@import "../_fonts";
+
+.mat-tab-label {
+    font-family: 'Josefin Sans', "Helvetica Neue", sans-serif;
+    min-width: 110px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+
+.mat-tab-body-wrapper {
+    margin-top: 10px;
+}
+
+.mat-tab-group {
+    font-family: 'Josefin Sans', "Helvetica Neue", sans-serif;
+}
+
+.mat-tab-label-active {
+    color: $primary;
+    opacity: 1 !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: $primary;
+}

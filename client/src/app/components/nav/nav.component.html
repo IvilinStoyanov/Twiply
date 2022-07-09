@@ -1,0 +1,26 @@
+<nav class="mb-3">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <a [routerLink]="['/']"><a href="#"><img src="../../../assets/img/logo/dateme_logo_black.png" class="logo"></a></a>
+    <div *ngIf="(accountService.currentUser$ | async) === null"> 
+        <a class="mr-1" (click)="openLoginDialog()">Login</a>
+        <a (click)="openRegisterDialog()">Register</a>
+    </div>
+    <div *ngIf="accountService.currentUser$ | async">
+      <a [routerLink]="['/members']">Members </a>
+    </div>
+    <div *ngIf="accountService.currentUser$ | async">
+      <a [routerLink]="['/messages']">Messages </a>
+    </div>
+    <div *ngIf="accountService.currentUser$ | async as user">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img src="{{user.photoUrl || './assets/img/common/default-user-profile-picture.png' }}" alt="{{user.username}}" class="nav-user-img mr-1">
+        {{ user.username | titlecase }}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/my-profile']"><mat-icon class="mr-1">person</mat-icon>My Profile</button>
+        <button mat-menu-item (click)="logout()"><mat-icon class="mr-1">logout</mat-icon>Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+</nav>

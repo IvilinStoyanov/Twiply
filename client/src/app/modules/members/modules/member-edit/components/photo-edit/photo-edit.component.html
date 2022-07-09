@@ -1,0 +1,26 @@
+<div fxLayout="row wrap">
+  <div fxLayout="column" *ngFor="let photo of member.photos" class="mr-2 mb-2">
+    <img src="{{ photo.url }}" alt="{{ photo.url }}" class="member-photo" />
+    <div fxLayout="row">
+      <button
+        [disabled]="photo.isMain"
+        (click)="setMainPhoto(photo)"
+        [ngClass]="{ 'mat-raised-button': photo.isMain }"
+        mat-stroked-button
+        color="secondary"
+        class="border-radius-right-none border-radius-left-top-none"
+      >
+        Main
+      </button>
+      <button
+        [disabled]="photo.isMain"
+        (click)="deletePhoto(photo.id)"
+        mat-stroked-button
+        color="warn"
+        class="border-radius-left-none border-radius-right-top-none"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

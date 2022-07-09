@@ -1,0 +1,114 @@
+<div *ngIf="member" fxLayoutAlign="center start">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxFlex="90" style="margin: 0 auto;">
+    <div fxLayout="column" class="text-xs-md">
+      <img src="{{ member.photoUrl || './assets/img/common/default-user-profile-picture.png' }}" class="member-img" />
+      <p class="muted mt-1">ACTIVITY</p>
+      <strong>Last Active:</strong>
+      <span class="mb-2">{{ member.lastActive | date }}</span>
+      <strong>Members since:</strong>
+      <span>{{member.created | date}}</span>
+    </div>
+    <div fxLayout="column" class="second-column ml-4">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <strong class="text-lg mr-3">{{member.username | titlecase}}</strong>
+          <span class="muted text-md">
+            <mat-icon class="location-icon">location_on</mat-icon>{{member.city}}, {{member.country}}
+          </span>
+        </div>
+        <div>
+          <span *ngIf="editForm.dirty" class="bg-primary border-rounder text-xs mr-2 p-2">You have made changes. Any
+            unsaved changes will be lost.</span>
+          <button *ngIf="!isEditable" mat-stroked-button color="primary" class="pl-2" (click)="toggleEdit()">
+            <mat-icon>create</mat-icon> Edit Profile
+          </button>
+          <button *ngIf="isEditable" mat-stroked-button color="secondary" class="mr-1"
+            (click)="toggleEdit()">Cancel</button>
+          <button *ngIf="isEditable" [disabled]="!editForm.dirty" form="editForm" mat-stroked-button
+            color="success">Save</button>
+        </div>
+      </div>
+      <div class="text-secondary text-md mt-1 mb-2">
+        {{member.age}} years old
+      </div>
+      <div fxLayout="row">
+        <p class="muted mr-2">followers: <span class="link">{{likedByMembers?.length}}</span></p>
+        <p class="muted">following: <span class="link">{{likedMembers?.length}}</span></p>
+      </div>
+      <div class="text-xs mt-2">
+        <a class="muted mr-3">
+          <mat-icon>mail_outline</mat-icon>SEND MESSAGE
+        </a>
+        <a class="muted mr-3">
+          <mat-icon>favorite_border</mat-icon> LIKE
+        </a>
+        <a class="muted">
+          <mat-icon>outlined_flag</mat-icon>REPORT USER
+        </a>
+      </div>
+      <div>
+        <mat-tab-group class="mt-3">
+          <mat-tab label="About">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="save()">
+              <div fxLayout="column">
+                <!-- <div class="muted text-xs text-bold text-uppercase mb-2 mt-1">Basic information</div> -->
+                <div fxLayout="row" class="muted text-md">
+                  <p class="table-title text-bold mr-2">Gender:</p>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                    <input matInput value="{{member.gender | titlecase}}">
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" class="muted text-md">
+                  <p class="table-title text-bold mr-2">Birthday:</p>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                    <input matInput value="{{member.dateOfBirth | date}}">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Known As:</p>
+                <mat-form-field [class.editable]="!isEditable" class="input-edit">
+                  <input matInput value="{{member.knownAs}}" [(ngModel)]="member.knownAs" name="knownAs">
+                </mat-form-field>
+              </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Description:</p>
+                <perfect-scrollbar style="height: 120px; max-height: 120px;">
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                    <textarea matInput class="textarea-edit" [(ngModel)]="member.introduction"
+                      name="introduction"></textarea>
+                  </mat-form-field>
+                </perfect-scrollbar>
+              </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Looking For:</p>
+                <perfect-scrollbar>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                    <textarea matInput class="textarea-edit" [(ngModel)]="member.lookingFor"
+                      name="lookingFor"></textarea>
+                  </mat-form-field>
+                </perfect-scrollbar>
+              </div>
+              <div fxLayout="row" class="muted text-md">
+                <p class="table-title text-bold mr-2">Interests:</p>
+                <perfect-scrollbar>
+                  <mat-form-field [class.editable]="!isEditable" class="input-edit text-justify" fxFlex="100">
+                    <textarea matInput class="textarea-edit" [(ngModel)]="member.interests" name="interests"></textarea>
+                  </mat-form-field>
+                </perfect-scrollbar>
+              </div>
+            </form>
+          </mat-tab>
+          <mat-tab label="Edit Photos">
+            <mat-icon class="navigate md-icon float-right" color="primary" matTooltip="upload new photo"
+              (click)="openUploadPhotoDialog()">add_photo_alternate</mat-icon>
+            <app-photo-edit [member]="member" [user]="user"></app-photo-edit>
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"
+              style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
+          </mat-tab>
+          <mat-tab label="Messages"> Content 3 </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

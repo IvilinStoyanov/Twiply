@@ -1,0 +1,15 @@
+<mat-form-field fxFlex="100">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [class.is-invalid]="ngControl.touched && ngControl.invalid"
+    [matDatepicker]="picker"
+    [max]="maxDate"
+    [formControl]="ngControl.control"
+  />
+  <mat-error *ngIf="ngControl.control.errors?.required">
+    {{ label }} is <strong>required</strong>
+  </mat-error>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>

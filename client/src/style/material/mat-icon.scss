@@ -1,0 +1,38 @@
+@import "../_colors";
+
+.mat-icon {
+    font-size: 17px;
+    width: 17px !important;
+    height: 17px !important;
+    vertical-align: text-bottom !important;
+
+    &.mat-success {
+        color: $green;
+    }
+    
+    &.mat-primary {
+        color: $primary;
+    }
+
+    &.mat-secondary {
+        color: $grey;
+    }
+}
+
+.sm-icon {
+    font-size: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.md-icon {
+    font-size: 26px !important;
+    width: 26px !important;
+    height: 26px !important;
+}
+
+.lg-icon {
+    font-size: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+}

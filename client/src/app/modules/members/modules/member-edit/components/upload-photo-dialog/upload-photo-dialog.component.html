@@ -1,0 +1,56 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <h2 mat-dialog-title class="text-center text-ex-lg border-bottom pb-2">Upload Image</h2>
+</div>
+<mat-dialog-content>
+  <div fxLayout="row" fxLayoutGap="25px">
+    <div fxLayout="column">
+      <div fxLayout="column" fxLayoutAlign="center center" ng2FileDrop
+        [ngClass]="{ 'nv-file-over': hasBaseDropzoneOver }" (fileOver)="fileOverBase($event)" [uploader]="uploader"
+        class="well ten my-drop-zone">
+        <mat-icon color="success" class="mb-1">upload_file</mat-icon>
+        Drop files to upload
+      </div>
+      <label for="file-upload" class="custom-file-upload">
+        Choose file
+      </label>
+      <input hidden id="file-upload" type="file" ng2FileSelect [uploader]="uploader" />
+    </div>
+    <div fxLayout="column" fxFlex="320px" class="text-secondary">
+      <div class="mb-4">
+        <h4 class="mb-1 mt-0">Uploading</h4>
+        <ng-container *ngIf="uploader?.queue?.length">
+          <div *ngFor="let item of uploader.queue; let i = index" fxLayout="row" fxLayoutAlign="start center"
+            class="border-bottom mb-2 mt-2 pb-3">
+            <div fxLayout="column">
+              <mat-icon class="lg-icon mr-2" color="secondary">wallpaper</mat-icon>
+            </div>
+            <div fxLayout="column" fxFlex>
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div>
+                  <strong class="word-break mr-1">{{ item?.file?.name }}</strong>
+                  <span *ngIf="uploader.options.isHTML5" nowrap>
+                    {{ item?.file?.size / 1024 / 1024 | number: ".2" }} MB
+                  </span>
+                </div>
+                <div>
+                  <mat-icon (click)="uploader.queue[i].remove()" class="navigate">close</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="row" class="mt-1">
+                <ngx-progress-bar [value]="item.progress" style="width: 100%;"></ngx-progress-bar>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div fxLayout="row" fxLayoutAlign="end end">
+              <button mat-raised-button color="success" type="button" class="mr-1" (click)="uploader.uploadAll()"
+                [disabled]="!uploader.getNotUploadedItems().length">
+                <mat-icon>cloud_upload</mat-icon> Upload
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
