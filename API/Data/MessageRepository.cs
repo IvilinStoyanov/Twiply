@@ -31,7 +31,7 @@ namespace API.Data
 
         public void DeleteMessage(Message message)
         {
-            _context.Messages.Remove (message);
+            _context.Messages.Remove(message);
         }
 
         public async Task<Message> GetMessage(int id)
@@ -39,7 +39,8 @@ namespace API.Data
             return await _context.Messages.FindAsync(id);
         }
 
-        public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
+        public async Task<PagedList<MessageDto>>
+        GetMessagesForUser(MessageParams messageParams)
         {
             var query =
                 _context
@@ -63,7 +64,8 @@ namespace API.Data
                 messageParams.PageSize);
         }
 
-        public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, string recipientUsername)
+        public async Task<IEnumerable<MessageDto>>
+        GetMessageThread(string currentUsername, string recipientUsername)
         {
             var messages =
                 await _context
@@ -107,12 +109,12 @@ namespace API.Data
 
         public void AddGroup(ChatGroup chatGroup)
         {
-            _context.ChatGroups.Add (chatGroup);
+            _context.ChatGroups.Add(chatGroup);
         }
 
         public void RemoveConnection(Connection connection)
         {
-            _context.Connections.Remove (connection);
+            _context.Connections.Remove(connection);
         }
 
         public async Task<Connection> GetConnection(string connectionId)
