@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
-import { MessageService } from '../messages/services/message.service';
 import { ChatService } from './services/chat.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -12,11 +11,10 @@ import { take } from 'rxjs/operators';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
   state: any;
   user: User;
   otherUsername: string;
-
   messageThread: any;
   sendMessageForm: FormGroup;
   pageNumber = 1;
@@ -24,7 +22,7 @@ export class ChatComponent implements OnInit {
   isLoading: boolean = true;
   isChatLoading: boolean = true;
 
-  constructor(private router: Router, private fb: FormBuilder, private messageService: MessageService,
+  constructor(private router: Router, private fb: FormBuilder,
     private accountService: AccountService, public chatService: ChatService) {
     this.state = this.router.getCurrentNavigation()?.extras?.state;
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
@@ -41,6 +39,11 @@ export class ChatComponent implements OnInit {
       this.otherUsername = this.state.username;
       this.getMessageThread();
     }
+  }
+
+  ngOnDestroy() {
+    console.log('destroy');
+    this.chatService.stopHubConnection();
   }
 
   getMessageThread() {
