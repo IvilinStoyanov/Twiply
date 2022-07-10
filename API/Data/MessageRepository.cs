@@ -39,8 +39,7 @@ namespace API.Data
             return await _context.Messages.FindAsync(id);
         }
 
-        public async Task<PagedList<MessageDto>>
-        GetMessagesForUser(MessageParams messageParams)
+        public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
         {
             var query =
                 _context
@@ -97,29 +96,25 @@ namespace API.Data
                 .FirstOrDefaultAsync(x => x.Name == groupName);
         }
 
-                public async Task<IEnumerable<MessageDto>>
-        GetMessageThread(string currentUsername, string recipientUsername)
+        public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, string recipientUsername)
         {
             var messages =
                 await _context
                     .Messages
-                    .Include(u => u.Sender)
-                    .ThenInclude(p => p.Photos)
-                    .Include(u => u.Recipient)
-                    .ThenInclude(p => p.Photos)
                     .Where(m =>
                         m.Recipient.UserName == currentUsername &&
                         m.Sender.UserName == recipientUsername ||
                         m.Recipient.UserName == recipientUsername &&
                         m.Sender.UserName == currentUsername)
                     .OrderBy(m => m.MessageSent)
+                    .ProjectTo<MessageDto>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
             var unreadMessages =
                 messages
                     .Where(m =>
                         m.DateRead == null &&
-                        m.Recipient.UserName == currentUsername)
+                        m.RecipientUsername == currentUsername)
                     .ToList();
 
             if (unreadMessages.Any())
@@ -130,7 +125,7 @@ namespace API.Data
                 }
             }
 
-            return _mapper.Map<IEnumerable<MessageDto>>(messages);
+            return messages;
         }
     }
 }
