@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "style/theme";
-@import "style/utilities";
-@import "style/fonts";
+@import 'style/_theme';
+@import 'style/_utilities';
+@import 'style/_fonts';
+@import 'style/_text';
 
 @import "style/material/mat-button.scss";
 @import "style/material/mat-snackbar.scss";

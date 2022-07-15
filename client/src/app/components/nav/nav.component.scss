@@ -4,10 +4,10 @@ nav {
     padding: 5px 5px 0 5px;
     border-bottom: 1px solid $border;
     box-shadow: 0 -10px 10px 5px #000000;
+    background: $white;
 
     .logo {
-        width: 78px;
-        height: auto;
+        font-size: 20px;
     }
 
     .nav-user-img {

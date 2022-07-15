@@ -1,15 +1,15 @@
 <nav class="mb-3">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <a [routerLink]="['/']"><a href="#"><img src="../../../assets/img/logo/dateme_logo_black.png" class="logo"></a></a>
+  <div [style.height.px]="50" fxLayout="row" fxLayoutAlign="space-between center">
+    <a  [routerLink]="['/']"><a class="text-black logo ml-2" href="#">TWIPLY.</a></a>
     <div *ngIf="(accountService.currentUser$ | async) === null"> 
-        <a class="mr-1" (click)="openLoginDialog()">Login</a>
-        <a (click)="openRegisterDialog()">Register</a>
+        <a class="text-black" class="mr-1" (click)="openLoginDialog()">Login</a>
+        <a class="text-black" (click)="openRegisterDialog()">Register</a>
     </div>
     <div *ngIf="accountService.currentUser$ | async">
-      <a [routerLink]="['/members']">Members </a>
+      <a class="text-black" [routerLink]="['/members']">Members </a>
     </div>
     <div *ngIf="accountService.currentUser$ | async">
-      <a [routerLink]="['/messages']">Messages </a>
+      <a class="text-black" [routerLink]="['/messages']">Messages </a>
     </div>
     <div *ngIf="accountService.currentUser$ | async as user">
       <button mat-button [matMenuTriggerFor]="menu">

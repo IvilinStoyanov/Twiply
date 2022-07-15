@@ -1,0 +1,26 @@
+@import '../style/colors';
+
+.text-black {
+  color: $text;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-primary {
+    color: $primary;
+  }
+  
+.text-secondary {
+    color: $secondary;
+  }
+
+.active {
+    color: $primary;
+  }
+  
+.muted {
+    color: $muted;
+  }
+  

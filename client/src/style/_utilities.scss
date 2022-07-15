@@ -73,21 +73,6 @@ $spacers: (
 
 @include spacing;
 
-.active {
-  color: $primary;
-}
-
-.muted {
-  color: $muted;
-}
-
-.text-primary {
-  color: $primary;
-}
-
-.text-secondary {
-  color: $secondary;
-}
 
 .navigate {
   cursor: pointer;
