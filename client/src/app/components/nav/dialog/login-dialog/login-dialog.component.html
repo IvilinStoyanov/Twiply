@@ -6,11 +6,11 @@
   </mat-card-header>
 <mat-card-content>
     <form fxLayout="column" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="100" appearance="outline">
             <mat-label>Username</mat-label>
             <input matInput name="username" [(ngModel)]="model.username" />
         </mat-form-field>
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="100" appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput name="password" type="password" [(ngModel)]="model.password" />
         </mat-form-field>
