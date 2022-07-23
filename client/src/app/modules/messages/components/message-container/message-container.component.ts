@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Member } from 'src/app/models/member';
 import { Message } from 'src/app/models/message';
-import { PaginatedResult, Pagination } from 'src/app/models/pagination';
-import { MembersService } from 'src/app/modules/members/services/members.service';
+import { Pagination } from 'src/app/models/pagination';
 import { MessageService } from '../../services/message.service';
 
 @Component({
@@ -24,7 +23,7 @@ export class MessageContainerComponent implements OnInit {
   isLoading: boolean = true;
   isChatLoading: boolean = true;
 
-  constructor(private messageService: MessageService, private fb: FormBuilder, private dialog: MatDialog) {
+  constructor(private messageService: MessageService, private fb: FormBuilder, private router: Router) {
     this.sendMessageForm = this.fb.group({
       content: new FormControl('')
     });
@@ -42,19 +41,8 @@ export class MessageContainerComponent implements OnInit {
     })
   }
 
-  getMessageThread(username: string) {
-    this.isChatLoading = true;
-    this.username = username;
-    this.messageService.getMessageThread(username).subscribe(thread => { this.messageThread = thread; this.isChatLoading = false; });
-  }
-
-  sendMessage() {
-    let messageContent = this.sendMessageForm.get('content').value;
-
-    this.messageService.sendMessage(this.username, messageContent).subscribe(message => {
-      this.messageThread.push(message);
-      this.sendMessageForm.reset();
-    });
+  sendToChat(senderUsername: string) {
+    this.router.navigate(['/chat'], { state: { username: senderUsername } });
   }
   
   pageChanged(event: any) {

@@ -1,4 +1,4 @@
-<div *ngIf="!isLoading" fxLayout="row">
+<div *ngIf="!isLoading">
     <div fxLayout="column" class="border-right chat-sub-container">
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <p class="text-bold">Chats</p>
@@ -12,9 +12,9 @@
             <input matInput value="">
             <mat-icon matSuffix class="muted">search</mat-icon>
         </mat-form-field>
-        <div *ngFor="let message of messages">
-            <div fxLayout="row" fxLayoutAlign="start center" class="chat-member-panel border-rounder navigate p-2"
-                (click)="getMessageThread(message.senderUsername)">
+        <ng-container *ngFor="let message of messages">
+            <mat-card fxLayout="row" fxLayoutAlign="start center" class="chat-member-panel border-rounder navigate p-2"
+                (click)="sendToChat(message.senderUsername)">
                 <div class="mr-2">
                     <img src="{{
                         message.senderPhotoUrl ||
@@ -26,50 +26,7 @@
                     <span class="text-xs-md">{{message.content}} <span class="muted text-xs">{{message.messageSent |
                             date}}</span></span>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!isChatLoading && messageThread" class="chat" fxFlex>
-        <div class="chat-history">
-            <ul class="m-b-0">
-                <li *ngFor="let thread of messageThread">
-                    <div *ngIf="thread.senderUsername !== username">
-                        <div class="message-data text-right">
-                            <img src="{{thread.senderPhotoUrl}}" alt="avatar">
-                        </div>
-                        <div fxLayout="column" fxLayoutAlign="start end">
-                            <div class="message other-message my-message float-right">{{thread.content}}
-                                <!-- <span class="message-data-time text-xs muted">{{thread.messageSent | date: 'shortDate'}}</span> -->
-                                <mat-icon class="muted" [ngClass]="{'mat-success': thread.dateRead}" [matTooltip]="thread.dateRead ? 'read': 'unread'">check</mat-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf="thread.senderUsername == username">
-                        <div class="message-data">
-                            <img src="{{thread.senderPhotoUrl}}" alt="avatar">
-                        </div>
-                        <div fxLayout="column">
-                            <div class="message-content-container">
-                                <div class="message my-message">{{thread.content}}
-                                    <!-- <span class="message-data-time text-xs muted">{{thread.messageSent | date: 'shortDate'}}</span> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <!-- send message -->
-            <div [style.max-width.px]="360" class="mt-2" class="send-btn">
-                <form [formGroup]="sendMessageForm">
-                    <mat-form-field appearance="outline" fxFlex>
-                        <mat-label>send message</mat-label>
-                        <input matInput formControlName="content">
-                        <button matSuffix mat-icon-button (click)="sendMessage()">
-                            <mat-icon>send</mat-icon>
-                        </button>
-                    </mat-form-field>
-                </form>
-            </div>
-        </div>
+            </mat-card>
+        </ng-container>
     </div>
 </div>
