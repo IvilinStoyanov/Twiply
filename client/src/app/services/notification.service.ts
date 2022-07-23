@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root',
 })
 export class NotificationService {
-  duration = 3000;
+  duration = 1800;
 
   constructor(private _snackBar: MatSnackBar) {}
 

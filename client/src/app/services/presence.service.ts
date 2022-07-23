@@ -51,7 +51,7 @@ export class PresenceService {
 
     this.hubConnection.on('NewMessageReceived', ({ username, knownAs }) => {
       this.ngZone.run(() => {
-        this.notificationService.info(username + 'send you a message.')
+        this.notificationService.info(username + ' send you a message.')
       });
     });
 
