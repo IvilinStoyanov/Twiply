@@ -5,6 +5,11 @@
     margin: 0 auto;
 }
 
+.chat-history {
+    height: 77vh;
+    overflow: auto;
+}
+
 img {
     width: 70px;
     height: auto;
@@ -21,8 +26,6 @@ img {
 
 .chat .chat-history ul {
     padding: 20px;
-    overflow: auto;
-    height: 72vh;
 }
 
 .chat .chat-history ul li {
@@ -50,11 +53,11 @@ img {
 
 .chat .chat-history .message {
     color: $text;
-    padding: 15px;
+    padding: 10px;
     font-size: 14px;
-    border-radius: 7px;
+    border-radius: 6px;
     display: inline-block;
-    position: relative
+    position: relative;
 }
 
 .chat .chat-history .my-message {
